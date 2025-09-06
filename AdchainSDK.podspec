@@ -11,19 +11,17 @@ Pod::Spec.new do |spec|
                        - Complete JavaScript bridge for web integration
                        DESC
   
-  spec.homepage     = "https://github.com/adchain/adchain-ios-sdk"
+  spec.homepage     = "https://github.com/1selfworld-labs/adchain-sdk-ios"
   spec.license      = { :type => "MIT", :file => "LICENSE" }
-  spec.author       = { "AdChain" => "support@adchain.com" }
+  spec.author       = { "1selfworld-labs" => "dev@1selfworld.com" }
   
   spec.platform     = :ios, "14.0"
   spec.ios.deployment_target = "14.0"
   
-  spec.source       = { :git => "https://github.com/adchain/adchain-ios-sdk.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/1selfworld-labs/adchain-sdk-ios.git", :tag => "#{spec.version}" }
   
   spec.source_files = "AdchainSDK/Sources/**/*.{swift,h,m}"
   spec.exclude_files = "AdchainSDK/Sources/Exclude"
-  
-  spec.resources = "AdchainSDK/Resources/**/*"
   
   spec.frameworks = "UIKit", "Foundation", "WebKit", "AdSupport", "AppTrackingTransparency"
   
