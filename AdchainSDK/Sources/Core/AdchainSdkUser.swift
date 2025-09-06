@@ -6,7 +6,7 @@ import Foundation
         case female = 1
         case other = 2
         
-        public var rawValue: String {
+        public var stringValue: String {
             switch self {
             case .male: return "M"
             case .female: return "F"
