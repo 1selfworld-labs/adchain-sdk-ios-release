@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "AdchainSDK"
-  spec.version      = "1.0.0"
+  spec.version      = "1.0.1"
   spec.summary      = "AdChain SDK for iOS - Complete advertising and offerwall solution"
   spec.description  = <<-DESC
                        AdChain SDK provides a complete advertising solution including:
@@ -20,16 +20,23 @@ Pod::Spec.new do |spec|
   
   spec.source       = { :git => "https://github.com/1selfworld-labs/adchain-sdk-ios.git", :tag => "#{spec.version}" }
   
-  spec.source_files = "AdchainSDK/Sources/**/*.{swift,h,m}"
+  spec.source_files = "AdchainSDK/Sources/**/*.swift"
   spec.exclude_files = "AdchainSDK/Sources/Exclude"
+  
+  spec.resource_bundles = {
+    'AdchainSDK' => ['AdchainSDK/PrivacyInfo.xcprivacy']
+  }
   
   spec.frameworks = "UIKit", "Foundation", "WebKit", "AdSupport", "AppTrackingTransparency"
   
+  spec.module_name = "AdchainSDK"
   spec.swift_version = "5.5"
   spec.requires_arc = true
   
   spec.pod_target_xcconfig = {
     'SWIFT_VERSION' => '5.5',
-    'ENABLE_BITCODE' => 'NO'
+    'ENABLE_BITCODE' => 'NO',
+    'DEFINES_MODULE' => 'YES',
+    'SWIFT_COMPILATION_MODE' => 'wholemodule'
   }
 end
