@@ -113,4 +113,6 @@ yarn-error.log*
 *.pem
 *.p12
 *.cer
-*.mobileprovision
+*.mobileprovisionbuild_framework/
+build_artifacts/
+AdchainSDKFramework/
