@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
-  s.name         = "AdchainSDK"
-  s.version      = "1.0.1"
+  s.name         = "AdChainSDK"
+  s.version      = "1.0.2"
   s.summary      = "AdChain SDK for iOS - Complete advertising and offerwall solution"
   s.description  = <<-DESC
                     AdChain SDK provides a complete advertising solution including:

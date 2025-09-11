@@ -35,6 +35,7 @@ public class AdchainMission {
   public func getMission(missionId: Swift.String) -> AdchainSDK.Mission?
   public func markAsParticipating(_ missionId: Swift.String)
   public func isParticipating(_ missionId: Swift.String) -> Swift.Bool
+  public func clickMission(_ mission: AdchainSDK.Mission, from viewController: UIKit.UIViewController)
   public func onMissionClicked(_ mission: AdchainSDK.Mission)
   public func onMissionImpressed(_ mission: AdchainSDK.Mission)
   public func onMissionCompleted(_ mission: AdchainSDK.Mission)
@@ -47,26 +48,11 @@ public protocol AdchainMissionEventsListener : AnyObject {
   func onClicked(_ mission: AdchainSDK.Mission)
   func onCompleted(_ mission: AdchainSDK.Mission)
 }
-@_hasMissingDesignatedInitializers public class AdchainMissionViewBinder {
-  public func bind(mission: AdchainSDK.Mission, adchainMission: AdchainSDK.AdchainMission, viewController: UIKit.UIViewController)
-  public class Builder {
-    public init()
-    public func titleTextView(_ label: UIKit.UILabel) -> AdchainSDK.AdchainMissionViewBinder.Builder
-    public func descriptionTextView(_ label: UIKit.UILabel) -> AdchainSDK.AdchainMissionViewBinder.Builder
-    public func rewardTextView(_ label: UIKit.UILabel) -> AdchainSDK.AdchainMissionViewBinder.Builder
-    public func progressTextView(_ label: UIKit.UILabel) -> AdchainSDK.AdchainMissionViewBinder.Builder
-    public func progressBar(_ progressBar: UIKit.UIProgressView) -> AdchainSDK.AdchainMissionViewBinder.Builder
-    public func iconImageView(_ imageView: UIKit.UIImageView) -> AdchainSDK.AdchainMissionViewBinder.Builder
-    public func containerView(_ view: UIKit.UIView) -> AdchainSDK.AdchainMissionViewBinder.Builder
-    public func build() -> AdchainSDK.AdchainMissionViewBinder
-    @objc deinit
-  }
-  @objc deinit
-}
 public class AdchainQuiz {
   public init(unitId: Swift.String)
   public func setQuizEventsListener(_ listener: any AdchainSDK.AdchainQuizEventsListener)
   public func load(onSuccess: @escaping ([AdchainSDK.QuizEvent]) -> Swift.Void, onFailure: @escaping (AdchainSDK.AdchainAdError) -> Swift.Void)
+  public func clickQuiz(_ quizEvent: AdchainSDK.QuizEvent, from viewController: UIKit.UIViewController)
   public func trackClick(_ quizEvent: AdchainSDK.QuizEvent)
   @objc deinit
 }
@@ -74,20 +60,6 @@ public protocol AdchainQuizEventsListener : AnyObject {
   func onImpressed(_ quizEvent: AdchainSDK.QuizEvent)
   func onClicked(_ quizEvent: AdchainSDK.QuizEvent)
   func onQuizCompleted(_ quizEvent: AdchainSDK.QuizEvent, rewardAmount: Swift.Int)
-}
-@_hasMissingDesignatedInitializers public class AdchainQuizViewBinder {
-  public func bind(quizEvent: AdchainSDK.QuizEvent, quiz: AdchainSDK.AdchainQuiz, viewController: UIKit.UIViewController)
-  public class Builder {
-    public init()
-    public func iconImageView(_ view: UIKit.UIImageView) -> AdchainSDK.AdchainQuizViewBinder.Builder
-    public func titleTextView(_ label: UIKit.UILabel) -> AdchainSDK.AdchainQuizViewBinder.Builder
-    public func descriptionTextView(_ label: UIKit.UILabel) -> AdchainSDK.AdchainQuizViewBinder.Builder
-    public func pointsTextView(_ label: UIKit.UILabel) -> AdchainSDK.AdchainQuizViewBinder.Builder
-    public func containerView(_ view: UIKit.UIView) -> AdchainSDK.AdchainQuizViewBinder.Builder
-    public func build() -> AdchainSDK.AdchainQuizViewBinder
-    @objc deinit
-  }
-  @objc deinit
 }
 @_inheritsConvenienceInitializers @objc(AdchainSDKObjCBridge) public class AdchainSDKObjCBridge : ObjectiveC.NSObject {
   @objc public static let shared: AdchainSDK.AdchainSDKObjCBridge
@@ -110,6 +82,7 @@ public protocol AdchainQuizEventsListener : AnyObject {
   }
   final public func getCurrentUser() -> AdchainSDK.AdchainSdkUser?
   final public func getConfig() -> AdchainSDK.AdchainSdkConfig?
+  final public func getSDKVersion() -> Swift.String
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc public class AdchainSdkConfig : ObjectiveC.NSObject {
@@ -174,7 +147,21 @@ public protocol AdchainQuizEventsListener : AnyObject {
   public init(userId: Swift.String, gender: AdchainSDK.AdchainSdkUser.Gender? = nil, birthYear: Swift.Int? = nil)
   @objc deinit
 }
-public enum MissionType : Swift.String, Swift.Codable {
+@_hasMissingDesignatedInitializers final public class AdchainBanner {
+  public static let shared: AdchainSDK.AdchainBanner
+  final public func getBanner(placementId: Swift.String, onSuccess: @escaping (AdchainSDK.BannerResponse) -> Swift.Void, onFailure: @escaping (AdchainSDK.AdchainAdError) -> Swift.Void)
+  @objc deinit
+}
+public struct BannerResponse : Swift.Codable, Swift.Sendable {
+  public let success: Swift.Bool?
+  public let imageUrl: Swift.String?
+  public let titleText: Swift.String?
+  public let linkUrl: Swift.String?
+  public let message: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum MissionType : Swift.String, Swift.Codable, Swift.Sendable {
   case normal
   case offerwallPromotion
   public init?(rawValue: Swift.String)
@@ -183,22 +170,22 @@ public enum MissionType : Swift.String, Swift.Codable {
     get
   }
 }
-public struct Mission : Swift.Codable {
+public struct Mission : Swift.Codable, Swift.Sendable {
   public let id: Swift.String
   public let title: Swift.String
   public let description: Swift.String
-  public let image_url: Swift.String
-  public let landing_url: Swift.String
+  public let imageUrl: Swift.String
+  public let landingUrl: Swift.String
   public let point: Swift.String
   public let status: Swift.String?
   public let progress: Swift.Int?
   public let total: Swift.Int?
   public let type: AdchainSDK.MissionType?
-  public init(id: Swift.String, title: Swift.String, description: Swift.String, image_url: Swift.String, landing_url: Swift.String, point: Swift.String, status: Swift.String? = nil, progress: Swift.Int? = nil, total: Swift.Int? = nil, type: AdchainSDK.MissionType? = .normal)
+  public init(id: Swift.String, title: Swift.String, description: Swift.String, imageUrl: Swift.String, landingUrl: Swift.String, point: Swift.String, status: Swift.String? = nil, progress: Swift.Int? = nil, total: Swift.Int? = nil, type: AdchainSDK.MissionType? = nil)
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
-public struct MissionProgress {
+public struct MissionProgress : Swift.Sendable {
   public let current: Swift.Int
   public let total: Swift.Int
   public var percentage: Swift.Float {
@@ -225,12 +212,12 @@ public protocol OfferwallCallback {
   func onError(_ message: Swift.String)
   func onRewardEarned(_ amount: Swift.Int)
 }
-public struct QuizEvent : Swift.Codable {
+public struct QuizEvent : Swift.Codable, Swift.Sendable {
   public let id: Swift.String
   public let title: Swift.String
   public let description: Swift.String?
-  public let image_url: Swift.String
-  public let landing_url: Swift.String
+  public let imageUrl: Swift.String
+  public let landingUrl: Swift.String
   public let point: Swift.String
   public let status: Swift.String?
   public let completed: Swift.Bool?
