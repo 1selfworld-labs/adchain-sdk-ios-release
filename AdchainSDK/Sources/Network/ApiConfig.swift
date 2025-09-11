@@ -12,9 +12,11 @@ struct ApiConfig {
     // API Endpoints
     struct Endpoints {
         static let validateApp = "/v1/api/sdk/validate"
+        static let login = "/v1/api/sdk/login"
         static let trackEvent = "/v1/api/sdk/event"  // Fixed: was /v1/events/track
         static let getQuizEvents = "/v1/api/quiz"  // Fixed: was /v1/quiz/events
         static let getMissions = "/v1/api/mission"  // Fixed: was /v1/missions
+        static let getBanner = "/v1/api/sdk/banner"  // Fixed: was /v1/api/banner
     }
     
     // Headers

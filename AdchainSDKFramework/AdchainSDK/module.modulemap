@@ -1,0 +1,5 @@
+framework module AdchainSDK {
+    umbrella header "AdchainSDK.h"
+    export *
+    module * { export * }
+}

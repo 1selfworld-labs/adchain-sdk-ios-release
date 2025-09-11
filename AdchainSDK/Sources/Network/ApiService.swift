@@ -1,10 +1,21 @@
 import Foundation
 
+// Banner response models - 서버 응답과 일치하는 구조로 변경
+public struct BannerResponse: Codable, Sendable {
+    public let success: Bool?
+    public let imageUrl: String?
+    public let titleText: String?
+    public let linkUrl: String?
+    public let message: String?
+}
+
 protocol ApiService {
-    func validateApp(_ request: ValidateAppRequest) async throws -> ValidateAppResponse
+    func validateApp() async throws -> ValidateAppResponse
+    func login(_ request: LoginRequest) async throws -> LoginResponse
     func trackEvent(_ request: TrackEventRequest) async throws
-    func getQuizEvents() async throws -> QuizResponse
-    func getMissions() async throws -> MissionResponse
+    func getQuizEvents(userId: String?, platform: String?, ifa: String?) async throws -> QuizResponse
+    func getMissions(userId: String?, platform: String?, ifa: String?) async throws -> MissionResponse
+    func getBanner(userId: String, placementId: String, platform: String) async throws -> BannerResponse
 }
 
 class ApiServiceImpl: ApiService {
@@ -35,12 +46,9 @@ class ApiServiceImpl: ApiService {
         return request
     }
     
-    func validateApp(_ request: ValidateAppRequest) async throws -> ValidateAppResponse {
+    func validateApp() async throws -> ValidateAppResponse {
         let url = URL(string: "\(baseURL)\(ApiConfig.Endpoints.validateApp)")!
-        var urlRequest = createAuthenticatedRequest(url: url, method: "POST")
-        
-        let encoder = JSONEncoder()
-        urlRequest.httpBody = try encoder.encode(request)
+        let urlRequest = createAuthenticatedRequest(url: url, method: "GET")
         
         let (data, response) = try await session.data(for: urlRequest)
         
@@ -77,30 +85,75 @@ class ApiServiceImpl: ApiService {
         }
     }
     
+    func login(_ request: LoginRequest) async throws -> LoginResponse {
+        let url = URL(string: "\(baseURL)\(ApiConfig.Endpoints.login)")!
+        var urlRequest = createAuthenticatedRequest(url: url, method: "POST")
+        
+        urlRequest.httpBody = try JSONEncoder().encode(request)
+        
+        let (data, response) = try await session.data(for: urlRequest)
+        
+        // Debug logging
+        if let httpResponse = response as? HTTPURLResponse {
+            print("=== ValidateApp Response Debug ===")
+            print("Status Code: \(httpResponse.statusCode)")
+            print("Headers: \(httpResponse.allHeaderFields)")
+        }
+        
+        // Print raw JSON response
+        if let jsonString = String(data: data, encoding: .utf8) {
+            print("Raw JSON Response: \(jsonString)")
+        }
+        
+        // Try to decode
+        let decoder = JSONDecoder()
+        do {
+            let response = try decoder.decode(LoginResponse.self, from: data)
+            print("Successfully decoded response: \(response)")
+            return response
+        } catch {
+            print("Decoding error: \(error)")
+            
+            // Try to parse as dictionary to see structure
+            if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                print("Response as Dictionary: \(json)")
+                if let app = json["app"] as? [String: Any] {
+                    print("App object contents: \(app)")
+                }
+            }
+            
+            throw error
+        }
+    }
+    
+    
     func trackEvent(_ request: TrackEventRequest) async throws {
         let url = URL(string: "\(baseURL)\(ApiConfig.Endpoints.trackEvent)")!
         var urlRequest = createAuthenticatedRequest(url: url, method: "POST")
         
-        // Convert request to dictionary and then to JSON
-        let dict: [String: Any] = [
-            "name": request.name,
-            "timestamp": request.timestamp,
-            "session_id": request.sessionId,
-            "device_id": request.deviceId,
-            "os": request.os,
-            "os_version": request.osVersion,
-            "parameters": request.parameters,
-            "user_id": request.userId as Any,
-            "advertising_id": request.advertisingId as Any
-        ].compactMapValues { $0 }
-        
-        urlRequest.httpBody = try JSONSerialization.data(withJSONObject: dict)
+        // request를 httpBody로 변환
+        let httpBody = try JSONEncoder().encode(request)
+        urlRequest.httpBody = httpBody
         
         _ = try await session.data(for: urlRequest)
     }
     
-    func getQuizEvents() async throws -> QuizResponse {
-        let url = URL(string: "\(baseURL)\(ApiConfig.Endpoints.getQuizEvents)")!
+    func getQuizEvents(userId: String? = nil, platform: String? = nil, ifa: String? = nil) async throws -> QuizResponse {
+        var urlComponents = URLComponents(string: "\(baseURL)\(ApiConfig.Endpoints.getQuizEvents)")!
+        var queryItems: [URLQueryItem] = []
+        if let userId = userId {
+            queryItems.append(URLQueryItem(name: "userId", value: userId))
+        }
+        if let platform = platform {
+            queryItems.append(URLQueryItem(name: "platform", value: platform))
+        }
+        if let ifa = ifa {
+            queryItems.append(URLQueryItem(name: "ifa", value: ifa))
+        }
+        if !queryItems.isEmpty {
+            urlComponents.queryItems = queryItems
+        }
+        let url = urlComponents.url!
         let urlRequest = createAuthenticatedRequest(url: url, method: "GET")
         
         let (data, _) = try await session.data(for: urlRequest)
@@ -108,12 +161,42 @@ class ApiServiceImpl: ApiService {
         return try decoder.decode(QuizResponse.self, from: data)
     }
     
-    func getMissions() async throws -> MissionResponse {
-        let url = URL(string: "\(baseURL)\(ApiConfig.Endpoints.getMissions)")!
+    func getMissions(userId: String? = nil, platform: String? = nil, ifa: String? = nil) async throws -> MissionResponse {
+        var urlComponents = URLComponents(string: "\(baseURL)\(ApiConfig.Endpoints.getMissions)")!
+        var queryItems: [URLQueryItem] = []
+        if let userId = userId {
+            queryItems.append(URLQueryItem(name: "userId", value: userId))
+        }
+        if let platform = platform {
+            queryItems.append(URLQueryItem(name: "platform", value: platform))
+        }
+        if let ifa = ifa {
+            queryItems.append(URLQueryItem(name: "ifa", value: ifa))
+        }
+        if !queryItems.isEmpty {
+            urlComponents.queryItems = queryItems
+        }
+        let url = urlComponents.url!
         let urlRequest = createAuthenticatedRequest(url: url, method: "GET")
         
         let (data, _) = try await session.data(for: urlRequest)
         let decoder = JSONDecoder()
         return try decoder.decode(MissionResponse.self, from: data)
+    }
+    
+    func getBanner(userId: String, placementId: String, platform: String) async throws -> BannerResponse {
+        var urlComponents = URLComponents(string: "\(baseURL)\(ApiConfig.Endpoints.getBanner)")!
+        urlComponents.queryItems = [
+            URLQueryItem(name: "userId", value: userId),
+            URLQueryItem(name: "placementId", value: placementId),
+            URLQueryItem(name: "platform", value: platform)
+        ]
+        
+        let url = urlComponents.url!
+        let urlRequest = createAuthenticatedRequest(url: url, method: "GET")
+        
+        let (data, _) = try await session.data(for: urlRequest)
+        let decoder = JSONDecoder()
+        return try decoder.decode(BannerResponse.self, from: data)
     }
 }

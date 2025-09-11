@@ -117,9 +117,8 @@ class AdchainOfferwallViewController: UIViewController {
         config.preferences.javaScriptCanOpenWindowsAutomatically = false
         
         // User Agent 설정 (로드 전에 설정)
-        if let version = Bundle(for: AdchainSdk.self).infoDictionary?["CFBundleShortVersionString"] as? String {
-            config.applicationNameForUserAgent = " AdchainSDK/\(version)"
-        }
+        let version = getSDKVersion()
+        config.applicationNameForUserAgent = " AdchainSDK/\(version)"
         
         // Message Handler 등록 - 웹페이지가 요구하는 여러 이름들 등록
         let contentController = WKUserContentController()
@@ -218,9 +217,9 @@ class AdchainOfferwallViewController: UIViewController {
         queryItems.append(URLQueryItem(name: "user_id", value: userId ?? ""))
         queryItems.append(URLQueryItem(name: "app_key", value: appKey ?? ""))
         
-        // Add advertising ID if available
+        // Add IFA (advertising ID) if available
         if let advertisingId = advertisingId, !advertisingId.isEmpty {
-            queryItems.append(URLQueryItem(name: "advertising_id", value: advertisingId))
+            queryItems.append(URLQueryItem(name: "ifa", value: advertisingId))
         }
         
         // Add quiz-specific parameters if context is quiz
@@ -236,10 +235,10 @@ class AdchainOfferwallViewController: UIViewController {
         
         // Device info (reduced set)
         queryItems.append(URLQueryItem(name: "device_id", value: DeviceUtils.getDeviceId()))
-        queryItems.append(URLQueryItem(name: "os", value: "iOS"))
+        queryItems.append(URLQueryItem(name: "platform", value: "iOS"))
         
         // SDK info (only version)
-        let sdkVersion = Bundle(for: AdchainSdk.self).infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0.0"
+        let sdkVersion = getSDKVersion()
         queryItems.append(URLQueryItem(name: "sdk_version", value: sdkVersion))
         
         // Session info
@@ -248,11 +247,11 @@ class AdchainOfferwallViewController: UIViewController {
         
         components.queryItems = queryItems
         
-        // Also inject advertising ID via JavaScript for backward compatibility
+        // Also inject IFA via JavaScript for backward compatibility
         if let advertisingId = advertisingId, !advertisingId.isEmpty {
             Task {
-                let jsCode = "if(window.AdchainConfig) { window.AdchainConfig.advertisingId = '\(advertisingId)'; }"
-                try? await webView.evaluateJavaScript(jsCode)
+                let jsCode = "if(window.AdchainConfig) { window.AdchainConfig.ifa = '\(advertisingId)'; }"
+                _ = try? await webView.evaluateJavaScript(jsCode)
             }
         }
         
@@ -278,6 +277,7 @@ class AdchainOfferwallViewController: UIViewController {
             _ = try? await NetworkManager.shared.trackEvent(
                 userId: userId ?? "",
                 eventName: "offerwall_closed",
+                sdkVersion: AdchainSdk.shared.getSDKVersion(),
                 category: "offerwall"
             )
         }
@@ -311,6 +311,11 @@ class AdchainOfferwallViewController: UIViewController {
 
 // MARK: - WKScriptMessageHandler (JavaScript Bridge)
 extension AdchainOfferwallViewController: WKScriptMessageHandler {
+    private func getSDKVersion() -> String {
+        // AdchainSdk의 중앙화된 버전 정보 사용
+        return AdchainSdk.shared.getSDKVersion()
+    }
+    
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         // Handle messages from any of the registered handler names
         guard ["adchainNative", "AdChain", "AdchainBridge"].contains(message.name) else { return }
@@ -351,6 +356,8 @@ extension AdchainOfferwallViewController: WKScriptMessageHandler {
             if contextType == "quiz" {
                 handleQuizStarted(data: messageData)
             }
+        case "missionCompleted":
+            handleMissionCompleted(data: messageData)
         case "getUserInfo":
             handleGetUserInfo()
         default:
@@ -376,6 +383,7 @@ extension AdchainOfferwallViewController: WKScriptMessageHandler {
             _ = try? await NetworkManager.shared.trackEvent(
                 userId: userId ?? "",
                 eventName: "sub_webview_opened",
+                sdkVersion: AdchainSdk.shared.getSDKVersion(),
                 category: "offerwall",
                 properties: ["url": url]
             )
@@ -392,14 +400,6 @@ extension AdchainOfferwallViewController: WKScriptMessageHandler {
             // Close main offerwall
             if self?.isSubWebView == false {
                 Self.callback?.onClosed()
-                
-                Task {
-                    _ = try? await NetworkManager.shared.trackEvent(
-                        userId: self?.userId ?? "",
-                        eventName: "offerwall_closed_by_js",
-                        category: "offerwall"
-                    )
-                }
             }
             
             self?.dismiss(animated: true)
@@ -437,6 +437,7 @@ extension AdchainOfferwallViewController: WKScriptMessageHandler {
                 _ = try? await NetworkManager.shared.trackEvent(
                     userId: self.userId ?? "",
                     eventName: "webview_replaced",
+                    sdkVersion: AdchainSdk.shared.getSDKVersion(),
                     category: "offerwall",
                     properties: ["url": url]
                 )
@@ -461,6 +462,7 @@ extension AdchainOfferwallViewController: WKScriptMessageHandler {
                     _ = try? await NetworkManager.shared.trackEvent(
                         userId: self.userId ?? "",
                         eventName: "external_browser_opened",
+                        sdkVersion: AdchainSdk.shared.getSDKVersion(),
                         category: "offerwall",
                         properties: ["url": urlString]
                     )
@@ -480,6 +482,7 @@ extension AdchainOfferwallViewController: WKScriptMessageHandler {
                 _ = try? await NetworkManager.shared.trackEvent(
                     userId: self?.userId ?? "",
                     eventName: "quiz_completed",
+                    sdkVersion: AdchainSdk.shared.getSDKVersion(),
                     category: "quiz",
                     properties: ["quiz_id": self?.quizId ?? ""]
                 )
@@ -500,9 +503,34 @@ extension AdchainOfferwallViewController: WKScriptMessageHandler {
             _ = try? await NetworkManager.shared.trackEvent(
                 userId: userId ?? "",
                 eventName: "quiz_started",
+                sdkVersion: AdchainSdk.shared.getSDKVersion(),
                 category: "quiz",
                 properties: ["quiz_id": quizId ?? ""]
             )
+        }
+    }
+    
+    private func handleMissionCompleted(data: [String: Any]?) {
+        print("Mission completed")
+        
+        let missionId = data?["missionId"] as? String ?? ""
+        
+        DispatchQueue.main.async { [weak self] in
+            Task {
+                _ = try? await NetworkManager.shared.trackEvent(
+                    userId: self?.userId ?? "",
+                    eventName: "mission_completed",
+                    sdkVersion: AdchainSdk.shared.getSDKVersion(),
+                    category: "mission",
+                    properties: ["mission_id": missionId]
+                )
+            }
+            
+            // Trigger mission refresh
+            AdchainMission.currentMissionInstance?.refreshAfterCompletion()
+            
+            // Notify callback
+            Self.callback?.onClosed()
         }
     }
     

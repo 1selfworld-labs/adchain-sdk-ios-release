@@ -1,6 +1,6 @@
 import Foundation
 
-public struct MissionProgress {
+public struct MissionProgress: Sendable {
     public let current: Int
     public let total: Int
     

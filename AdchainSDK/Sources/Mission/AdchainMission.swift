@@ -2,7 +2,8 @@ import UIKit
 
 public class AdchainMission {
     // MARK: - Static Properties
-    internal static var currentMissionInstance: Weak<AdchainMission>?
+    // 강한 참조 유지 - 메모리 사용량이 크지 않으므로 계속 유지
+    internal static var currentMissionInstance: AdchainMission?
     internal static var currentMission: Mission?
     
     // MARK: - Properties
@@ -41,7 +42,13 @@ public class AdchainMission {
         
         Task {
             do {
-                let response = try await apiService.getMissions()
+                let currentUser = AdchainSdk.shared.getCurrentUser()
+                let ifa = await DeviceUtils.getAdvertisingId()
+                let response = try await apiService.getMissions(
+                    userId: currentUser?.userId,
+                    platform: "iOS",
+                    ifa: ifa
+                )
                 
                 self.missionResponse = response
                 var missionsToShow = response.events
@@ -58,8 +65,8 @@ public class AdchainMission {
                         id: "offerwall_promotion",
                         title: "800만 포인트 받으러 가기",
                         description: "더 많은 포인트를 받을 수 있습니다",
-                        image_url: "",
-                        landing_url: "",
+                        imageUrl: "",
+                        landingUrl: "",
                         point: "800만 포인트",
                         type: .offerwallPromotion
                     )
@@ -70,8 +77,9 @@ public class AdchainMission {
                 
                 print("Loaded \(missions.count) missions, progress: \(response.current)/\(response.total), reward_url: \(rewardUrl ?? "")")
                 
+                let missionsToReturn = self.missions
                 DispatchQueue.main.async {
-                    onSuccess(self.missions, progress)
+                    onSuccess(missionsToReturn, progress)
                 }
             } catch {
                 print("Error loading missions: \(error)")
@@ -104,6 +112,17 @@ public class AdchainMission {
         return participatingMissions.contains(missionId)
     }
     
+    // MARK: - Click Mission (통합 메서드 - 클릭 추적 + WebView 열기)
+    public func clickMission(_ mission: Mission, from viewController: UIViewController) {
+        print("Mission clicked: \(mission.id)")
+        
+        // 1. 클릭 이벤트 처리
+        onMissionClicked(mission)
+        
+        // 2. WebView 열기
+        openMissionWebView(from: viewController, mission: mission)
+    }
+    
     // MARK: - Event Callbacks
     public func onMissionClicked(_ mission: Mission) {
         print("Mission clicked: \(mission.id)")
@@ -114,6 +133,7 @@ public class AdchainMission {
             _ = try? await NetworkManager.shared.trackEvent(
                 userId: AdchainSdk.shared.getCurrentUser()?.userId ?? "",
                 eventName: "mission_clicked",
+                sdkVersion: AdchainSdk.shared.getSDKVersion(),
                 category: "mission",
                 properties: [
                     "mission_id": mission.id,
@@ -146,7 +166,7 @@ public class AdchainMission {
     // MARK: - WebView Methods
     internal func openMissionWebView(from viewController: UIViewController, mission: Mission) {
         // Store reference
-        Self.currentMissionInstance = Weak(self)
+        Self.currentMissionInstance = self
         Self.currentMission = mission
         
         // Setup callback
@@ -155,7 +175,7 @@ public class AdchainMission {
         
         // Create ViewController
         let offerwallVC = AdchainOfferwallViewController()
-        offerwallVC.baseUrl = mission.landing_url
+        offerwallVC.baseUrl = mission.landingUrl
         offerwallVC.userId = AdchainSdk.shared.getCurrentUser()?.userId
         offerwallVC.appKey = AdchainSdk.shared.getConfig()?.appKey
         offerwallVC.modalPresentationStyle = .fullScreen
@@ -206,21 +226,23 @@ public class AdchainMission {
 }
 
 // MARK: - Callback Wrappers
-private class MissionOfferwallCallback: NSObject, OfferwallCallback {
+private final class MissionOfferwallCallback: NSObject, OfferwallCallback {
     func onOpened() {
         print("Mission WebView opened")
     }
     
     func onClosed() {
         print("Mission WebView closed")
-        AdchainMission.currentMissionInstance = nil
-        AdchainMission.currentMission = nil
+        // instance는 nil로 만들지 않음 - 메모리 사용량이 크지 않음
+        // AdchainMission.currentMissionInstance = nil
+        // AdchainMission.currentMission = nil
     }
     
     func onError(_ message: String) {
         print("Mission WebView error: \(message)")
-        AdchainMission.currentMissionInstance = nil
-        AdchainMission.currentMission = nil
+        // 에러 발생 시에도 유지 (필요시 재사용 가능)
+        // AdchainMission.currentMissionInstance = nil
+        // AdchainMission.currentMission = nil
     }
     
     func onRewardEarned(_ amount: Int) {
@@ -228,7 +250,7 @@ private class MissionOfferwallCallback: NSObject, OfferwallCallback {
     }
 }
 
-private class RewardOfferwallCallback: NSObject, OfferwallCallback {
+private final class RewardOfferwallCallback: NSObject, OfferwallCallback {
     private let onClosedCallback: () -> Void
     
     init(onClosed: @escaping () -> Void) {
@@ -251,7 +273,7 @@ private class RewardOfferwallCallback: NSObject, OfferwallCallback {
     func onRewardEarned(_ amount: Int) {
         print("Reward earned: \(amount)")
         if let mission = AdchainMission.currentMission {
-            AdchainMission.currentMissionInstance?.value?.eventsListener?.onCompleted(mission)
+            AdchainMission.currentMissionInstance?.eventsListener?.onCompleted(mission)
         }
     }
 }

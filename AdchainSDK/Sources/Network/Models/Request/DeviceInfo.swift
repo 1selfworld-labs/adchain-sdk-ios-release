@@ -1,21 +1,14 @@
 import Foundation
 
-struct DeviceInfo: Codable {
+struct DeviceInfo : Encodable {
     let deviceId: String
     let deviceModel: String
     let deviceModelName: String?
+    let manufacturer: String
+    let platform: String
     let osVersion: String
-    let appVersion: String?
-    let advertisingId: String?
-    let isLimitAdTrackingEnabled: Bool
-    
-    enum CodingKeys: String, CodingKey {
-        case deviceId = "device_id"
-        case deviceModel = "device_model"
-        case deviceModelName = "device_model_name"
-        case osVersion = "os_version"
-        case appVersion = "app_version"
-        case advertisingId = "advertising_id"
-        case isLimitAdTrackingEnabled = "is_limit_ad_tracking_enabled"
-    }
+    let country: String?
+    let language: String?
+    let installer: String?
+    let ifa: String?    
 }

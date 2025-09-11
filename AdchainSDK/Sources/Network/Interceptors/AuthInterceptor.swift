@@ -31,9 +31,8 @@ class AuthInterceptor: URLProtocol {
         }
         
         // Add SDK version
-        if let version = Bundle(for: AdchainSdk.self).infoDictionary?["CFBundleShortVersionString"] as? String {
-            newRequest.setValue("AdchainSDK/\(version)", forHTTPHeaderField: ApiConfig.Headers.userAgent)
-        }
+        let version = getSDKVersion()
+        newRequest.setValue("AdchainSDK/\(version)", forHTTPHeaderField: ApiConfig.Headers.userAgent)
         
         // Mark as handled
         URLProtocol.setProperty(true, forKey: "AuthInterceptor", in: newRequest as! NSMutableURLRequest)
@@ -56,5 +55,10 @@ class AuthInterceptor: URLProtocol {
     
     override func stopLoading() {
         // Cancel any ongoing tasks if needed
+    }
+    
+    private func getSDKVersion() -> String {
+        // AdchainSdk의 중앙화된 버전 정보 사용
+        return AdchainSdk.shared.getSDKVersion()
     }
 }

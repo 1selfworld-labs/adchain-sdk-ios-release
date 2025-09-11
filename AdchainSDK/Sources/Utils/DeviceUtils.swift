@@ -67,24 +67,30 @@ enum DeviceUtils {
                 let status = await ATTrackingManager.requestTrackingAuthorization()
                 
                 guard status == .authorized else {
-                    print("User has opted out of ad tracking")
-                    return nil
+                    print("User has opted out of ad tracking, returning zero IDFA")
+                    return "00000000-0000-0000-0000-000000000000"
                 }
             } else if currentStatus != .authorized {
                 // Already determined but not authorized
-                print("User has previously opted out of ad tracking")
-                return nil
+                print("User has previously opted out of ad tracking, returning zero IDFA")
+                return "00000000-0000-0000-0000-000000000000"
             }
             // If currentStatus is .authorized, continue to get IDFA
+        } else {
+            // iOS 13 and below: Check if advertising tracking is enabled
+            if !ASIdentifierManager.shared().isAdvertisingTrackingEnabled {
+                print("User has limited ad tracking (iOS 13-), returning zero IDFA")
+                return "00000000-0000-0000-0000-000000000000"
+            }
         }
         
         // Get IDFA
         let idfa = ASIdentifierManager.shared().advertisingIdentifier.uuidString
         
-        // Check for zeroed IDFA
-        guard idfa != "00000000-0000-0000-0000-000000000000" else {
+        // IDFA가 0이어도 서버로 전송 (서버에서, 유효하게 처리하거나 무시하는 형태)
+        /*guard idfa != "00000000-0000-0000-0000-000000000000" else {
             return nil
-        }
+        }*/
         
         // Cache and store
         cachedAdvertisingId = idfa
@@ -127,6 +133,41 @@ enum DeviceUtils {
         return "Apple"
     }
     
+    // MARK: - Locale Information
+    static func getCountryCode() -> String? {
+        return Locale.current.regionCode  // e.g., "KR", "US"
+    }
+    
+    static func getLanguageCode() -> String? {
+        return Locale.current.languageCode  // e.g., "ko", "en"
+    }
+    
+    // MARK: - App Installation Source
+    static func getInstaller() -> String? {
+        // iOS doesn't provide direct access to installer information
+        // Can only detect if running in TestFlight or App Store
+        
+        #if DEBUG
+            return "xcode"  // Debug build from Xcode
+        #else
+            // Check for TestFlight
+            if let receiptURL = Bundle.main.appStoreReceiptURL {
+                let receiptPath = receiptURL.path
+                if receiptPath.contains("sandboxReceipt") {
+                    return "testflight"
+                }
+            }
+            
+            // Check if running in simulator
+            #if targetEnvironment(simulator)
+                return "simulator"
+            #else
+                // Assume App Store for release builds
+                return "appstore"
+            #endif
+        #endif
+    }
+    
     // MARK: - Ad Tracking Status
     static func isLimitAdTrackingEnabled() -> Bool {
         if #available(iOS 14, *) {
@@ -147,7 +188,7 @@ enum DeviceUtils {
         if modelCode == "Simulator" || modelCode.contains("arm64") || modelCode.contains("x86_64") {
             #if targetEnvironment(simulator)
                 // Try to get the simulated device name
-                if let simulatorModelIdentifier = ProcessInfo.processInfo.environment["SIMULATOR_MODEL_IDENTIFIER"] {
+                if ProcessInfo.processInfo.environment["SIMULATOR_MODEL_IDENTIFIER"] != nil {
                     // Continue to mapping below
                 } else {
                     return "Simulator (\(UIDevice.current.model))"

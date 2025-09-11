@@ -2,6 +2,9 @@ import UIKit
 import Foundation
 
 @objc public final class AdchainSdk: NSObject {
+    // MARK: - SDK Version
+    private static let SDK_VERSION = "1.0.1"
+    
     // MARK: - Singleton (Android의 object와 동일)
     @objc public static let shared = AdchainSdk()
     
@@ -18,7 +21,6 @@ import Foundation
         super.init()
     }
     
-    // MARK: - Initialize (Android와 완전 동일한 검증 로직)
     @objc public func initialize(
         application: UIApplication,
         sdkConfig: AdchainSdkConfig
@@ -46,24 +48,16 @@ import Foundation
             Task {
                 do {
                     let result = try await NetworkManager.shared.validateApp()
-                    
+
                     // Store validated app data
                     self.validatedAppData = result.app
                     
                     // Mark as initialized immediately
                     self.isInitialized.set(true)
-                    
-                    // Track SDK initialization
-                    _ = try? await NetworkManager.shared.trackEvent(
-                        userId: "",
-                        eventName: "sdk_initialized",
-                        category: "sdk",
-                        properties: [
-                            "app_key": sdkConfig.appKey,
-                            "sdk_version": self.getSDKVersion()
-                        ]
-                    )
-                    
+
+                    // 로컬 스토리지에 있는지 확인하고, 있으면 그 값을 사용, 없으면 빈문자열
+                    _ = UserDefaults.standard.string(forKey: "currentUserId")
+                                        
                     print("SDK validated successfully with server")
                     print("Offerwall URL: \(result.app?.adchainHubUrl ?? "")")
                 } catch {
@@ -104,27 +98,38 @@ import Foundation
                 // Set current user first (Android 주석: 통신 실패해도 유저 바인딩은 진행)
                 self.currentUser = adchainSdkUser
                 
+                // 로컬 스토리지에 저장
+                UserDefaults.standard.set(adchainSdkUser.userId, forKey: "currentUserId")
+
+// Login to server (gender와 birthYear 포함)
+                do {
+                    let loginResponse = try await NetworkManager.shared.login(
+                    userId: adchainSdkUser.userId,
+                    eventName: "user_login",
+                    sdkVersion: self.getSDKVersion(),
+                    gender: adchainSdkUser.gender?.stringValue,  // Gender enum의 stringValue (M/F/O)
+                    birthYear: adchainSdkUser.birthYear,  // birthYear 전달
+                    category: "authentication",
+                    properties: ["user_id": adchainSdkUser.userId])
+                    print("Login successful: \(loginResponse.success)")
+                } catch {
+                    print("Login failed but continuing: \(error)")
+                }
+                
+                
                 // Track session start for DAU
                 _ = try? await NetworkManager.shared.trackEvent(
                     userId: adchainSdkUser.userId,
                     eventName: "session_start",
+                    sdkVersion: self.getSDKVersion(),
                     category: "session",
                     properties: [
                         "user_id": adchainSdkUser.userId,
                         "session_id": UUID().uuidString
                     ]
                 )
-                
-                // Track login event
-                _ = try? await NetworkManager.shared.trackEvent(
-                    userId: adchainSdkUser.userId,
-                    eventName: "user_login",
-                    category: "authentication",
-                    properties: ["user_id": adchainSdkUser.userId]
-                )
-                
                 // Login successful
-                self.handler.async {
+                await MainActor.run {
                     listener?.onSuccess()
                 }
             }
@@ -141,6 +146,7 @@ import Foundation
                     _ = try? await NetworkManager.shared.trackEvent(
                         userId: user.userId,
                         eventName: "user_logout",
+                        sdkVersion: self.getSDKVersion(),
                         category: "authentication",
                         properties: ["user_id": user.userId]
                     )
@@ -148,6 +154,7 @@ import Foundation
             }
         }
         currentUser = nil
+        UserDefaults.standard.removeObject(forKey: "currentUserId")
     }
     
     // MARK: - Offerwall (Android와 완전 동일)
@@ -197,6 +204,7 @@ import Foundation
                 _ = try? await NetworkManager.shared.trackEvent(
                     userId: currentUser.userId,
                     eventName: "offerwall_opened",
+                    sdkVersion: self.getSDKVersion(),
                     category: "offerwall",
                     properties: ["source": "sdk_api"]
                 )
@@ -236,8 +244,10 @@ import Foundation
         validatedAppData = nil
     }
     
-    private func getSDKVersion() -> String {
-        return Bundle(for: AdchainSdk.self).infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0.0"
+    public func getSDKVersion() -> String {
+        // 상수로 정의된 SDK 버전을 직접 반환
+        // Bundle 정보를 읽을 수 없는 환경에서도 확실하게 동작
+        return Self.SDK_VERSION
     }
 }
 

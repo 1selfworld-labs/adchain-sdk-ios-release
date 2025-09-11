@@ -52,6 +52,11 @@ class JavaScriptBridge {
                 this.postMessage('quizCompleted', { quizId: quizId, score: score });
             },
             
+            // Mission events
+            missionCompleted: function(missionId) {
+                this.postMessage('missionCompleted', { missionId: missionId });
+            },
+            
             // Get user info
             getUserInfo: function(callback) {
                 window.userInfoCallback = callback;

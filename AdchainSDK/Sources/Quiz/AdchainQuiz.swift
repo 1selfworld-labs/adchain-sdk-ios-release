@@ -33,13 +33,20 @@ public class AdchainQuiz {
         
         Task {
             do {
-                let response = try await apiService.getQuizEvents()
+                let currentUser = AdchainSdk.shared.getCurrentUser()
+                let ifa = await DeviceUtils.getAdvertisingId()
+                let response = try await apiService.getQuizEvents(
+                    userId: currentUser?.userId,
+                    platform: "iOS",
+                    ifa: ifa
+                )
                 
                 self.quizEvents = response.events
                 print("Loaded \(quizEvents.count) quiz events")
                 
+                let events = self.quizEvents
                 DispatchQueue.main.async {
-                    onSuccess(self.quizEvents)
+                    onSuccess(events)
                 }
             } catch {
                 print("Error loading quiz events: \(error)")
@@ -52,6 +59,17 @@ public class AdchainQuiz {
     
     
     
+    // MARK: - Click Quiz (통합 메서드 - 클릭 추적 + WebView 열기)
+    public func clickQuiz(_ quizEvent: QuizEvent, from viewController: UIViewController) {
+        print("Quiz clicked: \(quizEvent.id)")
+        
+        // 1. 클릭 추적
+        trackClick(quizEvent)
+        
+        // 2. WebView 열기
+        openQuizWebView(from: viewController, quizEvent: quizEvent)
+    }
+    
     // MARK: - Track Click
     public func trackClick(_ quizEvent: QuizEvent) {
         print("Tracking click for quiz: \(quizEvent.id)")
@@ -62,11 +80,12 @@ public class AdchainQuiz {
             _ = try? await NetworkManager.shared.trackEvent(
                 userId: userId,
                 eventName: "quiz_clicked",
+                sdkVersion: AdchainSdk.shared.getSDKVersion(),
                 category: "quiz",
                 properties: [
-                    "quiz_id": quizEvent.id,
-                    "quiz_title": quizEvent.title,
-                    "landing_url": quizEvent.landing_url
+                    "quizId": quizEvent.id,
+                    "quizTitle": quizEvent.title,
+                    "landingUrl": quizEvent.landingUrl
                 ]
             )
         }
@@ -88,7 +107,7 @@ public class AdchainQuiz {
         
         // Create ViewController with quiz parameters
         let offerwallVC = AdchainOfferwallViewController()
-        offerwallVC.baseUrl = quizEvent.landing_url
+        offerwallVC.baseUrl = quizEvent.landingUrl
         offerwallVC.userId = AdchainSdk.shared.getCurrentUser()?.userId
         offerwallVC.appKey = AdchainSdk.shared.getConfig()?.appKey
         offerwallVC.contextType = "quiz"
@@ -97,20 +116,6 @@ public class AdchainQuiz {
         offerwallVC.modalPresentationStyle = .fullScreen
         
         viewController.present(offerwallVC, animated: true)
-        
-        // Track quiz open
-        Task {
-            let userId = AdchainSdk.shared.getCurrentUser()?.userId ?? ""
-            _ = try? await NetworkManager.shared.trackEvent(
-                userId: userId,
-                eventName: "quiz_webview_opened",
-                category: "quiz",
-                properties: [
-                    "quiz_id": quizEvent.id,
-                    "url": quizEvent.landing_url
-                ]
-            )
-        }
     }
     
     // MARK: - Refresh After Completion
@@ -133,10 +138,11 @@ public class AdchainQuiz {
             _ = try? await NetworkManager.shared.trackEvent(
                 userId: userId,
                 eventName: "quiz_completed",
+                sdkVersion: AdchainSdk.shared.getSDKVersion(),
                 category: "quiz",
                 properties: [
-                    "quiz_id": quizEvent.id,
-                    "quiz_title": quizEvent.title
+                    "quizId": quizEvent.id,
+                    "quizTitle": quizEvent.title
                 ]
             )
         }
@@ -146,7 +152,7 @@ public class AdchainQuiz {
 }
 
 // MARK: - Quiz Callback Wrapper
-private class QuizOfferwallCallback: NSObject, OfferwallCallback {
+private final class QuizOfferwallCallback: NSObject, OfferwallCallback {
     private let onCompleted: () -> Void
     
     init(onCompleted: @escaping () -> Void) {
