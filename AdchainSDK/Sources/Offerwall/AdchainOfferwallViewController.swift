@@ -491,8 +491,9 @@ extension AdchainOfferwallViewController: WKScriptMessageHandler {
             // Trigger quiz refresh
             AdchainQuiz.currentQuizInstance?.value?.refreshAfterCompletion()
             
-            // Notify callback
-            Self.callback?.onClosed()
+            // Don't call onClosed() here - quiz completion doesn't mean WebView is closed
+            // onClosed() should only be called when WebView is actually closing
+            // Self.callback?.onClosed()  // REMOVED: Prevents duplicate callback invocation
         }
     }
     
@@ -529,8 +530,10 @@ extension AdchainOfferwallViewController: WKScriptMessageHandler {
             // Trigger mission refresh
             AdchainMission.currentMissionInstance?.refreshAfterCompletion()
             
-            // Notify callback
-            Self.callback?.onClosed()
+            // DO NOT call onClosed() here
+            // Mission completion should only trigger data refresh, not close the WebView
+            // The WebView should remain open until user manually closes it
+            // Self.callback?.onClosed() // Removed to prevent duplicate callback invocation
         }
     }
     
