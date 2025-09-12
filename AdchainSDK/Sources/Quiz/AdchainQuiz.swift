@@ -47,6 +47,11 @@ public class AdchainQuiz {
                 self.quizEvents = response.events
                 print("Loaded \(quizEvents.count) quiz events")
                 
+                // Track impression for all quizzes
+                for quiz in self.quizEvents {
+                    self.trackImpression(quiz)
+                }
+                
                 let events = self.quizEvents
                 DispatchQueue.main.async {
                     onSuccess(events)
@@ -61,6 +66,25 @@ public class AdchainQuiz {
     }
     
     
+    // MARK: - Track Impression
+    private func trackImpression(_ quizEvent: QuizEvent) {
+        print("Tracking impression for quiz: \(quizEvent.id)")
+        listener?.onImpressed(quizEvent)
+        
+        Task {
+            let userId = AdchainSdk.shared.getCurrentUser()?.userId ?? ""
+            _ = try? await NetworkManager.shared.trackEvent(
+                userId: userId,
+                eventName: "quiz_impressed",
+                sdkVersion: AdchainSdk.shared.getSDKVersion(),
+                category: "quiz",
+                properties: [
+                    "quizId": quizEvent.id,
+                    "quizTitle": quizEvent.title
+                ]
+            )
+        }
+    }
     
     // MARK: - Click Quiz (통합 메서드 - 클릭 추적 + WebView 열기)
     public func clickQuiz(_ quizEvent: QuizEvent, from viewController: UIViewController) {

@@ -80,6 +80,11 @@ public class AdchainMission {
                 
                 print("Loaded \(missions.count) missions, progress: \(response.current)/\(response.total), reward_url: \(rewardUrl ?? "")")
                 
+                // Track impression for all missions
+                for mission in self.missions {
+                    self.onMissionImpressed(mission)
+                }
+                
                 let missionsToReturn = self.missions
                 DispatchQueue.main.async {
                     onSuccess(missionsToReturn, progress)
@@ -150,6 +155,21 @@ public class AdchainMission {
     public func onMissionImpressed(_ mission: Mission) {
         print("Mission impressed: \(mission.id)")
         eventsListener?.onImpressed(mission)
+        
+        // Track impression event to server (similar to Android SDK)
+        Task {
+            _ = try? await NetworkManager.shared.trackEvent(
+                userId: AdchainSdk.shared.getCurrentUser()?.userId ?? "",
+                eventName: "mission_impressed",
+                sdkVersion: AdchainSdk.shared.getSDKVersion(),
+                category: "mission",
+                properties: [
+                    "mission_id": mission.id,
+                    "mission_title": mission.title,
+                    "unit_id": unitId
+                ]
+            )
+        }
     }
     
     public func onMissionCompleted(_ mission: Mission) {
