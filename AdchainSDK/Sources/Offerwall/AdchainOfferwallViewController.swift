@@ -475,7 +475,8 @@ extension AdchainOfferwallViewController: WKScriptMessageHandler {
     
     // Quiz-specific handlers
     private func handleQuizCompleted(data: [String: Any]?) {
-        print("Quiz completed")
+        print("\n🎉 [iOS SDK - WebView] handleQuizCompleted 호출됨!")
+        print("📊 [iOS SDK - WebView] 받은 데이터:", data ?? [:])
         
         DispatchQueue.main.async { [weak self] in
             Task {
@@ -489,7 +490,17 @@ extension AdchainOfferwallViewController: WKScriptMessageHandler {
             }
             
             // Trigger quiz refresh
+            print("🔄 [iOS SDK - WebView] Quiz 리프레시 트리거...")
             AdchainQuiz.currentQuizInstance?.value?.refreshAfterCompletion()
+            
+            // React Native에 이벤트 전송
+            print("📡 [iOS SDK - WebView] React Native에 이벤트 전송...")
+            NotificationCenter.default.post(
+                name: NSNotification.Name("AdchainQuizCompleted"),
+                object: nil,
+                userInfo: ["quizId": self?.quizId ?? "", "unitId": ""]
+            )
+            print("✅ [iOS SDK - WebView] 이벤트 전송 완료!")
             
             // Don't call onClosed() here - quiz completion doesn't mean WebView is closed
             // onClosed() should only be called when WebView is actually closing
@@ -529,6 +540,13 @@ extension AdchainOfferwallViewController: WKScriptMessageHandler {
             
             // Trigger mission refresh
             AdchainMission.currentMissionInstance?.refreshAfterCompletion()
+            
+            // React Native에 이벤트 전송
+            NotificationCenter.default.post(
+                name: NSNotification.Name("AdchainMissionCompleted"),
+                object: nil,
+                userInfo: ["missionId": missionId, "unitId": ""]
+            )
             
             // DO NOT call onClosed() here
             // Mission completion should only trigger data refresh, not close the WebView

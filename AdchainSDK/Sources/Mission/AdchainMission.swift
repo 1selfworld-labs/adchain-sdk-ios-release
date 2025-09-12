@@ -26,13 +26,16 @@ public class AdchainMission {
     // MARK: - Load Missions
     public func load(
         onSuccess: @escaping ([Mission], MissionProgress) -> Void,
-        onFailure: @escaping (AdchainAdError) -> Void
+        onFailure: @escaping (AdchainAdError) -> Void,
+        shouldStoreCallbacks: Bool = true
     ) {
         print("Loading missions for unit: \(unitId)")
         
-        // Store callbacks for refresh
-        loadSuccessCallback = onSuccess
-        loadFailureCallback = onFailure
+        // Store callbacks for refresh (only if requested)
+        if shouldStoreCallbacks {
+            loadSuccessCallback = onSuccess
+            loadFailureCallback = onFailure
+        }
         
         guard AdchainSdk.shared.isLoggedIn else {
             print("SDK not initialized or user not logged in")
@@ -52,7 +55,7 @@ public class AdchainMission {
                 
                 self.missionResponse = response
                 var missionsToShow = response.events
-                self.rewardUrl = response.reward_url
+                self.rewardUrl = response.rewardUrl
                 
                 let progress = MissionProgress(
                     current: response.current,

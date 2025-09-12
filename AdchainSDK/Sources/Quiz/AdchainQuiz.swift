@@ -25,11 +25,14 @@ public class AdchainQuiz {
     // MARK: - Load Quiz Events
     public func load(
         onSuccess: @escaping ([QuizEvent]) -> Void,
-        onFailure: @escaping (AdchainAdError) -> Void
+        onFailure: @escaping (AdchainAdError) -> Void,
+        shouldStoreCallbacks: Bool = true
     ) {
-        // Store callbacks for refresh
-        loadSuccessCallback = onSuccess
-        loadFailureCallback = onFailure
+        // Store callbacks for refresh (only if requested)
+        if shouldStoreCallbacks {
+            loadSuccessCallback = onSuccess
+            loadFailureCallback = onFailure
+        }
         
         Task {
             do {
@@ -120,13 +123,15 @@ public class AdchainQuiz {
     
     // MARK: - Refresh After Completion
     internal func refreshAfterCompletion() {
-        print("Refreshing quiz list after completion")
+        print("\n🔄 [iOS SDK - Quiz] refreshAfterCompletion 호출됨!")
+        print("🔍 [iOS SDK - Quiz] 저장된 콜백 확인...")
         
         if let successCallback = loadSuccessCallback,
            let failureCallback = loadFailureCallback {
+            print("✅ [iOS SDK - Quiz] 콜백 발견! load() 재호출 시작...")
             load(onSuccess: successCallback, onFailure: failureCallback)
         } else {
-            print("No callbacks stored for refresh, skipping UI update")
+            print("⚠️ [iOS SDK - Quiz] 콜백 없음 - 리프레시 스킵")
         }
     }
     
