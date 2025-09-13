@@ -489,18 +489,15 @@ extension AdchainOfferwallViewController: WKScriptMessageHandler {
                 )
             }
             
-            // Trigger quiz refresh
-            print("🔄 [iOS SDK - WebView] Quiz 리프레시 트리거...")
-            AdchainQuiz.currentQuizInstance?.value?.refreshAfterCompletion()
-            
-            // React Native에 이벤트 전송
-            print("📡 [iOS SDK - WebView] React Native에 이벤트 전송...")
-            NotificationCenter.default.post(
-                name: NSNotification.Name("AdchainQuizCompleted"),
-                object: nil,
-                userInfo: ["quizId": self?.quizId ?? "", "unitId": ""]
-            )
-            print("✅ [iOS SDK - WebView] 이벤트 전송 완료!")
+            // Notify quiz completed with current quiz event
+            if let quizInstance = AdchainQuiz.currentQuizInstance?.value,
+               let quizEvent = AdchainQuiz.currentQuizEvent {
+                print("🔄 [iOS SDK - WebView] Quiz 완료 알림...")
+                quizInstance.notifyQuizCompleted(quizEvent)
+                print("✅ [iOS SDK - WebView] Quiz 완료 알림 완료!")
+            } else {
+                print("⚠️ [iOS SDK - WebView] Quiz instance 또는 event를 찾을 수 없음")
+            }
             
             // Don't call onClosed() here - quiz completion doesn't mean WebView is closed
             // onClosed() should only be called when WebView is actually closing
@@ -538,15 +535,15 @@ extension AdchainOfferwallViewController: WKScriptMessageHandler {
                 )
             }
             
-            // Trigger mission refresh
-            AdchainMission.currentMissionInstance?.refreshAfterCompletion()
-            
-            // React Native에 이벤트 전송
-            NotificationCenter.default.post(
-                name: NSNotification.Name("AdchainMissionCompleted"),
-                object: nil,
-                userInfo: ["missionId": missionId, "unitId": ""]
-            )
+            // Notify mission completed with current mission
+            if let missionInstance = AdchainMission.currentMissionInstance,
+               let currentMission = AdchainMission.currentMission {
+                print("🔄 [iOS SDK - WebView] Mission 완료 알림...")
+                missionInstance.onMissionCompleted(currentMission)
+                print("✅ [iOS SDK - WebView] Mission 완료 알림 완료!")
+            } else {
+                print("⚠️ [iOS SDK - WebView] Mission instance 또는 mission을 찾을 수 없음")
+            }
             
             // DO NOT call onClosed() here
             // Mission completion should only trigger data refresh, not close the WebView

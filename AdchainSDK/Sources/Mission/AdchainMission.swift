@@ -120,6 +120,18 @@ public class AdchainMission {
         return participatingMissions.contains(missionId)
     }
     
+    // MARK: - Click Mission by ID (Android와 동일한 인터페이스)
+    public func clickMission(_ missionId: String, from viewController: UIViewController) {
+        // Android와 동일한 로직: missions.find { it.id == missionId }
+        guard let mission = missions.first(where: { $0.id == missionId }) else {
+            print("[AdchainMission] Mission not found: \(missionId)")
+            return
+        }
+        
+        // 기존 메서드 호출
+        clickMission(mission, from: viewController)
+    }
+    
     // MARK: - Click Mission (통합 메서드 - 클릭 추적 + WebView 열기)
     public func clickMission(_ mission: Mission, from viewController: UIViewController) {
         print("Mission clicked: \(mission.id)")
@@ -233,12 +245,9 @@ public class AdchainMission {
     }
     
     internal func refreshAfterCompletion() {
-        print("Refreshing mission list after completion")
-        
-        if let successCallback = loadSuccessCallback,
-           let failureCallback = loadFailureCallback {
-            load(onSuccess: successCallback, onFailure: failureCallback)
-        }
+        // React Native에서 이벤트 리스너를 통해 직접 처리하도록 변경
+        // SDK 내부에서는 리프레시하지 않음
+        print("Refreshing mission list after completion - React Native에서 처리")
     }
     
     public func destroy() {

@@ -3,7 +3,7 @@ import UIKit
 public class AdchainQuiz {
     // MARK: - Static Properties (Android와 동일)
     internal static var currentQuizInstance: Weak<AdchainQuiz>?
-    private static var currentQuizEvent: QuizEvent?
+    internal static var currentQuizEvent: QuizEvent?
     
     // MARK: - Properties
     private let unitId: String
@@ -86,6 +86,18 @@ public class AdchainQuiz {
         }
     }
     
+    // MARK: - Click Quiz by ID (Android와 동일한 인터페이스)
+    public func clickQuiz(_ quizId: String, from viewController: UIViewController) {
+        // Android와 동일한 로직: quizEvents.find { it.id == quizId }
+        guard let quizEvent = quizEvents.first(where: { $0.id == quizId }) else {
+            print("[AdchainQuiz] Quiz not found: \(quizId)")
+            return
+        }
+        
+        // 기존 메서드 호출
+        clickQuiz(quizEvent, from: viewController)
+    }
+    
     // MARK: - Click Quiz (통합 메서드 - 클릭 추적 + WebView 열기)
     public func clickQuiz(_ quizEvent: QuizEvent, from viewController: UIViewController) {
         print("Quiz clicked: \(quizEvent.id)")
@@ -147,16 +159,9 @@ public class AdchainQuiz {
     
     // MARK: - Refresh After Completion
     internal func refreshAfterCompletion() {
-        print("\n🔄 [iOS SDK - Quiz] refreshAfterCompletion 호출됨!")
-        print("🔍 [iOS SDK - Quiz] 저장된 콜백 확인...")
-        
-        if let successCallback = loadSuccessCallback,
-           let failureCallback = loadFailureCallback {
-            print("✅ [iOS SDK - Quiz] 콜백 발견! load() 재호출 시작...")
-            load(onSuccess: successCallback, onFailure: failureCallback)
-        } else {
-            print("⚠️ [iOS SDK - Quiz] 콜백 없음 - 리프레시 스킵")
-        }
+        // React Native에서 이벤트 리스너를 통해 직접 처리하도록 변경
+        // SDK 내부에서는 리프레시하지 않음
+        print("\n🔄 [iOS SDK - Quiz] refreshAfterCompletion 호출됨 - React Native에서 처리")
     }
     
     internal func notifyQuizCompleted(_ quizEvent: QuizEvent) {
