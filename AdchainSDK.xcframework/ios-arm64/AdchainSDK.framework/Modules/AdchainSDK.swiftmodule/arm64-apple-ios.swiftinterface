@@ -40,6 +40,7 @@ public class AdchainMission {
   public func onMissionClicked(_ mission: AdchainSDK.Mission)
   public func onMissionImpressed(_ mission: AdchainSDK.Mission)
   public func onMissionCompleted(_ mission: AdchainSDK.Mission)
+  public func onMissionProgressed(_ mission: AdchainSDK.Mission)
   public func onRewardButtonClicked(from viewController: UIKit.UIViewController)
   public func destroy()
   @objc deinit
@@ -48,6 +49,7 @@ public protocol AdchainMissionEventsListener : AnyObject {
   func onImpressed(_ mission: AdchainSDK.Mission)
   func onClicked(_ mission: AdchainSDK.Mission)
   func onCompleted(_ mission: AdchainSDK.Mission)
+  func onProgressed(_ mission: AdchainSDK.Mission)
 }
 public class AdchainQuiz {
   public init(unitId: Swift.String)

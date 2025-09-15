@@ -915,6 +915,32 @@
           },
           {
             "kind": "Function",
+            "name": "onMissionProgressed",
+            "printedName": "onMissionProgressed(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Mission",
+                "printedName": "AdchainSDK.Mission",
+                "usr": "s:10AdchainSDK7MissionV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10AdchainSDK0A7MissionC02onC10ProgressedyyAA0C0VF",
+            "mangledName": "$s10AdchainSDK0A7MissionC02onC10ProgressedyyAA0C0VF",
+            "moduleName": "AdchainSDK",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "onRewardButtonClicked",
             "printedName": "onRewardButtonClicked(from:)",
             "children": [
@@ -1071,6 +1097,33 @@
             "declKind": "Func",
             "usr": "s:10AdchainSDK0A21MissionEventsListenerP11onCompletedyyAA0C0VF",
             "mangledName": "$s10AdchainSDK0A21MissionEventsListenerP11onCompletedyyAA0C0VF",
+            "moduleName": "AdchainSDK",
+            "genericSig": "<τ_0_0 where τ_0_0 : AdchainSDK.AdchainMissionEventsListener>",
+            "sugared_genericSig": "<Self where Self : AdchainSDK.AdchainMissionEventsListener>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onProgressed",
+            "printedName": "onProgressed(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Mission",
+                "printedName": "AdchainSDK.Mission",
+                "usr": "s:10AdchainSDK7MissionV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10AdchainSDK0A21MissionEventsListenerP12onProgressedyyAA0C0VF",
+            "mangledName": "$s10AdchainSDK0A21MissionEventsListenerP12onProgressedyyAA0C0VF",
             "moduleName": "AdchainSDK",
             "genericSig": "<τ_0_0 where τ_0_0 : AdchainSDK.AdchainMissionEventsListener>",
             "sugared_genericSig": "<Self where Self : AdchainSDK.AdchainMissionEventsListener>",
@@ -7123,7 +7176,7 @@
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 10953,
+      "offset": 11211,
       "length": 5,
       "value": "false"
     },
