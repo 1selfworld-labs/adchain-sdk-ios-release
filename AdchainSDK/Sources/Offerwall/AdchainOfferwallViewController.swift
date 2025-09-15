@@ -46,11 +46,18 @@ class AdchainOfferwallViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        // 전체 화면으로 표시 (Safe Area 무시) - React Native 환경 대응
+        modalPresentationStyle = .overFullScreen
+
+        // 추가로 edgesForExtendedLayout 설정
+        edgesForExtendedLayout = .all
+        extendedLayoutIncludesOpaqueBars = true
+
         // Set background color to match WebView background (#f5f6f7)
         //view.backgroundColor = UIColor(red: 245/255, green: 246/255, blue: 247/255, alpha: 1.0)
         view.backgroundColor = UIColor.white
-        
+
         // Add to stack if sub WebView
         if isSubWebView {
             Self.webViewStack.append(Weak(self))
@@ -192,14 +199,14 @@ class AdchainOfferwallViewController: UIViewController {
         webView.isOpaque = false
         webView.scrollView.backgroundColor = backgroundColor
         
-        // Safe Area를 존중하도록 설정
-        webView.scrollView.contentInsetAdjustmentBehavior = .automatic
+        // Safe Area 완전 무시 - React Native 환경에서 하단 버튼 고정 문제 해결
+        webView.scrollView.contentInsetAdjustmentBehavior = .never
         
         view.addSubview(webView)
         
-        // Safe Area Layout Guide에 맞춰 constraints 설정
+        // 전체 화면 constraint - Android와 동일하게 설정
         NSLayoutConstraint.activate([
-            webView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            webView.topAnchor.constraint(equalTo: view.topAnchor),
             webView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             webView.bottomAnchor.constraint(equalTo: view.bottomAnchor)

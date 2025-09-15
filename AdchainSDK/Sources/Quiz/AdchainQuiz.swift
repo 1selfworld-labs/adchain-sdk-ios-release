@@ -33,7 +33,13 @@ public class AdchainQuiz {
             loadSuccessCallback = onSuccess
             loadFailureCallback = onFailure
         }
-        
+
+        guard AdchainSdk.shared.isLoggedIn else {
+            print("SDK not initialized or user not logged in")
+            onFailure(.notInitialized)
+            return
+        }
+
         Task {
             do {
                 let currentUser = AdchainSdk.shared.getCurrentUser()

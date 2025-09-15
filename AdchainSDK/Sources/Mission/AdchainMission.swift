@@ -62,20 +62,6 @@ public class AdchainMission {
                     total: response.total
                 )
                 
-                // Add offerwall promotion if missions are not completed
-                if response.current < response.total && response.total > 0 {
-                    let offerwallPromotion = Mission(
-                        id: "offerwall_promotion",
-                        title: "800만 포인트 받으러 가기",
-                        description: "더 많은 포인트를 받을 수 있습니다",
-                        imageUrl: "",
-                        landingUrl: "",
-                        point: "800만 포인트",
-                        type: .offerwallPromotion
-                    )
-                    missionsToShow.append(offerwallPromotion)
-                }
-                
                 self.missions = missionsToShow
                 
                 print("Loaded \(missions.count) missions, progress: \(response.current)/\(response.total), reward_url: \(rewardUrl ?? "")")

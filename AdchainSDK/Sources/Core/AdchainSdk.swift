@@ -3,7 +3,7 @@ import Foundation
 
 @objc public final class AdchainSdk: NSObject {
     // MARK: - SDK Version
-    private static let SDK_VERSION = "1.0.1"
+    private static let SDK_VERSION = "1.0.9"
     
     // MARK: - Singleton (Android의 object와 동일)
     @objc public static let shared = AdchainSdk()
@@ -26,13 +26,16 @@ import Foundation
         sdkConfig: AdchainSdkConfig
     ) {
         guard !isInitialized.get() else {
-            fatalError("AdchainSdk is already initialized")
+            print("[AdchainSDK] Warning: SDK is already initialized. Ignoring duplicate initialization.")
+            return
         }
         guard !sdkConfig.appKey.isEmpty else {
-            fatalError("App Key cannot be empty")
+            print("[AdchainSDK] Error: App Key cannot be empty. Initialization failed.")
+            return
         }
         guard !sdkConfig.appSecret.isEmpty else {
-            fatalError("App Secret cannot be empty")
+            print("[AdchainSDK] Error: App Secret cannot be empty. Initialization failed.")
+            return
         }
         
         self.application = application
