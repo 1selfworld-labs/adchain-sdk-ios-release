@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
-  spec.name         = "AdchainSDK"
-  spec.version      = "1.0.14"
+  spec.name         = "AdChainSDK"
+  spec.version      = "1.0.15"
   spec.summary      = "AdChain SDK for iOS - Complete advertising and offerwall solution"
   spec.description  = <<-DESC
                        AdChain SDK provides a complete advertising solution including:
@@ -24,7 +24,7 @@ Pod::Spec.new do |spec|
   spec.vendored_frameworks = 'AdchainSDK.xcframework'
 
   spec.resource_bundles = {
-    'AdchainSDK' => ['AdchainSDK/PrivacyInfo.xcprivacy']
+    'AdChainSDK' => ['AdchainSDK/PrivacyInfo.xcprivacy']
   }
 
   spec.frameworks = "UIKit", "Foundation", "WebKit", "AdSupport", "AppTrackingTransparency"
