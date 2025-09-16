@@ -7198,27 +7198,27 @@
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "StringLiteral",
       "offset": 144,
-      "length": 7,
-      "value": "\"1.0.9\""
+      "length": 8,
+      "value": "\"1.0.13\""
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "BooleanLiteral",
-      "offset": 339,
+      "offset": 340,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "StringLiteral",
-      "offset": 624,
+      "offset": 625,
       "length": 22,
       "value": "\"com.adchain.sdk.main\""
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "StringLiteral",
-      "offset": 9157,
+      "offset": 9158,
       "length": 20,
       "value": "\"com.adchain.atomic\""
     },
