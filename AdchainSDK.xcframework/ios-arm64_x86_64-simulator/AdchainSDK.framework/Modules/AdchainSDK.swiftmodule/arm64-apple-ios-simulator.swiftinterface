@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
-// swift-module-flags: -target arm64-apple-ios14.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name AdchainSDK
+// swift-module-flags: -target arm64-apple-ios14.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name AdChainSDK
 // swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
 import AdSupport
 import AppTrackingTransparency
@@ -20,62 +20,67 @@ public enum AdchainAdError : Swift.Error {
   public var localizedDescription: Swift.String {
     get
   }
-  public static func == (a: AdchainSDK.AdchainAdError, b: AdchainSDK.AdchainAdError) -> Swift.Bool
+  public static func == (a: AdChainSDK.AdchainAdError, b: AdChainSDK.AdchainAdError) -> Swift.Bool
   public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
 }
+@_hasMissingDesignatedInitializers final public class AdchainBanner {
+  public static let shared: AdChainSDK.AdchainBanner
+  final public func getBanner(placementId: Swift.String, onSuccess: @escaping (AdChainSDK.BannerResponse) -> Swift.Void, onFailure: @escaping (AdChainSDK.AdchainAdError) -> Swift.Void)
+  @objc deinit
+}
 public class AdchainMission {
-  public var eventsListener: (any AdchainSDK.AdchainMissionEventsListener)?
+  public var eventsListener: (any AdChainSDK.AdchainMissionEventsListener)?
   public init(unitId: Swift.String)
-  public func load(onSuccess: @escaping ([AdchainSDK.Mission], AdchainSDK.MissionProgress) -> Swift.Void, onFailure: @escaping (AdchainSDK.AdchainAdError) -> Swift.Void, shouldStoreCallbacks: Swift.Bool = true)
-  public func setEventsListener(_ listener: any AdchainSDK.AdchainMissionEventsListener)
-  public func getMissions() -> [AdchainSDK.Mission]
-  public func getMission(missionId: Swift.String) -> AdchainSDK.Mission?
+  public func load(onSuccess: @escaping ([AdChainSDK.Mission], AdChainSDK.MissionProgress) -> Swift.Void, onFailure: @escaping (AdChainSDK.AdchainAdError) -> Swift.Void, shouldStoreCallbacks: Swift.Bool = true)
+  public func setEventsListener(_ listener: any AdChainSDK.AdchainMissionEventsListener)
+  public func getMissions() -> [AdChainSDK.Mission]
+  public func getMission(missionId: Swift.String) -> AdChainSDK.Mission?
   public func markAsParticipating(_ missionId: Swift.String)
   public func isParticipating(_ missionId: Swift.String) -> Swift.Bool
   public func clickMission(_ missionId: Swift.String, from viewController: UIKit.UIViewController)
-  public func clickMission(_ mission: AdchainSDK.Mission, from viewController: UIKit.UIViewController)
-  public func onMissionClicked(_ mission: AdchainSDK.Mission)
-  public func onMissionImpressed(_ mission: AdchainSDK.Mission)
-  public func onMissionCompleted(_ mission: AdchainSDK.Mission)
-  public func onMissionProgressed(_ mission: AdchainSDK.Mission)
+  public func clickMission(_ mission: AdChainSDK.Mission, from viewController: UIKit.UIViewController)
+  public func onMissionClicked(_ mission: AdChainSDK.Mission)
+  public func onMissionImpressed(_ mission: AdChainSDK.Mission)
+  public func onMissionCompleted(_ mission: AdChainSDK.Mission)
+  public func onMissionProgressed(_ mission: AdChainSDK.Mission)
   public func onRewardButtonClicked(from viewController: UIKit.UIViewController)
   public func destroy()
   @objc deinit
 }
 public protocol AdchainMissionEventsListener : AnyObject {
-  func onImpressed(_ mission: AdchainSDK.Mission)
-  func onClicked(_ mission: AdchainSDK.Mission)
-  func onCompleted(_ mission: AdchainSDK.Mission)
-  func onProgressed(_ mission: AdchainSDK.Mission)
+  func onImpressed(_ mission: AdChainSDK.Mission)
+  func onClicked(_ mission: AdChainSDK.Mission)
+  func onCompleted(_ mission: AdChainSDK.Mission)
+  func onProgressed(_ mission: AdChainSDK.Mission)
 }
 public class AdchainQuiz {
   public init(unitId: Swift.String)
-  public func setQuizEventsListener(_ listener: any AdchainSDK.AdchainQuizEventsListener)
-  public func load(onSuccess: @escaping ([AdchainSDK.QuizEvent]) -> Swift.Void, onFailure: @escaping (AdchainSDK.AdchainAdError) -> Swift.Void, shouldStoreCallbacks: Swift.Bool = true)
+  public func setQuizEventsListener(_ listener: any AdChainSDK.AdchainQuizEventsListener)
+  public func load(onSuccess: @escaping ([AdChainSDK.QuizEvent]) -> Swift.Void, onFailure: @escaping (AdChainSDK.AdchainAdError) -> Swift.Void, shouldStoreCallbacks: Swift.Bool = true)
   public func clickQuiz(_ quizId: Swift.String, from viewController: UIKit.UIViewController)
-  public func clickQuiz(_ quizEvent: AdchainSDK.QuizEvent, from viewController: UIKit.UIViewController)
-  public func trackClick(_ quizEvent: AdchainSDK.QuizEvent)
+  public func clickQuiz(_ quizEvent: AdChainSDK.QuizEvent, from viewController: UIKit.UIViewController)
+  public func trackClick(_ quizEvent: AdChainSDK.QuizEvent)
   @objc deinit
 }
 public protocol AdchainQuizEventsListener : AnyObject {
-  func onImpressed(_ quizEvent: AdchainSDK.QuizEvent)
-  func onClicked(_ quizEvent: AdchainSDK.QuizEvent)
-  func onQuizCompleted(_ quizEvent: AdchainSDK.QuizEvent, rewardAmount: Swift.Int)
+  func onImpressed(_ quizEvent: AdChainSDK.QuizEvent)
+  func onClicked(_ quizEvent: AdChainSDK.QuizEvent)
+  func onQuizCompleted(_ quizEvent: AdChainSDK.QuizEvent, rewardAmount: Swift.Int)
 }
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc final public class AdchainSdk : ObjectiveC.NSObject {
-  @objc public static let shared: AdchainSDK.AdchainSdk
-  @objc final public func initialize(application: UIKit.UIApplication, sdkConfig: AdchainSDK.AdchainSdkConfig)
-  final public func login(adchainSdkUser: AdchainSDK.AdchainSdkUser, listener: (any AdchainSDK.AdchainSdkLoginListener)? = nil)
+  @objc public static let shared: AdChainSDK.AdchainSdk
+  @objc final public func initialize(application: UIKit.UIApplication, sdkConfig: AdChainSDK.AdchainSdkConfig)
+  final public func login(adchainSdkUser: AdChainSDK.AdchainSdkUser, listener: (any AdChainSDK.AdchainSdkLoginListener)? = nil)
   @objc final public func logout()
-  final public func openOfferwall(presentingViewController: UIKit.UIViewController, callback: (any AdchainSDK.OfferwallCallback)? = nil)
+  final public func openOfferwall(presentingViewController: UIKit.UIViewController, callback: (any AdChainSDK.OfferwallCallback)? = nil)
   @objc final public var isLoggedIn: Swift.Bool {
     @objc get
   }
-  final public func getCurrentUser() -> AdchainSDK.AdchainSdkUser?
-  final public func getConfig() -> AdchainSDK.AdchainSdkConfig?
+  final public func getCurrentUser() -> AdChainSDK.AdchainSdkUser?
+  final public func getConfig() -> AdChainSDK.AdchainSdkConfig?
   final public func getSDKVersion() -> Swift.String
   @objc deinit
 }
@@ -92,20 +97,20 @@ public protocol AdchainQuizEventsListener : AnyObject {
   }
   @objc final public let appKey: Swift.String
   @objc final public let appSecret: Swift.String
-  @objc final public let environment: AdchainSDK.AdchainSdkConfig.Environment
+  @objc final public let environment: AdChainSDK.AdchainSdkConfig.Environment
   @objc final public let timeout: Foundation.TimeInterval
   @objc public class Builder : ObjectiveC.NSObject {
     @objc public init(appKey: Swift.String, appSecret: Swift.String)
-    @objc public func setEnvironment(_ environment: AdchainSDK.AdchainSdkConfig.Environment) -> AdchainSDK.AdchainSdkConfig.Builder
-    @objc public func setTimeout(_ timeout: Foundation.TimeInterval) -> AdchainSDK.AdchainSdkConfig.Builder
-    @objc public func build() -> AdchainSDK.AdchainSdkConfig
+    @objc public func setEnvironment(_ environment: AdChainSDK.AdchainSdkConfig.Environment) -> AdChainSDK.AdchainSdkConfig.Builder
+    @objc public func setTimeout(_ timeout: Foundation.TimeInterval) -> AdChainSDK.AdchainSdkConfig.Builder
+    @objc public func build() -> AdChainSDK.AdchainSdkConfig
     @objc deinit
   }
   @objc deinit
 }
 @objc public protocol AdchainSdkLoginListener {
   @objc func onSuccess()
-  @objc func onFailure(_ error: AdchainSDK.AdchainLoginError)
+  @objc func onFailure(_ error: AdChainSDK.AdchainLoginError)
 }
 @objc public enum AdchainLoginError : Swift.Int {
   case notInitialized = 0
@@ -136,14 +141,9 @@ public protocol AdchainQuizEventsListener : AnyObject {
     }
   }
   @objc final public let userId: Swift.String
-  final public let gender: AdchainSDK.AdchainSdkUser.Gender?
+  final public let gender: AdChainSDK.AdchainSdkUser.Gender?
   final public let birthYear: Swift.Int?
-  public init(userId: Swift.String, gender: AdchainSDK.AdchainSdkUser.Gender? = nil, birthYear: Swift.Int? = nil)
-  @objc deinit
-}
-@_hasMissingDesignatedInitializers final public class AdchainBanner {
-  public static let shared: AdchainSDK.AdchainBanner
-  final public func getBanner(placementId: Swift.String, onSuccess: @escaping (AdchainSDK.BannerResponse) -> Swift.Void, onFailure: @escaping (AdchainSDK.AdchainAdError) -> Swift.Void)
+  public init(userId: Swift.String, gender: AdChainSDK.AdchainSdkUser.Gender? = nil, birthYear: Swift.Int? = nil)
   @objc deinit
 }
 public struct BannerResponse : Swift.Codable, Swift.Sendable {
@@ -174,8 +174,8 @@ public struct Mission : Swift.Codable, Swift.Sendable {
   public let status: Swift.String?
   public let progress: Swift.Int?
   public let total: Swift.Int?
-  public let type: AdchainSDK.MissionType?
-  public init(id: Swift.String, title: Swift.String, description: Swift.String, imageUrl: Swift.String, landingUrl: Swift.String, point: Swift.String, status: Swift.String? = nil, progress: Swift.Int? = nil, total: Swift.Int? = nil, type: AdchainSDK.MissionType? = nil)
+  public let type: AdChainSDK.MissionType?
+  public init(id: Swift.String, title: Swift.String, description: Swift.String, imageUrl: Swift.String, landingUrl: Swift.String, point: Swift.String, status: Swift.String? = nil, progress: Swift.Int? = nil, total: Swift.Int? = nil, type: AdChainSDK.MissionType? = nil)
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -192,7 +192,7 @@ public struct MissionProgress : Swift.Sendable {
 }
 public struct MissionResponse : Swift.Codable {
   public let success: Swift.Bool?
-  public let events: [AdchainSDK.Mission]
+  public let events: [AdChainSDK.Mission]
   public let current: Swift.Int
   public let total: Swift.Int
   public let rewardUrl: Swift.String?
@@ -220,22 +220,22 @@ public struct QuizEvent : Swift.Codable, Swift.Sendable {
 }
 public struct QuizResponse : Swift.Codable {
   public let success: Swift.Bool?
-  public let events: [AdchainSDK.QuizEvent]
+  public let events: [AdChainSDK.QuizEvent]
   public let message: Swift.String?
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
-extension AdchainSDK.AdchainAdError : Swift.Equatable {}
-extension AdchainSDK.AdchainAdError : Swift.Hashable {}
-extension AdchainSDK.AdchainSdkConfig.Environment : Swift.Equatable {}
-extension AdchainSDK.AdchainSdkConfig.Environment : Swift.Hashable {}
-extension AdchainSDK.AdchainSdkConfig.Environment : Swift.RawRepresentable {}
-extension AdchainSDK.AdchainLoginError : Swift.Equatable {}
-extension AdchainSDK.AdchainLoginError : Swift.Hashable {}
-extension AdchainSDK.AdchainLoginError : Swift.RawRepresentable {}
-extension AdchainSDK.AdchainSdkUser.Gender : Swift.Equatable {}
-extension AdchainSDK.AdchainSdkUser.Gender : Swift.Hashable {}
-extension AdchainSDK.AdchainSdkUser.Gender : Swift.RawRepresentable {}
-extension AdchainSDK.MissionType : Swift.Equatable {}
-extension AdchainSDK.MissionType : Swift.Hashable {}
-extension AdchainSDK.MissionType : Swift.RawRepresentable {}
+extension AdChainSDK.AdchainAdError : Swift.Equatable {}
+extension AdChainSDK.AdchainAdError : Swift.Hashable {}
+extension AdChainSDK.AdchainSdkConfig.Environment : Swift.Equatable {}
+extension AdChainSDK.AdchainSdkConfig.Environment : Swift.Hashable {}
+extension AdChainSDK.AdchainSdkConfig.Environment : Swift.RawRepresentable {}
+extension AdChainSDK.AdchainLoginError : Swift.Equatable {}
+extension AdChainSDK.AdchainLoginError : Swift.Hashable {}
+extension AdChainSDK.AdchainLoginError : Swift.RawRepresentable {}
+extension AdChainSDK.AdchainSdkUser.Gender : Swift.Equatable {}
+extension AdChainSDK.AdchainSdkUser.Gender : Swift.Hashable {}
+extension AdChainSDK.AdchainSdkUser.Gender : Swift.RawRepresentable {}
+extension AdChainSDK.MissionType : Swift.Equatable {}
+extension AdChainSDK.MissionType : Swift.Hashable {}
+extension AdChainSDK.MissionType : Swift.RawRepresentable {}

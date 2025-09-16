@@ -299,7 +299,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_attribute(external_source_symbol)
 # pragma push_macro("any")
 # undef any
-# pragma clang attribute push(__attribute__((external_source_symbol(language="Swift", defined_in="AdchainSDK",generated_declaration))), apply_to=any(function,enum,objc_interface,objc_category,objc_protocol))
+# pragma clang attribute push(__attribute__((external_source_symbol(language="Swift", defined_in="AdChainSDK",generated_declaration))), apply_to=any(function,enum,objc_interface,objc_category,objc_protocol))
 # pragma pop_macro("any")
 #endif
 
@@ -314,7 +314,7 @@ typedef SWIFT_ENUM(NSInteger, AdchainLoginError, open) {
 
 @class UIApplication;
 @class AdchainSdkConfig;
-SWIFT_CLASS("_TtC10AdchainSDK10AdchainSdk")
+SWIFT_CLASS("_TtC10AdChainSDK10AdchainSdk")
 @interface AdchainSdk : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AdchainSdk * _Nonnull shared;)
 + (AdchainSdk * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
@@ -327,7 +327,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AdchainSdk *
 
 @class NSString;
 enum Environment : NSInteger;
-SWIFT_CLASS("_TtC10AdchainSDK16AdchainSdkConfig")
+SWIFT_CLASS("_TtC10AdChainSDK16AdchainSdkConfig")
 @interface AdchainSdkConfig : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nonnull appKey;
 @property (nonatomic, readonly, copy) NSString * _Nonnull appSecret;
@@ -343,7 +343,7 @@ typedef SWIFT_ENUM(NSInteger, Environment, open) {
   EnvironmentDevelopment = 2,
 };
 
-SWIFT_CLASS("_TtCC10AdchainSDK16AdchainSdkConfig7Builder")
+SWIFT_CLASS("_TtCC10AdChainSDK16AdchainSdkConfig7Builder")
 @interface Builder : NSObject
 - (nonnull instancetype)initWithAppKey:(NSString * _Nonnull)appKey appSecret:(NSString * _Nonnull)appSecret OBJC_DESIGNATED_INITIALIZER;
 - (Builder * _Nonnull)setEnvironment:(enum Environment)environment SWIFT_WARN_UNUSED_RESULT;
@@ -353,13 +353,13 @@ SWIFT_CLASS("_TtCC10AdchainSDK16AdchainSdkConfig7Builder")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-SWIFT_PROTOCOL("_TtP10AdchainSDK23AdchainSdkLoginListener_")
+SWIFT_PROTOCOL("_TtP10AdChainSDK23AdchainSdkLoginListener_")
 @protocol AdchainSdkLoginListener
 - (void)onSuccess;
 - (void)onFailure:(enum AdchainLoginError)error;
 @end
 
-SWIFT_CLASS("_TtC10AdchainSDK14AdchainSdkUser")
+SWIFT_CLASS("_TtC10AdChainSDK14AdchainSdkUser")
 @interface AdchainSdkUser : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nonnull userId;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -681,7 +681,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_attribute(external_source_symbol)
 # pragma push_macro("any")
 # undef any
-# pragma clang attribute push(__attribute__((external_source_symbol(language="Swift", defined_in="AdchainSDK",generated_declaration))), apply_to=any(function,enum,objc_interface,objc_category,objc_protocol))
+# pragma clang attribute push(__attribute__((external_source_symbol(language="Swift", defined_in="AdChainSDK",generated_declaration))), apply_to=any(function,enum,objc_interface,objc_category,objc_protocol))
 # pragma pop_macro("any")
 #endif
 
@@ -696,7 +696,7 @@ typedef SWIFT_ENUM(NSInteger, AdchainLoginError, open) {
 
 @class UIApplication;
 @class AdchainSdkConfig;
-SWIFT_CLASS("_TtC10AdchainSDK10AdchainSdk")
+SWIFT_CLASS("_TtC10AdChainSDK10AdchainSdk")
 @interface AdchainSdk : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AdchainSdk * _Nonnull shared;)
 + (AdchainSdk * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
@@ -709,7 +709,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AdchainSdk *
 
 @class NSString;
 enum Environment : NSInteger;
-SWIFT_CLASS("_TtC10AdchainSDK16AdchainSdkConfig")
+SWIFT_CLASS("_TtC10AdChainSDK16AdchainSdkConfig")
 @interface AdchainSdkConfig : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nonnull appKey;
 @property (nonatomic, readonly, copy) NSString * _Nonnull appSecret;
@@ -725,7 +725,7 @@ typedef SWIFT_ENUM(NSInteger, Environment, open) {
   EnvironmentDevelopment = 2,
 };
 
-SWIFT_CLASS("_TtCC10AdchainSDK16AdchainSdkConfig7Builder")
+SWIFT_CLASS("_TtCC10AdChainSDK16AdchainSdkConfig7Builder")
 @interface Builder : NSObject
 - (nonnull instancetype)initWithAppKey:(NSString * _Nonnull)appKey appSecret:(NSString * _Nonnull)appSecret OBJC_DESIGNATED_INITIALIZER;
 - (Builder * _Nonnull)setEnvironment:(enum Environment)environment SWIFT_WARN_UNUSED_RESULT;
@@ -735,13 +735,13 @@ SWIFT_CLASS("_TtCC10AdchainSDK16AdchainSdkConfig7Builder")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-SWIFT_PROTOCOL("_TtP10AdchainSDK23AdchainSdkLoginListener_")
+SWIFT_PROTOCOL("_TtP10AdChainSDK23AdchainSdkLoginListener_")
 @protocol AdchainSdkLoginListener
 - (void)onSuccess;
 - (void)onFailure:(enum AdchainLoginError)error;
 @end
 
-SWIFT_CLASS("_TtC10AdchainSDK14AdchainSdkUser")
+SWIFT_CLASS("_TtC10AdChainSDK14AdchainSdkUser")
 @interface AdchainSdkUser : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nonnull userId;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;

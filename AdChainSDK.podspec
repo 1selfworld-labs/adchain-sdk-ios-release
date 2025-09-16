@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "AdChainSDK"
-  spec.version      = "1.0.13"
+  spec.version      = "1.0.14"
   spec.summary      = "AdChain SDK for iOS - Complete advertising and offerwall solution"
   spec.description  = <<-DESC
                        AdChain SDK provides a complete advertising solution including:
@@ -21,7 +21,7 @@ Pod::Spec.new do |spec|
   spec.source       = { :git => "https://github.com/1selfworld-labs/adchain-sdk-ios-release.git", :tag => "v#{spec.version}" }
 
   # Use vendored framework instead of source files
-  spec.vendored_frameworks = 'AdchainSDK.xcframework'
+  spec.vendored_frameworks = 'AdChainSDK.xcframework'
 
   spec.resource_bundles = {
     'AdChainSDK' => ['AdchainSDK/PrivacyInfo.xcprivacy']
