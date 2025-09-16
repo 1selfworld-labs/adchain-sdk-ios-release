@@ -46,18 +46,11 @@ class AdchainOfferwallViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // 전체 화면으로 표시 (Safe Area 무시) - React Native 환경 대응
-        modalPresentationStyle = .overFullScreen
-
-        // 추가로 edgesForExtendedLayout 설정
-        edgesForExtendedLayout = .all
-        extendedLayoutIncludesOpaqueBars = true
-
+        
         // Set background color to match WebView background (#f5f6f7)
         //view.backgroundColor = UIColor(red: 245/255, green: 246/255, blue: 247/255, alpha: 1.0)
         view.backgroundColor = UIColor.white
-
+        
         // Add to stack if sub WebView
         if isSubWebView {
             Self.webViewStack.append(Weak(self))
@@ -199,14 +192,17 @@ class AdchainOfferwallViewController: UIViewController {
         webView.isOpaque = false
         webView.scrollView.backgroundColor = backgroundColor
         
-        // Safe Area 완전 무시 - React Native 환경에서 하단 버튼 고정 문제 해결
-        webView.scrollView.contentInsetAdjustmentBehavior = .never
-        
+        // 스크롤 뷰의 contentInsetAdjustmentBehavior 설정
+        // .automatic 대신 .scrollableAxes 사용 - 스크롤 가능한 축에만 자동 조정 적용
+        // 이렇게 하면 상단은 Safe Area가 적용되고, 하단은 고정됨
+        webView.scrollView.contentInsetAdjustmentBehavior = .scrollableAxes
+
         view.addSubview(webView)
-        
-        // 전체 화면 constraint - Android와 동일하게 설정
+
+        // Safe Area Layout Guide에 맞춰 constraints 설정
+        // 상단은 Safe Area 적용, 하단은 view의 bottomAnchor 사용
         NSLayoutConstraint.activate([
-            webView.topAnchor.constraint(equalTo: view.topAnchor),
+            webView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             webView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             webView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
@@ -365,6 +361,8 @@ extension AdchainOfferwallViewController: WKScriptMessageHandler {
             }
         case "missionCompleted":
             handleMissionCompleted(data: messageData)
+        case "missionProgressed":
+            handleMissionProgressed(data: messageData)
         case "getUserInfo":
             handleGetUserInfo()
         default:
@@ -528,9 +526,9 @@ extension AdchainOfferwallViewController: WKScriptMessageHandler {
     
     private func handleMissionCompleted(data: [String: Any]?) {
         print("Mission completed")
-        
+
         let missionId = data?["missionId"] as? String ?? ""
-        
+
         DispatchQueue.main.async { [weak self] in
             Task {
                 _ = try? await NetworkManager.shared.trackEvent(
@@ -541,7 +539,7 @@ extension AdchainOfferwallViewController: WKScriptMessageHandler {
                     properties: ["mission_id": missionId]
                 )
             }
-            
+
             // Notify mission completed with current mission
             if let missionInstance = AdchainMission.currentMissionInstance,
                let currentMission = AdchainMission.currentMission {
@@ -551,14 +549,47 @@ extension AdchainOfferwallViewController: WKScriptMessageHandler {
             } else {
                 print("⚠️ [iOS SDK - WebView] Mission instance 또는 mission을 찾을 수 없음")
             }
-            
+
             // DO NOT call onClosed() here
             // Mission completion should only trigger data refresh, not close the WebView
             // The WebView should remain open until user manually closes it
             // Self.callback?.onClosed() // Removed to prevent duplicate callback invocation
         }
     }
-    
+
+    private func handleMissionProgressed(data: [String: Any]?) {
+        print("Mission progressed")
+
+        let missionId = data?["missionId"] as? String ?? ""
+
+        DispatchQueue.main.async { [weak self] in
+            Task {
+                _ = try? await NetworkManager.shared.trackEvent(
+                    userId: self?.userId ?? "",
+                    eventName: "mission_progressed",
+                    sdkVersion: AdchainSdk.shared.getSDKVersion(),
+                    category: "mission",
+                    properties: [
+                        "mission_id": missionId
+                    ]
+                )
+            }
+
+            // Notify mission progressed with current mission (without progress parameter)
+            if let missionInstance = AdchainMission.currentMissionInstance,
+               let currentMission = AdchainMission.currentMission {
+                print("🔄 [iOS SDK - WebView] Mission 진행 알림...")
+                missionInstance.onMissionProgressed(currentMission)
+                print("✅ [iOS SDK - WebView] Mission 진행 알림 완료!")
+            } else {
+                print("⚠️ [iOS SDK - WebView] Mission instance 또는 mission을 찾을 수 없음")
+            }
+
+            // DO NOT call onClosed() here
+            // Mission progress should only trigger UI update, not close the WebView
+        }
+    }
+
     private func handleGetUserInfo() {
         if let user = AdchainSdk.shared.getCurrentUser() {
             let userInfo = [

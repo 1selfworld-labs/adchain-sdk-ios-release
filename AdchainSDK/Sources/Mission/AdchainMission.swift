@@ -173,9 +173,17 @@ public class AdchainMission {
     public func onMissionCompleted(_ mission: Mission) {
         print("Mission completed: \(mission.id)")
         eventsListener?.onCompleted(mission)
-        
+
         // Refresh the mission list after completion
         refreshAfterCompletion()
+    }
+
+    public func onMissionProgressed(_ mission: Mission) {
+        print("Mission progressed: \(mission.id)")
+        eventsListener?.onProgressed(mission)
+
+        // Optionally refresh or update UI based on progress
+        // Note: We don't call refreshAfterCompletion here as progress doesn't require full refresh
     }
     
     // MARK: - Reward Button
