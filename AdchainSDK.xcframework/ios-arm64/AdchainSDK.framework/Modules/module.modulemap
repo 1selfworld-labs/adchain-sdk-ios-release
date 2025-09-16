@@ -1,4 +1,4 @@
-framework module AdChainSDK {
-  header "AdChainSDK-Swift.h"
+framework module AdchainSDK {
+  header "AdchainSDK-Swift.h"
   requires objc
 }

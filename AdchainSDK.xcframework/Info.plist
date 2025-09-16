@@ -6,11 +6,11 @@
 	<array>
 		<dict>
 			<key>BinaryPath</key>
-			<string>AdChainSDK.framework/AdChainSDK</string>
+			<string>AdchainSDK.framework/AdchainSDK</string>
 			<key>LibraryIdentifier</key>
 			<string>ios-arm64_x86_64-simulator</string>
 			<key>LibraryPath</key>
-			<string>AdChainSDK.framework</string>
+			<string>AdchainSDK.framework</string>
 			<key>SupportedArchitectures</key>
 			<array>
 				<string>arm64</string>
@@ -23,11 +23,11 @@
 		</dict>
 		<dict>
 			<key>BinaryPath</key>
-			<string>AdChainSDK.framework/AdChainSDK</string>
+			<string>AdchainSDK.framework/AdchainSDK</string>
 			<key>LibraryIdentifier</key>
 			<string>ios-arm64</string>
 			<key>LibraryPath</key>
-			<string>AdChainSDK.framework</string>
+			<string>AdchainSDK.framework</string>
 			<key>SupportedArchitectures</key>
 			<array>
 				<string>arm64</string>
