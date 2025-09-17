@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+// swift-compiler-version: Apple Swift version 6.2 effective-5.10 (swiftlang-6.2.0.19.9 clang-1700.3.19.1)
 // swift-module-flags: -target arm64-apple-ios14.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name AdchainSDK
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2
 import AdSupport
 import AppTrackingTransparency
 import Foundation
@@ -39,7 +39,9 @@ public enum AdchainAdError : Swift.Error {
   case debug = 4
   case verbose = 5
   public static func < (lhs: AdchainSDK.LogLevel, rhs: AdchainSDK.LogLevel) -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -47,8 +49,12 @@ public enum AdchainAdError : Swift.Error {
 }
 @objc @_inheritsConvenienceInitializers public class AdchainLogger : ObjectiveC.NSObject {
   public static var logLevel: AdchainSDK.LogLevel
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func e(_ tag: Swift.String, _ message: Swift.String, _ error: (any Swift.Error)? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func w(_ tag: Swift.String, _ message: Swift.String, _ error: (any Swift.Error)? = nil)
+  #endif
   public static func i(_ tag: Swift.String, _ message: Swift.String)
   public static func d(_ tag: Swift.String, _ message: Swift.String)
   public static func v(_ tag: Swift.String, _ message: Swift.String)
@@ -61,7 +67,9 @@ public class AdchainMission {
   public func load(onSuccess: @escaping ([AdchainSDK.Mission], AdchainSDK.MissionProgress) -> Swift.Void, onFailure: @escaping (AdchainSDK.AdchainAdError) -> Swift.Void, shouldStoreCallbacks: Swift.Bool = true)
   public func setEventsListener(_ listener: any AdchainSDK.AdchainMissionEventsListener)
   public func getMissions() -> [AdchainSDK.Mission]
+  #if compiler(>=5.3) && $NonescapableTypes
   public func getMission(missionId: Swift.String) -> AdchainSDK.Mission?
+  #endif
   public func markAsParticipating(_ missionId: Swift.String)
   public func isParticipating(_ missionId: Swift.String) -> Swift.Bool
   public func clickMission(_ missionId: Swift.String, from viewController: UIKit.UIViewController)
@@ -97,18 +105,28 @@ public protocol AdchainQuizEventsListener : AnyObject {
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc final public class AdchainSdk : ObjectiveC.NSObject {
   @objc public static let shared: AdchainSDK.AdchainSdk
   @objc final public func initialize(application: UIKit.UIApplication, sdkConfig: AdchainSDK.AdchainSdkConfig)
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func login(adchainSdkUser: AdchainSDK.AdchainSdkUser, listener: (any AdchainSDK.AdchainSdkLoginListener)? = nil)
+  #endif
   @objc final public func logout()
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func openOfferwall(presentingViewController: UIKit.UIViewController, callback: (any AdchainSDK.OfferwallCallback)? = nil)
+  #endif
   @objc final public func isInitialized() -> Swift.Bool
   @objc final public var isLoggedIn: Swift.Bool {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func getCurrentUser() -> AdchainSDK.AdchainSdkUser?
+  #endif
   @objc public static func setLogLevel(_ level: AdchainSDK.LogLevel)
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func getConfig() -> AdchainSDK.AdchainSdkConfig?
+  #endif
   final public func getSDKVersion() -> Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func getBannerInfo(placementId: Swift.String, completion: @escaping (Swift.Result<AdchainSDK.BannerInfoResponse, any Swift.Error>) -> Swift.Void)
+  #endif
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc public class AdchainSdkConfig : ObjectiveC.NSObject {
@@ -116,7 +134,9 @@ public protocol AdchainQuizEventsListener : AnyObject {
     case production = 0
     case staging = 1
     case development = 2
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
+    #endif
     public typealias RawValue = Swift.Int
     public var rawValue: Swift.Int {
       get
@@ -147,7 +167,9 @@ public protocol AdchainQuizEventsListener : AnyObject {
   public var description: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -161,7 +183,9 @@ public protocol AdchainQuizEventsListener : AnyObject {
     public var stringValue: Swift.String {
       get
     }
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
+    #endif
     public typealias RawValue = Swift.Int
     public var rawValue: Swift.Int {
       get
@@ -170,7 +194,9 @@ public protocol AdchainQuizEventsListener : AnyObject {
   @objc final public let userId: Swift.String
   final public let gender: AdchainSDK.AdchainSdkUser.Gender?
   final public let birthYear: Swift.Int?
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(userId: Swift.String, gender: AdchainSDK.AdchainSdkUser.Gender? = nil, birthYear: Swift.Int? = nil)
+  #endif
   @objc deinit
 }
 public struct BannerInfoResponse : Swift.Codable {
@@ -186,7 +212,9 @@ public struct BannerInfoResponse : Swift.Codable {
 public enum MissionType : Swift.String, Swift.Codable, Swift.Sendable {
   case normal
   case offerwallPromotion
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
@@ -203,7 +231,9 @@ public struct Mission : Swift.Codable, Swift.Sendable {
   public let progress: Swift.Int?
   public let total: Swift.Int?
   public let type: AdchainSDK.MissionType?
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(id: Swift.String, title: Swift.String, description: Swift.String, imageUrl: Swift.String, landingUrl: Swift.String, point: Swift.String, status: Swift.String? = nil, progress: Swift.Int? = nil, total: Swift.Int? = nil, type: AdchainSDK.MissionType? = nil)
+  #endif
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
