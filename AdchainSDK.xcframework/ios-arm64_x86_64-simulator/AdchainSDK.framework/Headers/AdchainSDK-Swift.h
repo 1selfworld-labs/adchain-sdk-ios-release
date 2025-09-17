@@ -305,6 +305,12 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 #if defined(__OBJC__)
 
+/// Centralized logger for AdchainSdk
+SWIFT_CLASS("_TtC10AdchainSDK13AdchainLogger")
+@interface AdchainLogger : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 typedef SWIFT_ENUM(NSInteger, AdchainLoginError, open) {
   AdchainLoginErrorNotInitialized = 0,
   AdchainLoginErrorInvalidUserId = 1,
@@ -314,6 +320,7 @@ typedef SWIFT_ENUM(NSInteger, AdchainLoginError, open) {
 
 @class UIApplication;
 @class AdchainSdkConfig;
+enum LogLevel : NSInteger;
 SWIFT_CLASS("_TtC10AdchainSDK10AdchainSdk")
 @interface AdchainSdk : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AdchainSdk * _Nonnull shared;)
@@ -322,7 +329,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AdchainSdk *
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 - (void)initializeWithApplication:(UIApplication * _Nonnull)application sdkConfig:(AdchainSdkConfig * _Nonnull)sdkConfig;
 - (void)logout;
+- (BOOL)isInitialized SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, readonly) BOOL isLoggedIn;
+/// Set the log level for SDK logs
+/// \param level The desired log level (NONE, ERROR, WARNING, INFO, DEBUG, VERBOSE)
+/// Default is WARNING for production safety
+///
++ (void)setLogLevel:(enum LogLevel)level;
 @end
 
 @class NSString;
@@ -370,6 +383,16 @@ typedef SWIFT_ENUM(NSInteger, Gender, open) {
   GenderMale = 0,
   GenderFemale = 1,
   GenderOther = 2,
+};
+
+/// Log level enum defining the verbosity of logs
+typedef SWIFT_ENUM(NSInteger, LogLevel, open) {
+  LogLevelNone = 0,
+  LogLevelError = 1,
+  LogLevelWarning = 2,
+  LogLevelInfo = 3,
+  LogLevelDebug = 4,
+  LogLevelVerbose = 5,
 };
 
 #endif
@@ -687,6 +710,12 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 #if defined(__OBJC__)
 
+/// Centralized logger for AdchainSdk
+SWIFT_CLASS("_TtC10AdchainSDK13AdchainLogger")
+@interface AdchainLogger : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 typedef SWIFT_ENUM(NSInteger, AdchainLoginError, open) {
   AdchainLoginErrorNotInitialized = 0,
   AdchainLoginErrorInvalidUserId = 1,
@@ -696,6 +725,7 @@ typedef SWIFT_ENUM(NSInteger, AdchainLoginError, open) {
 
 @class UIApplication;
 @class AdchainSdkConfig;
+enum LogLevel : NSInteger;
 SWIFT_CLASS("_TtC10AdchainSDK10AdchainSdk")
 @interface AdchainSdk : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AdchainSdk * _Nonnull shared;)
@@ -704,7 +734,13 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AdchainSdk *
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 - (void)initializeWithApplication:(UIApplication * _Nonnull)application sdkConfig:(AdchainSdkConfig * _Nonnull)sdkConfig;
 - (void)logout;
+- (BOOL)isInitialized SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, readonly) BOOL isLoggedIn;
+/// Set the log level for SDK logs
+/// \param level The desired log level (NONE, ERROR, WARNING, INFO, DEBUG, VERBOSE)
+/// Default is WARNING for production safety
+///
++ (void)setLogLevel:(enum LogLevel)level;
 @end
 
 @class NSString;
@@ -752,6 +788,16 @@ typedef SWIFT_ENUM(NSInteger, Gender, open) {
   GenderMale = 0,
   GenderFemale = 1,
   GenderOther = 2,
+};
+
+/// Log level enum defining the verbosity of logs
+typedef SWIFT_ENUM(NSInteger, LogLevel, open) {
+  LogLevelNone = 0,
+  LogLevelError = 1,
+  LogLevelWarning = 2,
+  LogLevelInfo = 3,
+  LogLevelDebug = 4,
+  LogLevelVerbose = 5,
 };
 
 #endif
