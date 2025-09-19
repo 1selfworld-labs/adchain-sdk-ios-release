@@ -18,7 +18,7 @@ Pod::Spec.new do |spec|
   spec.platform     = :ios, "14.0"
   spec.ios.deployment_target = "14.0"
 
-  spec.source       = { :git => "https://github.com/1selfworld-labs/adchain-sdk-ios-release.git", :tag => "v\#{spec.version}" }
+  spec.source       = { :git => "https://github.com/1selfworld-labs/adchain-sdk-ios-release.git", :tag => "v#{spec.version}" }
 
   # Binary framework only - no source code
   spec.vendored_frameworks = 'AdchainSDK.xcframework'
