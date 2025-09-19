@@ -29,4 +29,14 @@ import Foundation
         self.birthYear = birthYear
         super.init()
     }
+
+    // MARK: - Objective-C Compatible Initializer
+    @objc public convenience init(userId: String) {
+        self.init(userId: userId, gender: nil, birthYear: nil)
+    }
+
+    @objc public convenience init(userId: String, genderValue: Int, birthYear: Int) {
+        let gender = Gender(rawValue: genderValue) ?? .other
+        self.init(userId: userId, gender: gender, birthYear: birthYear)
+    }
 }

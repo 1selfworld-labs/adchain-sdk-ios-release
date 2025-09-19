@@ -54,17 +54,26 @@ enum DeviceUtils {
                 cachedAdvertisingId = "00000000-0000-0000-0000-000000000000"
                 AdchainLogger.i("DeviceUtils", "[SYNC] First launch - setting zero ID initially")
 
-                // 백그라운드에서 권한 요청 (UI 블록 안함)
-                Task {
-                    AdchainLogger.d("DeviceUtils", "[ASYNC] Requesting tracking authorization in background...")
-                    let newStatus = await ATTrackingManager.requestTrackingAuthorization()
-                    if newStatus == .authorized {
-                        let idfa = ASIdentifierManager.shared().advertisingIdentifier.uuidString
-                        cachedAdvertisingId = idfa
-                        AdchainLogger.i("DeviceUtils", "[ASYNC] Authorization granted, updated to real IDFA: \(String(idfa.prefix(8)))...")
-                    } else {
-                        AdchainLogger.i("DeviceUtils", "[ASYNC] Authorization denied, keeping zero ID")
+                // UI가 준비된 후 메인 스레드에서 권한 요청
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    // 앱이 활성 상태인지 확인
+                    guard UIApplication.shared.applicationState == .active else {
+                        AdchainLogger.w("DeviceUtils", "[ATT] App not active, will retry when app becomes active")
+
+                        // 앱이 활성화될 때 다시 시도
+                        NotificationCenter.default.addObserver(
+                            forName: UIApplication.didBecomeActiveNotification,
+                            object: nil,
+                            queue: .main
+                        ) { _ in
+                            AdchainLogger.i("DeviceUtils", "[ATT] App became active, requesting tracking authorization")
+                            requestTrackingAuthorizationOnce()
+                        }
+                        return
                     }
+
+                    AdchainLogger.d("DeviceUtils", "[ATT] App is active, requesting tracking authorization after delay")
+                    requestTrackingAuthorizationOnce()
                 }
             }
         } else {
@@ -80,6 +89,40 @@ enum DeviceUtils {
 
         isAdvertisingIdInitialized = true
         AdchainLogger.i("DeviceUtils", "[SYNC] Advertising ID initialization complete")
+    }
+
+    // MARK: - Private helper for ATT request
+    private static var hasRequestedTracking = false
+
+    private static func requestTrackingAuthorizationOnce() {
+        guard !hasRequestedTracking else {
+            AdchainLogger.d("DeviceUtils", "[ATT] Already requested tracking authorization, skipping")
+            return
+        }
+        hasRequestedTracking = true
+
+        Task { @MainActor in
+            AdchainLogger.d("DeviceUtils", "[ATT] Requesting tracking authorization on main thread...")
+
+            if #available(iOS 14, *) {
+                let newStatus = await ATTrackingManager.requestTrackingAuthorization()
+
+                if newStatus == .authorized {
+                    let idfa = ASIdentifierManager.shared().advertisingIdentifier.uuidString
+                    cachedAdvertisingId = idfa
+                    AdchainLogger.i("DeviceUtils", "[ATT] Authorization granted, updated to real IDFA: \(String(idfa.prefix(8)))...")
+                } else {
+                    AdchainLogger.i("DeviceUtils", "[ATT] Authorization denied/restricted, keeping zero ID (status: \(newStatus.rawValue))")
+                }
+
+                // Remove observer if it was added
+                NotificationCenter.default.removeObserver(
+                    self,
+                    name: UIApplication.didBecomeActiveNotification,
+                    object: nil
+                )
+            }
+        }
     }
 
     // MARK: - Advertising ID (IDFA)

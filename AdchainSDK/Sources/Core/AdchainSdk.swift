@@ -3,7 +3,7 @@ import Foundation
 
 @objc public final class AdchainSdk: NSObject {
     // MARK: - SDK Version
-    private static let SDK_VERSION = "1.0.19"
+    private static let SDK_VERSION = "1.0.22"
     
     // MARK: - Singleton (Android의 object와 동일)
     @objc public static let shared = AdchainSdk()
@@ -75,7 +75,7 @@ import Foundation
     }
     
     // MARK: - Login (Android와 동일한 중복 로그인 체크)
-    public func login(
+    @objc public func login(
         adchainSdkUser: AdchainSdkUser,
         listener: AdchainSdkLoginListener? = nil
     ) {
@@ -288,7 +288,7 @@ import Foundation
     /// - Parameter url: The URL to open in the external browser
     /// - Returns: true if browser was opened successfully, false otherwise
     @discardableResult
-    public func openExternalBrowser(_ url: String) -> Bool {
+    @objc public func openExternalBrowser(_ url: String) -> Bool {
         // Validate URL
         guard !url.isEmpty else {
             AdchainLogger.w("AdchainSdk", "URL is empty")
@@ -340,7 +340,7 @@ import Foundation
         return currentUser != nil
     }
 
-    public func getCurrentUser() -> AdchainSdkUser? {
+    @objc public func getCurrentUser() -> AdchainSdkUser? {
         return currentUser
     }
 
@@ -352,7 +352,7 @@ import Foundation
         AdchainLogger.logLevel = level
     }
     
-    public func getConfig() -> AdchainSdkConfig? {
+    @objc public func getConfig() -> AdchainSdkConfig? {
         return config
     }
     
@@ -375,7 +375,7 @@ import Foundation
         validatedAppData = nil
     }
     
-    public func getSDKVersion() -> String {
+    @objc public func getSDKVersion() -> String {
         // 상수로 정의된 SDK 버전을 직접 반환
         // Bundle 정보를 읽을 수 없는 환경에서도 확실하게 동작
         return Self.SDK_VERSION
@@ -412,6 +412,17 @@ import Foundation
                 completion(.failure(error))
             }
         }
+    }
+
+    // MARK: - Objective-C Compatible Methods
+    // These methods provide Objective-C compatible interfaces for Swift-only methods
+
+    @objc public func objc_openOfferwall(presentingViewController: UIViewController) {
+        openOfferwall(presentingViewController: presentingViewController, callback: nil)
+    }
+
+    @objc public func objc_openOfferwallWithUrl(_ url: String, presentingViewController: UIViewController) {
+        openOfferwallWithUrl(url, presentingViewController: presentingViewController, callback: nil)
     }
 
 }
