@@ -1,5 +1,5 @@
 Pod::Spec.new do |spec|
-  spec.name         = "AdchainSDK"
+  spec.name         = "AdChainSDK"
   spec.version      = "1.0.23"
   spec.summary      = "AdChain SDK for iOS - Complete advertising and offerwall solution"
   spec.description  = <<-DESC
