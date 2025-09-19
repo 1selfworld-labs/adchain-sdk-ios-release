@@ -9159,7 +9159,7 @@
       "kind": "StringLiteral",
       "offset": 144,
       "length": 8,
-      "value": "\"1.0.18\""
+      "value": "\"1.0.19\""
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
@@ -9178,7 +9178,7 @@
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "StringLiteral",
-      "offset": 14871,
+      "offset": 15068,
       "length": 20,
       "value": "\"com.adchain.atomic\""
     },
@@ -9415,31 +9415,10 @@
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/DeviceUtils.swift",
-      "kind": "StringLiteral",
-      "offset": 272,
-      "length": 16,
-      "value": "\"advertising_id\""
-    },
-    {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/DeviceUtils.swift",
-      "kind": "StringLiteral",
-      "offset": 340,
-      "length": 26,
-      "value": "\"advertising_id_timestamp\""
-    },
-    {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/DeviceUtils.swift",
-      "kind": "IntegerLiteral",
-      "offset": 420,
-      "length": 4,
-      "value": "3600"
-    },
-    {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/DeviceUtils.swift",
-      "kind": "IntegerLiteral",
-      "offset": 622,
-      "length": 1,
-      "value": "0"
+      "kind": "BooleanLiteral",
+      "offset": 519,
+      "length": 5,
+      "value": "false"
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/LoginResponse.swift",
