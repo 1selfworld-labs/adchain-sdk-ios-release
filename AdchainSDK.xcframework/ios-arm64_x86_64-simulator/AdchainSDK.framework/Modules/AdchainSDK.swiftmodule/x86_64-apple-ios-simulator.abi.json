@@ -1422,116 +1422,6 @@
         "children": [
           {
             "kind": "Var",
-            "name": "missionResponse",
-            "printedName": "missionResponse",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "AdchainSDK.MissionResponse?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "MissionResponse",
-                    "printedName": "AdchainSDK.MissionResponse",
-                    "usr": "s:10AdchainSDK15MissionResponseV"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:10AdchainSDK0A7MissionC15missionResponseAA0cE0VSgvp",
-            "mangledName": "$s10AdchainSDK0A7MissionC15missionResponseAA0cE0VSgvp",
-            "moduleName": "AdchainSDK",
-            "declAttributes": [
-              "HasInitialValue",
-              "HasStorage",
-              "AccessControl"
-            ],
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "AdchainSDK.MissionResponse?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "MissionResponse",
-                        "printedName": "AdchainSDK.MissionResponse",
-                        "usr": "s:10AdchainSDK15MissionResponseV"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:10AdchainSDK0A7MissionC15missionResponseAA0cE0VSgvg",
-                "mangledName": "$s10AdchainSDK0A7MissionC15missionResponseAA0cE0VSgvg",
-                "moduleName": "AdchainSDK",
-                "implicit": true,
-                "accessorKind": "get"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Set",
-                "printedName": "Set()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "AdchainSDK.MissionResponse?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "MissionResponse",
-                        "printedName": "AdchainSDK.MissionResponse",
-                        "usr": "s:10AdchainSDK15MissionResponseV"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:10AdchainSDK0A7MissionC15missionResponseAA0cE0VSgvs",
-                "mangledName": "$s10AdchainSDK0A7MissionC15missionResponseAA0cE0VSgvs",
-                "moduleName": "AdchainSDK",
-                "implicit": true,
-                "accessorKind": "set"
-              },
-              {
-                "kind": "Accessor",
-                "name": "Modify",
-                "printedName": "Modify()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Void",
-                    "printedName": "()"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:10AdchainSDK0A7MissionC15missionResponseAA0cE0VSgvM",
-                "mangledName": "$s10AdchainSDK0A7MissionC15missionResponseAA0cE0VSgvM",
-                "moduleName": "AdchainSDK",
-                "implicit": true,
-                "accessorKind": "_modify"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
             "name": "eventsListener",
             "printedName": "eventsListener",
             "children": [
@@ -2302,13 +2192,6 @@
       },
       {
         "kind": "Import",
-        "name": "SystemConfiguration",
-        "printedName": "SystemConfiguration",
-        "declKind": "Import",
-        "moduleName": "AdchainSDK"
-      },
-      {
-        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
         "declKind": "Import",
@@ -2385,7 +2268,7 @@
               {
                 "kind": "TypeFunc",
                 "name": "Function",
-                "printedName": "(AdchainSDK.QuizResponse) -> ()",
+                "printedName": "([AdchainSDK.QuizEvent]) -> ()",
                 "children": [
                   {
                     "kind": "TypeNominal",
@@ -2394,9 +2277,17 @@
                   },
                   {
                     "kind": "TypeNominal",
-                    "name": "QuizResponse",
-                    "printedName": "AdchainSDK.QuizResponse",
-                    "usr": "s:10AdchainSDK12QuizResponseV"
+                    "name": "Array",
+                    "printedName": "[AdchainSDK.QuizEvent]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "QuizEvent",
+                        "printedName": "AdchainSDK.QuizEvent",
+                        "usr": "s:10AdchainSDK9QuizEventV"
+                      }
+                    ],
+                    "usr": "s:Sa"
                   }
                 ]
               },
@@ -2427,8 +2318,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:10AdchainSDK0A4QuizC4load9onSuccess0E7Failure20shouldStoreCallbacksyyAA0C8ResponseVc_yAA0A7AdErrorOcSbtF",
-            "mangledName": "$s10AdchainSDK0A4QuizC4load9onSuccess0E7Failure20shouldStoreCallbacksyyAA0C8ResponseVc_yAA0A7AdErrorOcSbtF",
+            "usr": "s:10AdchainSDK0A4QuizC4load9onSuccess0E7Failure20shouldStoreCallbacksyySayAA0C5EventVGc_yAA0A7AdErrorOcSbtF",
+            "mangledName": "$s10AdchainSDK0A4QuizC4load9onSuccess0E7Failure20shouldStoreCallbacksyySayAA0C5EventVGc_yAA0A7AdErrorOcSbtF",
             "moduleName": "AdchainSDK",
             "declAttributes": [
               "AccessControl",
@@ -2821,14 +2712,12 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdk(im)loginWithAdchainSdkUser:listener:",
+            "usr": "s:10AdchainSDK0A3SdkC5login07adchainC4User8listeneryAA0acF0C_AA0aC13LoginListener_pSgtF",
             "mangledName": "$s10AdchainSDK0A3SdkC5login07adchainC4User8listeneryAA0acF0C_AA0aC13LoginListener_pSgtF",
             "moduleName": "AdchainSDK",
-            "objc_name": "loginWithAdchainSdkUser:listener:",
             "declAttributes": [
               "Final",
               "AccessControl",
-              "ObjC",
               "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
@@ -2895,86 +2784,6 @@
             "declAttributes": [
               "Final",
               "AccessControl",
-              "RawDocComment"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "openOfferwallWithUrl",
-            "printedName": "openOfferwallWithUrl(_:presentingViewController:callback:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "UIViewController",
-                "printedName": "UIKit.UIViewController",
-                "usr": "c:objc(cs)UIViewController"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "(any AdchainSDK.OfferwallCallback)?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "OfferwallCallback",
-                    "printedName": "any AdchainSDK.OfferwallCallback",
-                    "usr": "s:10AdchainSDK17OfferwallCallbackP"
-                  }
-                ],
-                "hasDefaultArg": true,
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:10AdchainSDK0A3SdkC20openOfferwallWithUrl_24presentingViewController8callbackySS_So06UIViewJ0CAA0E8Callback_pSgtF",
-            "mangledName": "$s10AdchainSDK0A3SdkC20openOfferwallWithUrl_24presentingViewController8callbackySS_So06UIViewJ0CAA0E8Callback_pSgtF",
-            "moduleName": "AdchainSDK",
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "openExternalBrowser",
-            "printedName": "openExternalBrowser(_:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdk(im)openExternalBrowser:",
-            "mangledName": "$s10AdchainSDK0A3SdkC19openExternalBrowserySbSSF",
-            "moduleName": "AdchainSDK",
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "ObjC",
-              "DiscardableResult",
               "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
@@ -3070,13 +2879,12 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdk(im)getCurrentUser",
+            "usr": "s:10AdchainSDK0A3SdkC14getCurrentUserAA0acF0CSgyF",
             "mangledName": "$s10AdchainSDK0A3SdkC14getCurrentUserAA0acF0CSgyF",
             "moduleName": "AdchainSDK",
             "declAttributes": [
               "Final",
-              "AccessControl",
-              "ObjC"
+              "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -3131,13 +2939,12 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdk(im)getConfig",
+            "usr": "s:10AdchainSDK0A3SdkC9getConfigAA0acE0CSgyF",
             "mangledName": "$s10AdchainSDK0A3SdkC9getConfigAA0acE0CSgyF",
             "moduleName": "AdchainSDK",
             "declAttributes": [
               "Final",
-              "AccessControl",
-              "ObjC"
+              "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -3154,13 +2961,12 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdk(im)getSDKVersion",
+            "usr": "s:10AdchainSDK0A3SdkC13getSDKVersionSSyF",
             "mangledName": "$s10AdchainSDK0A3SdkC13getSDKVersionSSyF",
             "moduleName": "AdchainSDK",
             "declAttributes": [
               "Final",
-              "AccessControl",
-              "ObjC"
+              "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -3221,70 +3027,6 @@
               "Final",
               "AccessControl",
               "RawDocComment"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "objc_openOfferwall",
-            "printedName": "objc_openOfferwall(presentingViewController:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "UIViewController",
-                "printedName": "UIKit.UIViewController",
-                "usr": "c:objc(cs)UIViewController"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdk(im)objc_openOfferwallWithPresentingViewController:",
-            "mangledName": "$s10AdchainSDK0A3SdkC18objc_openOfferwall24presentingViewControllerySo06UIViewI0C_tF",
-            "moduleName": "AdchainSDK",
-            "objc_name": "objc_openOfferwallWithPresentingViewController:",
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "ObjC",
-              "RawDocComment"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "objc_openOfferwallWithUrl",
-            "printedName": "objc_openOfferwallWithUrl(_:presentingViewController:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "UIViewController",
-                "printedName": "UIKit.UIViewController",
-                "usr": "c:objc(cs)UIViewController"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdk(im)objc_openOfferwallWithUrl:presentingViewController:",
-            "mangledName": "$s10AdchainSDK0A3SdkC25objc_openOfferwallWithUrl_24presentingViewControllerySS_So06UIViewK0CtF",
-            "moduleName": "AdchainSDK",
-            "declAttributes": [
-              "Final",
-              "AccessControl",
-              "ObjC"
             ],
             "funcSelfKind": "NonMutating"
           }
@@ -5166,79 +4908,6 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(userId:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "AdchainSdkUser",
-                "printedName": "AdchainSDK.AdchainSdkUser",
-                "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdkUser"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdkUser(im)initWithUserId:",
-            "mangledName": "$s10AdchainSDK0A7SdkUserC6userIdACSS_tcfc",
-            "moduleName": "AdchainSDK",
-            "objc_name": "initWithUserId:",
-            "declAttributes": [
-              "Convenience",
-              "AccessControl",
-              "ObjC",
-              "RawDocComment"
-            ],
-            "init_kind": "Convenience"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
-            "printedName": "init(userId:genderValue:birthYear:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "AdchainSdkUser",
-                "printedName": "AdchainSDK.AdchainSdkUser",
-                "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdkUser"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
-              }
-            ],
-            "declKind": "Constructor",
-            "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdkUser(im)initWithUserId:genderValue:birthYear:",
-            "mangledName": "$s10AdchainSDK0A7SdkUserC6userId11genderValue9birthYearACSS_S2itcfc",
-            "moduleName": "AdchainSDK",
-            "objc_name": "initWithUserId:genderValue:birthYear:",
-            "declAttributes": [
-              "Convenience",
-              "AccessControl",
-              "ObjC"
-            ],
-            "init_kind": "Convenience"
-          },
-          {
-            "kind": "Constructor",
-            "name": "init",
             "printedName": "init()",
             "children": [
               {
@@ -5486,126 +5155,6 @@
                 "declKind": "Accessor",
                 "usr": "s:10AdchainSDK18BannerInfoResponseV8imageUrlSSSgvg",
                 "mangledName": "$s10AdchainSDK18BannerInfoResponseV8imageUrlSSSgvg",
-                "moduleName": "AdchainSDK",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "imageWidth",
-            "printedName": "imageWidth",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.Int?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:10AdchainSDK18BannerInfoResponseV10imageWidthSiSgvp",
-            "mangledName": "$s10AdchainSDK18BannerInfoResponseV10imageWidthSiSgvp",
-            "moduleName": "AdchainSDK",
-            "declAttributes": [
-              "HasStorage",
-              "AccessControl"
-            ],
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.Int?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Int",
-                        "printedName": "Swift.Int",
-                        "usr": "s:Si"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:10AdchainSDK18BannerInfoResponseV10imageWidthSiSgvg",
-                "mangledName": "$s10AdchainSDK18BannerInfoResponseV10imageWidthSiSgvg",
-                "moduleName": "AdchainSDK",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "imageHeight",
-            "printedName": "imageHeight",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.Int?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:10AdchainSDK18BannerInfoResponseV11imageHeightSiSgvp",
-            "mangledName": "$s10AdchainSDK18BannerInfoResponseV11imageHeightSiSgvp",
-            "moduleName": "AdchainSDK",
-            "declAttributes": [
-              "HasStorage",
-              "AccessControl"
-            ],
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.Int?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Int",
-                        "printedName": "Swift.Int",
-                        "usr": "s:Si"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:10AdchainSDK18BannerInfoResponseV11imageHeightSiSgvg",
-                "mangledName": "$s10AdchainSDK18BannerInfoResponseV11imageHeightSiSgvg",
                 "moduleName": "AdchainSDK",
                 "implicit": true,
                 "accessorKind": "get"
@@ -7578,307 +7127,6 @@
             ]
           },
           {
-            "kind": "Var",
-            "name": "titleText",
-            "printedName": "titleText",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:10AdchainSDK15MissionResponseV9titleTextSSSgvp",
-            "mangledName": "$s10AdchainSDK15MissionResponseV9titleTextSSSgvp",
-            "moduleName": "AdchainSDK",
-            "declAttributes": [
-              "HasStorage",
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.String?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:10AdchainSDK15MissionResponseV9titleTextSSSgvg",
-                "mangledName": "$s10AdchainSDK15MissionResponseV9titleTextSSSgvg",
-                "moduleName": "AdchainSDK",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "descriptionText",
-            "printedName": "descriptionText",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:10AdchainSDK15MissionResponseV15descriptionTextSSSgvp",
-            "mangledName": "$s10AdchainSDK15MissionResponseV15descriptionTextSSSgvp",
-            "moduleName": "AdchainSDK",
-            "declAttributes": [
-              "HasStorage",
-              "AccessControl"
-            ],
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.String?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:10AdchainSDK15MissionResponseV15descriptionTextSSSgvg",
-                "mangledName": "$s10AdchainSDK15MissionResponseV15descriptionTextSSSgvg",
-                "moduleName": "AdchainSDK",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "bottomText",
-            "printedName": "bottomText",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:10AdchainSDK15MissionResponseV10bottomTextSSSgvp",
-            "mangledName": "$s10AdchainSDK15MissionResponseV10bottomTextSSSgvp",
-            "moduleName": "AdchainSDK",
-            "declAttributes": [
-              "HasStorage",
-              "AccessControl"
-            ],
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.String?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:10AdchainSDK15MissionResponseV10bottomTextSSSgvg",
-                "mangledName": "$s10AdchainSDK15MissionResponseV10bottomTextSSSgvg",
-                "moduleName": "AdchainSDK",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "rewardIconUrl",
-            "printedName": "rewardIconUrl",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:10AdchainSDK15MissionResponseV13rewardIconUrlSSSgvp",
-            "mangledName": "$s10AdchainSDK15MissionResponseV13rewardIconUrlSSSgvp",
-            "moduleName": "AdchainSDK",
-            "declAttributes": [
-              "HasStorage",
-              "AccessControl"
-            ],
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.String?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:10AdchainSDK15MissionResponseV13rewardIconUrlSSSgvg",
-                "mangledName": "$s10AdchainSDK15MissionResponseV13rewardIconUrlSSSgvg",
-                "moduleName": "AdchainSDK",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "bottomIconUrl",
-            "printedName": "bottomIconUrl",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:10AdchainSDK15MissionResponseV13bottomIconUrlSSSgvp",
-            "mangledName": "$s10AdchainSDK15MissionResponseV13bottomIconUrlSSSgvp",
-            "moduleName": "AdchainSDK",
-            "declAttributes": [
-              "HasStorage",
-              "AccessControl"
-            ],
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.String?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:10AdchainSDK15MissionResponseV13bottomIconUrlSSSgvg",
-                "mangledName": "$s10AdchainSDK15MissionResponseV13bottomIconUrlSSSgvg",
-                "moduleName": "AdchainSDK",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init(from:)",
@@ -8698,246 +7946,6 @@
           },
           {
             "kind": "Var",
-            "name": "titleText",
-            "printedName": "titleText",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:10AdchainSDK12QuizResponseV9titleTextSSSgvp",
-            "mangledName": "$s10AdchainSDK12QuizResponseV9titleTextSSSgvp",
-            "moduleName": "AdchainSDK",
-            "declAttributes": [
-              "HasStorage",
-              "AccessControl"
-            ],
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.String?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:10AdchainSDK12QuizResponseV9titleTextSSSgvg",
-                "mangledName": "$s10AdchainSDK12QuizResponseV9titleTextSSSgvg",
-                "moduleName": "AdchainSDK",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "completedImageUrl",
-            "printedName": "completedImageUrl",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:10AdchainSDK12QuizResponseV17completedImageUrlSSSgvp",
-            "mangledName": "$s10AdchainSDK12QuizResponseV17completedImageUrlSSSgvp",
-            "moduleName": "AdchainSDK",
-            "declAttributes": [
-              "HasStorage",
-              "AccessControl"
-            ],
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.String?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:10AdchainSDK12QuizResponseV17completedImageUrlSSSgvg",
-                "mangledName": "$s10AdchainSDK12QuizResponseV17completedImageUrlSSSgvg",
-                "moduleName": "AdchainSDK",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "completedImageWidth",
-            "printedName": "completedImageWidth",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.Int?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:10AdchainSDK12QuizResponseV19completedImageWidthSiSgvp",
-            "mangledName": "$s10AdchainSDK12QuizResponseV19completedImageWidthSiSgvp",
-            "moduleName": "AdchainSDK",
-            "declAttributes": [
-              "HasStorage",
-              "AccessControl"
-            ],
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.Int?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Int",
-                        "printedName": "Swift.Int",
-                        "usr": "s:Si"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:10AdchainSDK12QuizResponseV19completedImageWidthSiSgvg",
-                "mangledName": "$s10AdchainSDK12QuizResponseV19completedImageWidthSiSgvg",
-                "moduleName": "AdchainSDK",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
-            "name": "completedImageHeight",
-            "printedName": "completedImageHeight",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.Int?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Int",
-                    "printedName": "Swift.Int",
-                    "usr": "s:Si"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:10AdchainSDK12QuizResponseV20completedImageHeightSiSgvp",
-            "mangledName": "$s10AdchainSDK12QuizResponseV20completedImageHeightSiSgvp",
-            "moduleName": "AdchainSDK",
-            "declAttributes": [
-              "HasStorage",
-              "AccessControl"
-            ],
-            "isLet": true,
-            "hasStorage": true,
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.Int?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "Int",
-                        "printedName": "Swift.Int",
-                        "usr": "s:Si"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:10AdchainSDK12QuizResponseV20completedImageHeightSiSgvg",
-                "mangledName": "$s10AdchainSDK12QuizResponseV20completedImageHeightSiSgvg",
-                "moduleName": "AdchainSDK",
-                "implicit": true,
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Var",
             "name": "events",
             "printedName": "events",
             "children": [
@@ -9244,42 +8252,42 @@
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Mission\/AdchainMission.swift",
       "kind": "BooleanLiteral",
-      "offset": 1134,
+      "offset": 1135,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 491,
+      "offset": 464,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallViewController.swift",
       "kind": "StringLiteral",
-      "offset": 528,
+      "offset": 501,
       "length": 11,
       "value": "\"offerwall\""
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallViewController.swift",
       "kind": "StringLiteral",
-      "offset": 649,
+      "offset": 622,
       "length": 38,
       "value": "\"00000000-0000-0000-0000-000000000000\""
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 1893,
+      "offset": 1866,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 12102,
+      "offset": 11886,
       "length": 5,
       "value": "false"
     },
@@ -9293,7 +8301,7 @@
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Quiz\/AdchainQuiz.swift",
       "kind": "BooleanLiteral",
-      "offset": 1018,
+      "offset": 1016,
       "length": 4,
       "value": "true"
     },
@@ -9302,7 +8310,7 @@
       "kind": "StringLiteral",
       "offset": 144,
       "length": 8,
-      "value": "\"1.0.22\""
+      "value": "\"1.0.15\""
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
@@ -9321,7 +8329,7 @@
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "StringLiteral",
-      "offset": 15631,
+      "offset": 10835,
       "length": 20,
       "value": "\"com.adchain.atomic\""
     },
@@ -9469,69 +8477,69 @@
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
       "kind": "StringLiteral",
       "offset": 674,
-      "length": 18,
-      "value": "\"\/v1\/api\/sdk\/quiz\""
+      "length": 14,
+      "value": "\"\/v1\/api\/quiz\""
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
       "kind": "StringLiteral",
-      "offset": 752,
-      "length": 21,
-      "value": "\"\/v1\/api\/sdk\/mission\""
+      "offset": 753,
+      "length": 17,
+      "value": "\"\/v1\/api\/mission\""
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
       "kind": "StringLiteral",
-      "offset": 831,
+      "offset": 830,
       "length": 20,
       "value": "\"\/v1\/api\/sdk\/banner\""
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
       "kind": "StringLiteral",
-      "offset": 957,
+      "offset": 956,
       "length": 19,
       "value": "\"x-adchain-app-key\""
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1008,
+      "offset": 1007,
       "length": 22,
       "value": "\"x-adchain-app-secret\""
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1063,
+      "offset": 1062,
       "length": 23,
       "value": "\"x-adchain-sdk-version\""
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1117,
+      "offset": 1116,
       "length": 20,
       "value": "\"x-adchain-platform\""
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1171,
+      "offset": 1170,
       "length": 14,
       "value": "\"Content-Type\""
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1221,
+      "offset": 1220,
       "length": 15,
       "value": "\"Authorization\""
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
       "kind": "StringLiteral",
-      "offset": 1268,
+      "offset": 1267,
       "length": 12,
       "value": "\"User-Agent\""
     },
@@ -9558,17 +8566,31 @@
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/DeviceUtils.swift",
-      "kind": "BooleanLiteral",
-      "offset": 519,
-      "length": 5,
-      "value": "false"
+      "kind": "StringLiteral",
+      "offset": 272,
+      "length": 16,
+      "value": "\"advertising_id\""
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/DeviceUtils.swift",
-      "kind": "BooleanLiteral",
-      "offset": 4501,
-      "length": 5,
-      "value": "false"
+      "kind": "StringLiteral",
+      "offset": 340,
+      "length": 26,
+      "value": "\"advertising_id_timestamp\""
+    },
+    {
+      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/DeviceUtils.swift",
+      "kind": "IntegerLiteral",
+      "offset": 420,
+      "length": 4,
+      "value": "3600"
+    },
+    {
+      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/DeviceUtils.swift",
+      "kind": "IntegerLiteral",
+      "offset": 622,
+      "length": 1,
+      "value": "0"
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/LoginResponse.swift",

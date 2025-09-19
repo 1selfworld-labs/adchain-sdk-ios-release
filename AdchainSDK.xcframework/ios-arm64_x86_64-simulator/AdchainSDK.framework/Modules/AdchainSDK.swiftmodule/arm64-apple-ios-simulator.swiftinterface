@@ -6,7 +6,6 @@ import AdSupport
 import AppTrackingTransparency
 import Foundation
 import Swift
-import SystemConfiguration
 import UIKit
 import WebKit
 import _Concurrency
@@ -63,7 +62,6 @@ public enum AdchainAdError : Swift.Error {
   @objc deinit
 }
 public class AdchainMission {
-  public var missionResponse: AdchainSDK.MissionResponse?
   public var eventsListener: (any AdchainSDK.AdchainMissionEventsListener)?
   public init(unitId: Swift.String)
   public func load(onSuccess: @escaping ([AdchainSDK.Mission], AdchainSDK.MissionProgress) -> Swift.Void, onFailure: @escaping (AdchainSDK.AdchainAdError) -> Swift.Void, shouldStoreCallbacks: Swift.Bool = true)
@@ -93,7 +91,7 @@ public protocol AdchainMissionEventsListener : AnyObject {
 public class AdchainQuiz {
   public init(unitId: Swift.String)
   public func setQuizEventsListener(_ listener: any AdchainSDK.AdchainQuizEventsListener)
-  public func load(onSuccess: @escaping (AdchainSDK.QuizResponse) -> Swift.Void, onFailure: @escaping (AdchainSDK.AdchainAdError) -> Swift.Void, shouldStoreCallbacks: Swift.Bool = true)
+  public func load(onSuccess: @escaping ([AdchainSDK.QuizEvent]) -> Swift.Void, onFailure: @escaping (AdchainSDK.AdchainAdError) -> Swift.Void, shouldStoreCallbacks: Swift.Bool = true)
   public func clickQuiz(_ quizId: Swift.String, from viewController: UIKit.UIViewController)
   public func clickQuiz(_ quizEvent: AdchainSDK.QuizEvent, from viewController: UIKit.UIViewController)
   public func trackClick(_ quizEvent: AdchainSDK.QuizEvent)
@@ -108,34 +106,27 @@ public protocol AdchainQuizEventsListener : AnyObject {
   @objc public static let shared: AdchainSDK.AdchainSdk
   @objc final public func initialize(application: UIKit.UIApplication, sdkConfig: AdchainSDK.AdchainSdkConfig)
   #if compiler(>=5.3) && $NonescapableTypes
-  @objc final public func login(adchainSdkUser: AdchainSDK.AdchainSdkUser, listener: (any AdchainSDK.AdchainSdkLoginListener)? = nil)
+  final public func login(adchainSdkUser: AdchainSDK.AdchainSdkUser, listener: (any AdchainSDK.AdchainSdkLoginListener)? = nil)
   #endif
   @objc final public func logout()
   #if compiler(>=5.3) && $NonescapableTypes
   final public func openOfferwall(presentingViewController: UIKit.UIViewController, callback: (any AdchainSDK.OfferwallCallback)? = nil)
   #endif
-  #if compiler(>=5.3) && $NonescapableTypes
-  final public func openOfferwallWithUrl(_ url: Swift.String, presentingViewController: UIKit.UIViewController, callback: (any AdchainSDK.OfferwallCallback)? = nil)
-  #endif
-  @discardableResult
-  @objc final public func openExternalBrowser(_ url: Swift.String) -> Swift.Bool
   @objc final public func isInitialized() -> Swift.Bool
   @objc final public var isLoggedIn: Swift.Bool {
     @objc get
   }
   #if compiler(>=5.3) && $NonescapableTypes
-  @objc final public func getCurrentUser() -> AdchainSDK.AdchainSdkUser?
+  final public func getCurrentUser() -> AdchainSDK.AdchainSdkUser?
   #endif
   @objc public static func setLogLevel(_ level: AdchainSDK.LogLevel)
   #if compiler(>=5.3) && $NonescapableTypes
-  @objc final public func getConfig() -> AdchainSDK.AdchainSdkConfig?
+  final public func getConfig() -> AdchainSDK.AdchainSdkConfig?
   #endif
-  @objc final public func getSDKVersion() -> Swift.String
+  final public func getSDKVersion() -> Swift.String
   #if compiler(>=5.3) && $NonescapableTypes
   final public func getBannerInfo(placementId: Swift.String, completion: @escaping (Swift.Result<AdchainSDK.BannerInfoResponse, any Swift.Error>) -> Swift.Void)
   #endif
-  @objc final public func objc_openOfferwall(presentingViewController: UIKit.UIViewController)
-  @objc final public func objc_openOfferwallWithUrl(_ url: Swift.String, presentingViewController: UIKit.UIViewController)
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc public class AdchainSdkConfig : ObjectiveC.NSObject {
@@ -206,15 +197,11 @@ public protocol AdchainQuizEventsListener : AnyObject {
   #if compiler(>=5.3) && $NonescapableTypes
   public init(userId: Swift.String, gender: AdchainSDK.AdchainSdkUser.Gender? = nil, birthYear: Swift.Int? = nil)
   #endif
-  @objc convenience public init(userId: Swift.String)
-  @objc convenience public init(userId: Swift.String, genderValue: Swift.Int, birthYear: Swift.Int)
   @objc deinit
 }
 public struct BannerInfoResponse : Swift.Codable {
   public let success: Swift.Bool
   public let imageUrl: Swift.String?
-  public let imageWidth: Swift.Int?
-  public let imageHeight: Swift.Int?
   public let titleText: Swift.String?
   public let linkType: Swift.String?
   public let internalLinkUrl: Swift.String?
@@ -268,11 +255,6 @@ public struct MissionResponse : Swift.Codable {
   public let total: Swift.Int
   public let rewardUrl: Swift.String?
   public let message: Swift.String?
-  public let titleText: Swift.String?
-  public let descriptionText: Swift.String?
-  public let bottomText: Swift.String?
-  public let rewardIconUrl: Swift.String?
-  public let bottomIconUrl: Swift.String?
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -296,10 +278,6 @@ public struct QuizEvent : Swift.Codable, Swift.Sendable {
 }
 public struct QuizResponse : Swift.Codable {
   public let success: Swift.Bool?
-  public let titleText: Swift.String?
-  public let completedImageUrl: Swift.String?
-  public let completedImageWidth: Swift.Int?
-  public let completedImageHeight: Swift.Int?
   public let events: [AdchainSDK.QuizEvent]
   public let message: Swift.String?
   public func encode(to encoder: any Swift.Encoder) throws
