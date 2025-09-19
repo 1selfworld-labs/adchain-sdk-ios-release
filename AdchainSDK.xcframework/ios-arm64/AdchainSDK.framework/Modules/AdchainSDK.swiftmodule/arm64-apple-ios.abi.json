@@ -9302,7 +9302,7 @@
       "kind": "StringLiteral",
       "offset": 144,
       "length": 8,
-      "value": "\"1.0.22\""
+      "value": "\"1.0.23\""
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
