@@ -320,7 +320,11 @@ typedef SWIFT_ENUM(NSInteger, AdchainLoginError, open) {
 
 @class UIApplication;
 @class AdchainSdkConfig;
+@class AdchainSdkUser;
+@protocol AdchainSdkLoginListener;
+@class NSString;
 enum LogLevel : NSInteger;
+@class UIViewController;
 SWIFT_CLASS("_TtC10AdchainSDK10AdchainSdk")
 @interface AdchainSdk : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AdchainSdk * _Nonnull shared;)
@@ -328,17 +332,29 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AdchainSdk *
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 - (void)initializeWithApplication:(UIApplication * _Nonnull)application sdkConfig:(AdchainSdkConfig * _Nonnull)sdkConfig;
+- (void)loginWithAdchainSdkUser:(AdchainSdkUser * _Nonnull)adchainSdkUser listener:(id <AdchainSdkLoginListener> _Nullable)listener;
 - (void)logout;
+/// Opens a URL in the system’s default external browser
+/// \param url The URL to open in the external browser
+///
+///
+/// returns:
+/// true if browser was opened successfully, false otherwise
+- (BOOL)openExternalBrowser:(NSString * _Nonnull)url;
 - (BOOL)isInitialized SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, readonly) BOOL isLoggedIn;
+- (AdchainSdkUser * _Nullable)getCurrentUser SWIFT_WARN_UNUSED_RESULT;
 /// Set the log level for SDK logs
 /// \param level The desired log level (NONE, ERROR, WARNING, INFO, DEBUG, VERBOSE)
 /// Default is WARNING for production safety
 ///
 + (void)setLogLevel:(enum LogLevel)level;
+- (AdchainSdkConfig * _Nullable)getConfig SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nonnull)getSDKVersion SWIFT_WARN_UNUSED_RESULT;
+- (void)objc_openOfferwallWithPresentingViewController:(UIViewController * _Nonnull)presentingViewController;
+- (void)objc_openOfferwallWithUrl:(NSString * _Nonnull)url presentingViewController:(UIViewController * _Nonnull)presentingViewController;
 @end
 
-@class NSString;
 enum Environment : NSInteger;
 SWIFT_CLASS("_TtC10AdchainSDK16AdchainSdkConfig")
 @interface AdchainSdkConfig : NSObject
@@ -375,6 +391,8 @@ SWIFT_PROTOCOL("_TtP10AdchainSDK23AdchainSdkLoginListener_")
 SWIFT_CLASS("_TtC10AdchainSDK14AdchainSdkUser")
 @interface AdchainSdkUser : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nonnull userId;
+- (nonnull instancetype)initWithUserId:(NSString * _Nonnull)userId;
+- (nonnull instancetype)initWithUserId:(NSString * _Nonnull)userId genderValue:(NSInteger)genderValue birthYear:(NSInteger)birthYear;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
@@ -725,7 +743,11 @@ typedef SWIFT_ENUM(NSInteger, AdchainLoginError, open) {
 
 @class UIApplication;
 @class AdchainSdkConfig;
+@class AdchainSdkUser;
+@protocol AdchainSdkLoginListener;
+@class NSString;
 enum LogLevel : NSInteger;
+@class UIViewController;
 SWIFT_CLASS("_TtC10AdchainSDK10AdchainSdk")
 @interface AdchainSdk : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AdchainSdk * _Nonnull shared;)
@@ -733,17 +755,29 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AdchainSdk *
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 - (void)initializeWithApplication:(UIApplication * _Nonnull)application sdkConfig:(AdchainSdkConfig * _Nonnull)sdkConfig;
+- (void)loginWithAdchainSdkUser:(AdchainSdkUser * _Nonnull)adchainSdkUser listener:(id <AdchainSdkLoginListener> _Nullable)listener;
 - (void)logout;
+/// Opens a URL in the system’s default external browser
+/// \param url The URL to open in the external browser
+///
+///
+/// returns:
+/// true if browser was opened successfully, false otherwise
+- (BOOL)openExternalBrowser:(NSString * _Nonnull)url;
 - (BOOL)isInitialized SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, readonly) BOOL isLoggedIn;
+- (AdchainSdkUser * _Nullable)getCurrentUser SWIFT_WARN_UNUSED_RESULT;
 /// Set the log level for SDK logs
 /// \param level The desired log level (NONE, ERROR, WARNING, INFO, DEBUG, VERBOSE)
 /// Default is WARNING for production safety
 ///
 + (void)setLogLevel:(enum LogLevel)level;
+- (AdchainSdkConfig * _Nullable)getConfig SWIFT_WARN_UNUSED_RESULT;
+- (NSString * _Nonnull)getSDKVersion SWIFT_WARN_UNUSED_RESULT;
+- (void)objc_openOfferwallWithPresentingViewController:(UIViewController * _Nonnull)presentingViewController;
+- (void)objc_openOfferwallWithUrl:(NSString * _Nonnull)url presentingViewController:(UIViewController * _Nonnull)presentingViewController;
 @end
 
-@class NSString;
 enum Environment : NSInteger;
 SWIFT_CLASS("_TtC10AdchainSDK16AdchainSdkConfig")
 @interface AdchainSdkConfig : NSObject
@@ -780,6 +814,8 @@ SWIFT_PROTOCOL("_TtP10AdchainSDK23AdchainSdkLoginListener_")
 SWIFT_CLASS("_TtC10AdchainSDK14AdchainSdkUser")
 @interface AdchainSdkUser : NSObject
 @property (nonatomic, readonly, copy) NSString * _Nonnull userId;
+- (nonnull instancetype)initWithUserId:(NSString * _Nonnull)userId;
+- (nonnull instancetype)initWithUserId:(NSString * _Nonnull)userId genderValue:(NSInteger)genderValue birthYear:(NSInteger)birthYear;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end

@@ -108,7 +108,7 @@ public protocol AdchainQuizEventsListener : AnyObject {
   @objc public static let shared: AdchainSDK.AdchainSdk
   @objc final public func initialize(application: UIKit.UIApplication, sdkConfig: AdchainSDK.AdchainSdkConfig)
   #if compiler(>=5.3) && $NonescapableTypes
-  final public func login(adchainSdkUser: AdchainSDK.AdchainSdkUser, listener: (any AdchainSDK.AdchainSdkLoginListener)? = nil)
+  @objc final public func login(adchainSdkUser: AdchainSDK.AdchainSdkUser, listener: (any AdchainSDK.AdchainSdkLoginListener)? = nil)
   #endif
   @objc final public func logout()
   #if compiler(>=5.3) && $NonescapableTypes
@@ -118,22 +118,24 @@ public protocol AdchainQuizEventsListener : AnyObject {
   final public func openOfferwallWithUrl(_ url: Swift.String, presentingViewController: UIKit.UIViewController, callback: (any AdchainSDK.OfferwallCallback)? = nil)
   #endif
   @discardableResult
-  final public func openExternalBrowser(_ url: Swift.String) -> Swift.Bool
+  @objc final public func openExternalBrowser(_ url: Swift.String) -> Swift.Bool
   @objc final public func isInitialized() -> Swift.Bool
   @objc final public var isLoggedIn: Swift.Bool {
     @objc get
   }
   #if compiler(>=5.3) && $NonescapableTypes
-  final public func getCurrentUser() -> AdchainSDK.AdchainSdkUser?
+  @objc final public func getCurrentUser() -> AdchainSDK.AdchainSdkUser?
   #endif
   @objc public static func setLogLevel(_ level: AdchainSDK.LogLevel)
   #if compiler(>=5.3) && $NonescapableTypes
-  final public func getConfig() -> AdchainSDK.AdchainSdkConfig?
+  @objc final public func getConfig() -> AdchainSDK.AdchainSdkConfig?
   #endif
-  final public func getSDKVersion() -> Swift.String
+  @objc final public func getSDKVersion() -> Swift.String
   #if compiler(>=5.3) && $NonescapableTypes
   final public func getBannerInfo(placementId: Swift.String, completion: @escaping (Swift.Result<AdchainSDK.BannerInfoResponse, any Swift.Error>) -> Swift.Void)
   #endif
+  @objc final public func objc_openOfferwall(presentingViewController: UIKit.UIViewController)
+  @objc final public func objc_openOfferwallWithUrl(_ url: Swift.String, presentingViewController: UIKit.UIViewController)
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc public class AdchainSdkConfig : ObjectiveC.NSObject {
@@ -204,6 +206,8 @@ public protocol AdchainQuizEventsListener : AnyObject {
   #if compiler(>=5.3) && $NonescapableTypes
   public init(userId: Swift.String, gender: AdchainSDK.AdchainSdkUser.Gender? = nil, birthYear: Swift.Int? = nil)
   #endif
+  @objc convenience public init(userId: Swift.String)
+  @objc convenience public init(userId: Swift.String, genderValue: Swift.Int, birthYear: Swift.Int)
   @objc deinit
 }
 public struct BannerInfoResponse : Swift.Codable {

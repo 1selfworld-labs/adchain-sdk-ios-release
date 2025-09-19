@@ -2821,12 +2821,14 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:10AdchainSDK0A3SdkC5login07adchainC4User8listeneryAA0acF0C_AA0aC13LoginListener_pSgtF",
+            "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdk(im)loginWithAdchainSdkUser:listener:",
             "mangledName": "$s10AdchainSDK0A3SdkC5login07adchainC4User8listeneryAA0acF0C_AA0aC13LoginListener_pSgtF",
             "moduleName": "AdchainSDK",
+            "objc_name": "loginWithAdchainSdkUser:listener:",
             "declAttributes": [
               "Final",
               "AccessControl",
+              "ObjC",
               "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
@@ -2965,12 +2967,13 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:10AdchainSDK0A3SdkC19openExternalBrowserySbSSF",
+            "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdk(im)openExternalBrowser:",
             "mangledName": "$s10AdchainSDK0A3SdkC19openExternalBrowserySbSSF",
             "moduleName": "AdchainSDK",
             "declAttributes": [
               "Final",
               "AccessControl",
+              "ObjC",
               "DiscardableResult",
               "RawDocComment"
             ],
@@ -3067,12 +3070,13 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:10AdchainSDK0A3SdkC14getCurrentUserAA0acF0CSgyF",
+            "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdk(im)getCurrentUser",
             "mangledName": "$s10AdchainSDK0A3SdkC14getCurrentUserAA0acF0CSgyF",
             "moduleName": "AdchainSDK",
             "declAttributes": [
               "Final",
-              "AccessControl"
+              "AccessControl",
+              "ObjC"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -3127,12 +3131,13 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:10AdchainSDK0A3SdkC9getConfigAA0acE0CSgyF",
+            "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdk(im)getConfig",
             "mangledName": "$s10AdchainSDK0A3SdkC9getConfigAA0acE0CSgyF",
             "moduleName": "AdchainSDK",
             "declAttributes": [
               "Final",
-              "AccessControl"
+              "AccessControl",
+              "ObjC"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -3149,12 +3154,13 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:10AdchainSDK0A3SdkC13getSDKVersionSSyF",
+            "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdk(im)getSDKVersion",
             "mangledName": "$s10AdchainSDK0A3SdkC13getSDKVersionSSyF",
             "moduleName": "AdchainSDK",
             "declAttributes": [
               "Final",
-              "AccessControl"
+              "AccessControl",
+              "ObjC"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -3215,6 +3221,70 @@
               "Final",
               "AccessControl",
               "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "objc_openOfferwall",
+            "printedName": "objc_openOfferwall(presentingViewController:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewController",
+                "printedName": "UIKit.UIViewController",
+                "usr": "c:objc(cs)UIViewController"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdk(im)objc_openOfferwallWithPresentingViewController:",
+            "mangledName": "$s10AdchainSDK0A3SdkC18objc_openOfferwall24presentingViewControllerySo06UIViewI0C_tF",
+            "moduleName": "AdchainSDK",
+            "objc_name": "objc_openOfferwallWithPresentingViewController:",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "objc_openOfferwallWithUrl",
+            "printedName": "objc_openOfferwallWithUrl(_:presentingViewController:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIViewController",
+                "printedName": "UIKit.UIViewController",
+                "usr": "c:objc(cs)UIViewController"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdk(im)objc_openOfferwallWithUrl:presentingViewController:",
+            "mangledName": "$s10AdchainSDK0A3SdkC25objc_openOfferwallWithUrl_24presentingViewControllerySS_So06UIViewK0CtF",
+            "moduleName": "AdchainSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC"
             ],
             "funcSelfKind": "NonMutating"
           }
@@ -5092,6 +5162,79 @@
               "AccessControl"
             ],
             "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(userId:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AdchainSdkUser",
+                "printedName": "AdchainSDK.AdchainSdkUser",
+                "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdkUser"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdkUser(im)initWithUserId:",
+            "mangledName": "$s10AdchainSDK0A7SdkUserC6userIdACSS_tcfc",
+            "moduleName": "AdchainSDK",
+            "objc_name": "initWithUserId:",
+            "declAttributes": [
+              "Convenience",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "init_kind": "Convenience"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(userId:genderValue:birthYear:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "AdchainSdkUser",
+                "printedName": "AdchainSDK.AdchainSdkUser",
+                "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdkUser"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdkUser(im)initWithUserId:genderValue:birthYear:",
+            "mangledName": "$s10AdchainSDK0A7SdkUserC6userId11genderValue9birthYearACSS_S2itcfc",
+            "moduleName": "AdchainSDK",
+            "objc_name": "initWithUserId:genderValue:birthYear:",
+            "declAttributes": [
+              "Convenience",
+              "AccessControl",
+              "ObjC"
+            ],
+            "init_kind": "Convenience"
           },
           {
             "kind": "Constructor",
@@ -9159,7 +9302,7 @@
       "kind": "StringLiteral",
       "offset": 144,
       "length": 8,
-      "value": "\"1.0.19\""
+      "value": "\"1.0.20\""
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
@@ -9178,7 +9321,7 @@
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "StringLiteral",
-      "offset": 15068,
+      "offset": 15631,
       "length": 20,
       "value": "\"com.adchain.atomic\""
     },
@@ -9417,6 +9560,13 @@
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/DeviceUtils.swift",
       "kind": "BooleanLiteral",
       "offset": 519,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/DeviceUtils.swift",
+      "kind": "BooleanLiteral",
+      "offset": 4501,
       "length": 5,
       "value": "false"
     },
