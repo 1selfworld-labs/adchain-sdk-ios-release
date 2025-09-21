@@ -116,6 +116,9 @@ public protocol AdchainQuizEventsListener : AnyObject {
   final public func getBannerInfo(placementId: Swift.String, completion: @escaping (Swift.Result<AdchainSDK.BannerInfoResponse, any Swift.Error>) -> Swift.Void)
   @objc final public func objc_openOfferwall(presentingViewController: UIKit.UIViewController)
   @objc final public func objc_openOfferwallWithUrl(_ url: Swift.String, presentingViewController: UIKit.UIViewController)
+  final public func trackEvent(eventType: AdchainSDK.EventType, category: Swift.String, payload: [Swift.String : Any]? = nil)
+  @objc final public func trackCustomEvent(eventName: Swift.String, category: Swift.String = "custom", payload: [Swift.String : Any]? = nil)
+  @objc final public func flushEvents()
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc public class AdchainSdkConfig : ObjectiveC.NSObject {
@@ -191,6 +194,49 @@ public struct BannerInfoResponse : Swift.Codable {
   public let linkType: Swift.String?
   public let internalLinkUrl: Swift.String?
   public let externalLinkUrl: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public enum EventType : Swift.String, Swift.Codable {
+  case quizClicked
+  case quizImpressed
+  case quizStarted
+  case quizCompleted
+  case missionClicked
+  case missionImpressed
+  case missionCompleted
+  case missionProgressed
+  case offerwallOpened
+  case offerwallClosed
+  case bannerClicked
+  case bannerImpressed
+  case loginSuccess
+  case loginFailed
+  case custom
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+public struct Event : Swift.Codable {
+  public init(eventId: Swift.String = UUID().uuidString, type: AdchainSDK.EventType, timestamp: Foundation.TimeInterval = Date().timeIntervalSince1970 * 1000, category: Swift.String, payload: [Swift.String : Any]? = nil)
+  public init(from decoder: any Swift.Decoder) throws
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public struct EventBatch : Swift.Encodable {
+  public let batchId: Swift.String
+  public let batchTimestamp: Swift.String
+  public let sdkVersion: Swift.String
+  public let platform: Swift.String
+  public let events: [AdchainSDK.TrackEventRequest]
+  public init(batchId: Swift.String = UUID().uuidString, batchTimestamp: Swift.String = ISO8601DateFormatter().string(from: Date()), sdkVersion: Swift.String, platform: Swift.String = "iOS", events: [AdchainSDK.TrackEventRequest])
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public struct EventBatchResponse : Swift.Codable {
+  public let success: Swift.Bool
+  public let processedCount: Swift.Int
+  public let failedEventIds: [Swift.String]
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -273,6 +319,20 @@ public struct QuizResponse : Swift.Codable {
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
+public struct TrackEventRequest : Swift.Encodable {
+  public let name: Swift.String
+  public let sdkVersion: Swift.String
+  public let timestamp: Swift.String
+  public let sessionId: Swift.String
+  public let userId: Swift.String?
+  public let deviceId: Swift.String
+  public let ifa: Swift.String
+  public let platform: Swift.String
+  public let osVersion: Swift.String
+  public let parameters: [Swift.String : Swift.String]
+  public init(name: Swift.String, sdkVersion: Swift.String, timestamp: Swift.String, sessionId: Swift.String, userId: Swift.String?, deviceId: Swift.String, ifa: Swift.String, platform: Swift.String, osVersion: Swift.String, parameters: [Swift.String : Swift.String])
+  public func encode(to encoder: any Swift.Encoder) throws
+}
 extension AdchainSDK.AdchainAdError : Swift.Equatable {}
 extension AdchainSDK.AdchainAdError : Swift.Hashable {}
 extension AdchainSDK.LogLevel : Swift.Hashable {}
@@ -286,6 +346,9 @@ extension AdchainSDK.AdchainLoginError : Swift.RawRepresentable {}
 extension AdchainSDK.AdchainSdkUser.Gender : Swift.Equatable {}
 extension AdchainSDK.AdchainSdkUser.Gender : Swift.Hashable {}
 extension AdchainSDK.AdchainSdkUser.Gender : Swift.RawRepresentable {}
+extension AdchainSDK.EventType : Swift.Equatable {}
+extension AdchainSDK.EventType : Swift.Hashable {}
+extension AdchainSDK.EventType : Swift.RawRepresentable {}
 extension AdchainSDK.MissionType : Swift.Equatable {}
 extension AdchainSDK.MissionType : Swift.Hashable {}
 extension AdchainSDK.MissionType : Swift.RawRepresentable {}

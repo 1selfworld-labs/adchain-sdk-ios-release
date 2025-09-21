@@ -353,6 +353,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AdchainSdk *
 - (NSString * _Nonnull)getSDKVersion SWIFT_WARN_UNUSED_RESULT;
 - (void)objc_openOfferwallWithPresentingViewController:(UIViewController * _Nonnull)presentingViewController;
 - (void)objc_openOfferwallWithUrl:(NSString * _Nonnull)url presentingViewController:(UIViewController * _Nonnull)presentingViewController;
+/// Track a custom event with string type
+/// \param eventName The name of the event to track (will use custom type)
+///
+/// \param category The category of the event
+///
+/// \param payload Optional payload data for the event
+///
+- (void)trackCustomEventWithEventName:(NSString * _Nonnull)eventName category:(NSString * _Nonnull)category payload:(NSDictionary<NSString *, id> * _Nullable)payload;
+/// Force flush all pending events immediately
+- (void)flushEvents;
 @end
 
 enum Environment : NSInteger;
@@ -776,6 +786,16 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AdchainSdk *
 - (NSString * _Nonnull)getSDKVersion SWIFT_WARN_UNUSED_RESULT;
 - (void)objc_openOfferwallWithPresentingViewController:(UIViewController * _Nonnull)presentingViewController;
 - (void)objc_openOfferwallWithUrl:(NSString * _Nonnull)url presentingViewController:(UIViewController * _Nonnull)presentingViewController;
+/// Track a custom event with string type
+/// \param eventName The name of the event to track (will use custom type)
+///
+/// \param category The category of the event
+///
+/// \param payload Optional payload data for the event
+///
+- (void)trackCustomEventWithEventName:(NSString * _Nonnull)eventName category:(NSString * _Nonnull)category payload:(NSDictionary<NSString *, id> * _Nullable)payload;
+/// Force flush all pending events immediately
+- (void)flushEvents;
 @end
 
 enum Environment : NSInteger;
