@@ -23,9 +23,8 @@ Pod::Spec.new do |spec|
   # Binary framework only - no source code
   spec.vendored_frameworks = 'AdchainSDK.xcframework'
 
-  spec.resource_bundles = {
-    'AdChainSDK' => ['AdchainSDK/PrivacyInfo.xcprivacy']
-  }
+  # PrivacyInfo.xcprivacy is already included in the XCFramework
+  # No need for separate resource_bundles
 
   spec.frameworks = "UIKit", "Foundation", "WebKit", "AdSupport", "AppTrackingTransparency"
 

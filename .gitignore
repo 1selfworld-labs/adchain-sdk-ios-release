@@ -4,3 +4,7 @@
 xcuserdata/
 DerivedData/
 .swiftpm/
+build_framework/
+build_artifacts/
+AdchainSDKFramework/
+.vscode/
