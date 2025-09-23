@@ -12,6 +12,7 @@ import WebKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
+import zlib
 public enum AdchainAdError : Swift.Error {
   case notInitialized
   case loadFailed
@@ -116,6 +117,7 @@ public protocol AdchainQuizEventsListener : AnyObject {
   final public func getBannerInfo(placementId: Swift.String, completion: @escaping (Swift.Result<AdchainSDK.BannerInfoResponse, any Swift.Error>) -> Swift.Void)
   @objc final public func objc_openOfferwall(presentingViewController: UIKit.UIViewController)
   @objc final public func objc_openOfferwallWithUrl(_ url: Swift.String, presentingViewController: UIKit.UIViewController)
+  @objc final public func getAdvertisingId(completion: @escaping (Swift.String) -> Swift.Void)
   final public func trackEvent(eventType: AdchainSDK.EventType, category: Swift.String, payload: [Swift.String : Any]? = nil)
   @objc final public func trackCustomEvent(eventName: Swift.String, category: Swift.String = "custom", payload: [Swift.String : Any]? = nil)
   @objc final public func flushEvents()
@@ -196,6 +198,9 @@ public struct BannerInfoResponse : Swift.Codable {
   public let externalLinkUrl: Swift.String?
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
+}
+public enum DeviceUtils {
+  public static func getAdvertisingId() async -> Swift.String
 }
 public enum EventType : Swift.String, Swift.Codable {
   case quizClicked

@@ -1403,6 +1403,20 @@
       },
       {
         "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "AdchainSDK"
+      },
+      {
+        "kind": "Import",
+        "name": "zlib",
+        "printedName": "zlib",
+        "declKind": "Import",
+        "moduleName": "AdchainSDK"
+      },
+      {
+        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
         "declKind": "Import",
@@ -3278,6 +3292,48 @@
               "Final",
               "AccessControl",
               "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "getAdvertisingId",
+            "printedName": "getAdvertisingId(completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.String) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdk(im)getAdvertisingIdWithCompletion:",
+            "mangledName": "$s10AdchainSDK0A3SdkC16getAdvertisingId10completionyySSc_tF",
+            "moduleName": "AdchainSDK",
+            "objc_name": "getAdvertisingIdWithCompletion:",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -5507,6 +5563,13 @@
       },
       {
         "kind": "Import",
+        "name": "zlib",
+        "printedName": "zlib",
+        "declKind": "Import",
+        "moduleName": "AdchainSDK"
+      },
+      {
+        "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
@@ -6113,6 +6176,59 @@
         "printedName": "AppTrackingTransparency",
         "declKind": "Import",
         "moduleName": "AdchainSDK"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "DeviceUtils",
+        "printedName": "DeviceUtils",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "getAdvertisingId",
+            "printedName": "getAdvertisingId()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10AdchainSDK11DeviceUtilsO16getAdvertisingIdSSyYaFZ",
+            "mangledName": "$s10AdchainSDK11DeviceUtilsO16getAdvertisingIdSSyYaFZ",
+            "moduleName": "AdchainSDK",
+            "static": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:10AdchainSDK11DeviceUtilsO",
+        "mangledName": "$s10AdchainSDK11DeviceUtilsO",
+        "moduleName": "AdchainSDK",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
       },
       {
         "kind": "Import",
@@ -11592,7 +11708,7 @@
       "kind": "StringLiteral",
       "offset": 145,
       "length": 8,
-      "value": "\"1.0.28\""
+      "value": "\"1.0.29\""
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
@@ -11611,14 +11727,14 @@
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "StringLiteral",
-      "offset": 17575,
+      "offset": 19261,
       "length": 8,
       "value": "\"custom\""
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "StringLiteral",
-      "offset": 20128,
+      "offset": 21814,
       "length": 20,
       "value": "\"com.adchain.atomic\""
     },
@@ -11842,35 +11958,28 @@
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiService.swift",
       "kind": "StringLiteral",
-      "offset": 1280,
+      "offset": 1292,
       "length": 5,
       "value": "\"GET\""
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/DeviceUtils.swift",
       "kind": "StringLiteral",
-      "offset": 161,
+      "offset": 168,
       "length": 19,
       "value": "\"adchain_sdk_prefs\""
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/DeviceUtils.swift",
       "kind": "StringLiteral",
-      "offset": 218,
+      "offset": 225,
       "length": 11,
       "value": "\"device_id\""
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/DeviceUtils.swift",
       "kind": "BooleanLiteral",
-      "offset": 519,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/DeviceUtils.swift",
-      "kind": "BooleanLiteral",
-      "offset": 4501,
+      "offset": 526,
       "length": 5,
       "value": "false"
     },

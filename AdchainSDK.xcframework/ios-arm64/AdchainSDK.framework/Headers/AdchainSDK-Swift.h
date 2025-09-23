@@ -353,6 +353,10 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AdchainSdk *
 - (NSString * _Nonnull)getSDKVersion SWIFT_WARN_UNUSED_RESULT;
 - (void)objc_openOfferwallWithPresentingViewController:(UIViewController * _Nonnull)presentingViewController;
 - (void)objc_openOfferwallWithUrl:(NSString * _Nonnull)url presentingViewController:(UIViewController * _Nonnull)presentingViewController;
+/// Get the advertising identifier (IDFA) for the current device
+/// \param completion Callback with the advertising ID string
+///
+- (void)getAdvertisingIdWithCompletion:(void (^ _Nonnull)(NSString * _Nonnull))completion;
 /// Track a custom event with string type
 /// \param eventName The name of the event to track (will use custom type)
 ///
