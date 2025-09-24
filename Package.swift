@@ -12,11 +12,15 @@ let package = Package(
             targets: ["AdchainSDK"]
         ),
     ],
-    dependencies: [],
+    dependencies: [
+        .package(url: "https://github.com/1024jp/GzipSwift", from: "6.0.0")
+    ],
     targets: [
         .target(
             name: "AdchainSDK",
-            dependencies: [],
+            dependencies: [
+                .product(name: "Gzip", package: "GzipSwift")
+            ],
             path: "AdchainSDK/Sources"
         ),
         // .testTarget(
