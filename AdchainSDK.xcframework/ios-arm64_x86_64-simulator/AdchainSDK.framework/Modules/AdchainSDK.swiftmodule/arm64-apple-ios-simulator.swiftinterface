@@ -61,6 +61,7 @@ public class AdchainMission {
   public var missionResponse: AdchainSDK.MissionResponse?
   public var eventsListener: (any AdchainSDK.AdchainMissionEventsListener)?
   public init(unitId: Swift.String)
+  @objc deinit
   public func load(onSuccess: @escaping ([AdchainSDK.Mission], AdchainSDK.MissionProgress) -> Swift.Void, onFailure: @escaping (AdchainSDK.AdchainAdError) -> Swift.Void, shouldStoreCallbacks: Swift.Bool = true)
   public func setEventsListener(_ listener: any AdchainSDK.AdchainMissionEventsListener)
   public func getMissions() -> [AdchainSDK.Mission]
@@ -74,14 +75,15 @@ public class AdchainMission {
   public func onMissionCompleted(_ mission: AdchainSDK.Mission)
   public func onMissionProgressed(_ mission: AdchainSDK.Mission)
   public func onRewardButtonClicked(from viewController: UIKit.UIViewController)
+  public static func refreshMissionList(unitId: Swift.String?)
   public func destroy()
-  @objc deinit
 }
 public protocol AdchainMissionEventsListener : AnyObject {
   func onImpressed(_ mission: AdchainSDK.Mission)
   func onClicked(_ mission: AdchainSDK.Mission)
   func onCompleted(_ mission: AdchainSDK.Mission)
   func onProgressed(_ mission: AdchainSDK.Mission)
+  func onRefreshed(unitId: Swift.String?)
 }
 public class AdchainQuiz {
   public init(unitId: Swift.String)
