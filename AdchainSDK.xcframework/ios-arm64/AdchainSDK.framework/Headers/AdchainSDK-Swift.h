@@ -337,10 +337,12 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AdchainSdk *
 /// Opens a URL in the system’s default external browser
 /// \param url The URL to open in the external browser
 ///
+/// \param placementId Placement ID for tracking
+///
 ///
 /// returns:
 /// true if browser was opened successfully, false otherwise
-- (BOOL)openExternalBrowser:(NSString * _Nonnull)url;
+- (BOOL)openExternalBrowser:(NSString * _Nonnull)url placementId:(NSString * _Nonnull)placementId;
 - (BOOL)isInitialized SWIFT_WARN_UNUSED_RESULT;
 @property (nonatomic, readonly) BOOL isLoggedIn;
 - (AdchainSdkUser * _Nullable)getCurrentUser SWIFT_WARN_UNUSED_RESULT;
@@ -351,8 +353,8 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AdchainSdk *
 + (void)setLogLevel:(enum LogLevel)level;
 - (AdchainSdkConfig * _Nullable)getConfig SWIFT_WARN_UNUSED_RESULT;
 - (NSString * _Nonnull)getSDKVersion SWIFT_WARN_UNUSED_RESULT;
-- (void)objc_openOfferwallWithPresentingViewController:(UIViewController * _Nonnull)presentingViewController;
-- (void)objc_openOfferwallWithUrl:(NSString * _Nonnull)url presentingViewController:(UIViewController * _Nonnull)presentingViewController;
+- (void)objc_openOfferwallWithPresentingViewController:(UIViewController * _Nonnull)presentingViewController placementId:(NSString * _Nonnull)placementId;
+- (void)objc_openOfferwallWithUrl:(NSString * _Nonnull)url placementId:(NSString * _Nonnull)placementId presentingViewController:(UIViewController * _Nonnull)presentingViewController;
 /// Get the advertising identifier (IDFA) for the current device
 /// \param completion Callback with the advertising ID string
 ///

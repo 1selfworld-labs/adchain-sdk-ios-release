@@ -1650,24 +1650,18 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(unitId:)",
+            "printedName": "init()",
             "children": [
               {
                 "kind": "TypeNominal",
                 "name": "AdchainMission",
                 "printedName": "AdchainSDK.AdchainMission",
                 "usr": "s:10AdchainSDK0A7MissionC"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:10AdchainSDK0A7MissionC6unitIdACSS_tcfc",
-            "mangledName": "$s10AdchainSDK0A7MissionC6unitIdACSS_tcfc",
+            "usr": "s:10AdchainSDK0A7MissionCACycfc",
+            "mangledName": "$s10AdchainSDK0A7MissionCACycfc",
             "moduleName": "AdchainSDK",
             "declAttributes": [
               "AccessControl"
@@ -2401,24 +2395,18 @@
           {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(unitId:)",
+            "printedName": "init()",
             "children": [
               {
                 "kind": "TypeNominal",
                 "name": "AdchainQuiz",
                 "printedName": "AdchainSDK.AdchainQuiz",
                 "usr": "s:10AdchainSDK0A4QuizC"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "String",
-                "printedName": "Swift.String",
-                "usr": "s:SS"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:10AdchainSDK0A4QuizC6unitIdACSS_tcfc",
-            "mangledName": "$s10AdchainSDK0A4QuizC6unitIdACSS_tcfc",
+            "usr": "s:10AdchainSDK0A4QuizCACycfc",
+            "mangledName": "$s10AdchainSDK0A4QuizCACycfc",
             "moduleName": "AdchainSDK",
             "declAttributes": [
               "AccessControl"
@@ -2938,7 +2926,7 @@
           {
             "kind": "Function",
             "name": "openOfferwall",
-            "printedName": "openOfferwall(presentingViewController:callback:)",
+            "printedName": "openOfferwall(presentingViewController:placementId:callback:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -2950,6 +2938,12 @@
                 "name": "UIViewController",
                 "printedName": "UIKit.UIViewController",
                 "usr": "c:objc(cs)UIViewController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
               },
               {
                 "kind": "TypeNominal",
@@ -2968,8 +2962,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:10AdchainSDK0A3SdkC13openOfferwall24presentingViewController8callbackySo06UIViewH0C_AA0E8Callback_pSgtF",
-            "mangledName": "$s10AdchainSDK0A3SdkC13openOfferwall24presentingViewController8callbackySo06UIViewH0C_AA0E8Callback_pSgtF",
+            "usr": "s:10AdchainSDK0A3SdkC13openOfferwall24presentingViewController11placementId8callbackySo06UIViewH0C_SSAA0E8Callback_pSgtF",
+            "mangledName": "$s10AdchainSDK0A3SdkC13openOfferwall24presentingViewController11placementId8callbackySo06UIViewH0C_SSAA0E8Callback_pSgtF",
             "moduleName": "AdchainSDK",
             "declAttributes": [
               "Final",
@@ -2981,12 +2975,18 @@
           {
             "kind": "Function",
             "name": "openOfferwallWithUrl",
-            "printedName": "openOfferwallWithUrl(_:presentingViewController:callback:)",
+            "printedName": "openOfferwallWithUrl(_:placementId:presentingViewController:callback:)",
             "children": [
               {
                 "kind": "TypeNominal",
                 "name": "Void",
                 "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
               },
               {
                 "kind": "TypeNominal",
@@ -3017,8 +3017,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:10AdchainSDK0A3SdkC20openOfferwallWithUrl_24presentingViewController8callbackySS_So06UIViewJ0CAA0E8Callback_pSgtF",
-            "mangledName": "$s10AdchainSDK0A3SdkC20openOfferwallWithUrl_24presentingViewController8callbackySS_So06UIViewJ0CAA0E8Callback_pSgtF",
+            "usr": "s:10AdchainSDK0A3SdkC20openOfferwallWithUrl_11placementId24presentingViewController8callbackySS_SSSo06UIViewL0CAA0E8Callback_pSgtF",
+            "mangledName": "$s10AdchainSDK0A3SdkC20openOfferwallWithUrl_11placementId24presentingViewController8callbackySS_SSSo06UIViewL0CAA0E8Callback_pSgtF",
             "moduleName": "AdchainSDK",
             "declAttributes": [
               "Final",
@@ -3030,7 +3030,7 @@
           {
             "kind": "Function",
             "name": "openExternalBrowser",
-            "printedName": "openExternalBrowser(_:)",
+            "printedName": "openExternalBrowser(_:placementId:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -3043,11 +3043,17 @@
                 "name": "String",
                 "printedName": "Swift.String",
                 "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdk(im)openExternalBrowser:",
-            "mangledName": "$s10AdchainSDK0A3SdkC19openExternalBrowserySbSSF",
+            "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdk(im)openExternalBrowser:placementId:",
+            "mangledName": "$s10AdchainSDK0A3SdkC19openExternalBrowser_11placementIdSbSS_SStF",
             "moduleName": "AdchainSDK",
             "declAttributes": [
               "Final",
@@ -3306,7 +3312,7 @@
           {
             "kind": "Function",
             "name": "objc_openOfferwall",
-            "printedName": "objc_openOfferwall(presentingViewController:)",
+            "printedName": "objc_openOfferwall(presentingViewController:placementId:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -3318,13 +3324,19 @@
                 "name": "UIViewController",
                 "printedName": "UIKit.UIViewController",
                 "usr": "c:objc(cs)UIViewController"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdk(im)objc_openOfferwallWithPresentingViewController:",
-            "mangledName": "$s10AdchainSDK0A3SdkC18objc_openOfferwall24presentingViewControllerySo06UIViewI0C_tF",
+            "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdk(im)objc_openOfferwallWithPresentingViewController:placementId:",
+            "mangledName": "$s10AdchainSDK0A3SdkC18objc_openOfferwall24presentingViewController11placementIdySo06UIViewI0C_SStF",
             "moduleName": "AdchainSDK",
-            "objc_name": "objc_openOfferwallWithPresentingViewController:",
+            "objc_name": "objc_openOfferwallWithPresentingViewController:placementId:",
             "declAttributes": [
               "Final",
               "AccessControl",
@@ -3336,12 +3348,18 @@
           {
             "kind": "Function",
             "name": "objc_openOfferwallWithUrl",
-            "printedName": "objc_openOfferwallWithUrl(_:presentingViewController:)",
+            "printedName": "objc_openOfferwallWithUrl(_:placementId:presentingViewController:)",
             "children": [
               {
                 "kind": "TypeNominal",
                 "name": "Void",
                 "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
               },
               {
                 "kind": "TypeNominal",
@@ -3357,8 +3375,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdk(im)objc_openOfferwallWithUrl:presentingViewController:",
-            "mangledName": "$s10AdchainSDK0A3SdkC25objc_openOfferwallWithUrl_24presentingViewControllerySS_So06UIViewK0CtF",
+            "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdk(im)objc_openOfferwallWithUrl:placementId:presentingViewController:",
+            "mangledName": "$s10AdchainSDK0A3SdkC25objc_openOfferwallWithUrl_11placementId24presentingViewControllerySS_SSSo06UIViewM0CtF",
             "moduleName": "AdchainSDK",
             "declAttributes": [
               "Final",
@@ -3532,6 +3550,69 @@
               "Final",
               "AccessControl",
               "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "trackEventWithCustomName",
+            "printedName": "trackEventWithCustomName(eventName:category:payload:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "hasDefaultArg": true,
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String : Any]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10AdchainSDK0A3SdkC24trackEventWithCustomName05eventH08category7payloadySS_SSSDySSypGSgtF",
+            "mangledName": "$s10AdchainSDK0A3SdkC24trackEventWithCustomName05eventH08category7payloadySS_SSSDySSypGSgtF",
+            "moduleName": "AdchainSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
               "RawDocComment"
             ],
             "funcSelfKind": "NonMutating"
@@ -7101,6 +7182,82 @@
           {
             "kind": "Constructor",
             "name": "init",
+            "printedName": "init(eventId:customEventName:timestamp:category:payload:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Event",
+                "printedName": "AdchainSDK.Event",
+                "usr": "s:10AdchainSDK5EventV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "hasDefaultArg": true,
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Double",
+                "printedName": "Swift.Double",
+                "hasDefaultArg": true,
+                "usr": "s:Sd"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Swift.String : Any]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Swift.String : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:10AdchainSDK5EventV7eventId06customC4Name9timestamp8category7payloadACSS_SSSdSSSDySSypGSgtcfc",
+            "mangledName": "$s10AdchainSDK5EventV7eventId06customC4Name9timestamp8category7payloadACSS_SSSdSSSDySSypGSgtcfc",
+            "moduleName": "AdchainSDK",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
             "printedName": "init(from:)",
             "children": [
               {
@@ -8612,9 +8769,130 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "impressionOrder",
+            "printedName": "impressionOrder",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10AdchainSDK7MissionV15impressionOrderSiSgvp",
+            "mangledName": "$s10AdchainSDK7MissionV15impressionOrderSiSgvp",
+            "moduleName": "AdchainSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Int?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10AdchainSDK7MissionV15impressionOrderSiSgvg",
+                "mangledName": "$s10AdchainSDK7MissionV15impressionOrderSiSgvg",
+                "moduleName": "AdchainSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "placementId",
+            "printedName": "placementId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10AdchainSDK7MissionV11placementIdSSSgvp",
+            "mangledName": "$s10AdchainSDK7MissionV11placementIdSSSgvp",
+            "moduleName": "AdchainSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10AdchainSDK7MissionV11placementIdSSSgvg",
+                "mangledName": "$s10AdchainSDK7MissionV11placementIdSSSgvg",
+                "moduleName": "AdchainSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
-            "printedName": "init(id:title:description:imageUrl:landingUrl:point:status:progress:total:type:)",
+            "printedName": "init(id:title:description:imageUrl:landingUrl:point:status:progress:total:type:impressionOrder:placementId:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -8717,11 +8995,41 @@
                 ],
                 "hasDefaultArg": true,
                 "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:10AdchainSDK7MissionV2id5title11description8imageUrl07landingH05point6status8progress5total4typeACSS_S6SSgSiSgAoA0C4TypeOSgtcfc",
-            "mangledName": "$s10AdchainSDK7MissionV2id5title11description8imageUrl07landingH05point6status8progress5total4typeACSS_S6SSgSiSgAoA0C4TypeOSgtcfc",
+            "usr": "s:10AdchainSDK7MissionV2id5title11description8imageUrl07landingH05point6status8progress5total4type15impressionOrder11placementIdACSS_S6SSgSiSgAqA0C4TypeOSgAqPtcfc",
+            "mangledName": "$s10AdchainSDK7MissionV2id5title11description8imageUrl07landingH05point6status8progress5total4type15impressionOrder11placementIdACSS_S6SSgSiSgAqA0C4TypeOSgAqPtcfc",
             "moduleName": "AdchainSDK",
             "declAttributes": [
               "AccessControl",
@@ -10355,6 +10663,127 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "impressionOrder",
+            "printedName": "impressionOrder",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.Int?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10AdchainSDK9QuizEventV15impressionOrderSiSgvp",
+            "mangledName": "$s10AdchainSDK9QuizEventV15impressionOrderSiSgvp",
+            "moduleName": "AdchainSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.Int?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10AdchainSDK9QuizEventV15impressionOrderSiSgvg",
+                "mangledName": "$s10AdchainSDK9QuizEventV15impressionOrderSiSgvg",
+                "moduleName": "AdchainSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "placementId",
+            "printedName": "placementId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10AdchainSDK9QuizEventV11placementIdSSSgvp",
+            "mangledName": "$s10AdchainSDK9QuizEventV11placementIdSSSgvp",
+            "moduleName": "AdchainSDK",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10AdchainSDK9QuizEventV11placementIdSSSgvg",
+                "mangledName": "$s10AdchainSDK9QuizEventV11placementIdSSSgvg",
+                "moduleName": "AdchainSDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init(from:)",
@@ -11722,14 +12151,14 @@
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Mission\/AdchainMission.swift",
       "kind": "Array",
-      "offset": 515,
+      "offset": 484,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Mission\/AdchainMission.swift",
       "kind": "BooleanLiteral",
-      "offset": 1842,
+      "offset": 1746,
       "length": 4,
       "value": "true"
     },
@@ -11764,21 +12193,21 @@
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 12447,
+      "offset": 12439,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Quiz\/AdchainQuiz.swift",
       "kind": "Array",
-      "offset": 315,
+      "offset": 284,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Quiz\/AdchainQuiz.swift",
       "kind": "BooleanLiteral",
-      "offset": 1018,
+      "offset": 944,
       "length": 4,
       "value": "true"
     },
@@ -11787,7 +12216,7 @@
       "kind": "StringLiteral",
       "offset": 145,
       "length": 8,
-      "value": "\"1.0.31\""
+      "value": "\"1.0.33\""
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
@@ -11806,14 +12235,21 @@
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "StringLiteral",
-      "offset": 19277,
+      "offset": 19664,
       "length": 8,
       "value": "\"custom\""
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "StringLiteral",
-      "offset": 21830,
+      "offset": 21992,
+      "length": 8,
+      "value": "\"custom\""
+    },
+    {
+      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
+      "kind": "StringLiteral",
+      "offset": 24843,
       "length": 20,
       "value": "\"com.adchain.atomic\""
     },
@@ -12170,14 +12606,21 @@
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
       "kind": "IntegerLiteral",
-      "offset": 1297,
+      "offset": 1559,
+      "length": 4,
+      "value": "1000"
+    },
+    {
+      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2114,
       "length": 4,
       "value": "1000"
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
       "kind": "StringLiteral",
-      "offset": 3244,
+      "offset": 4332,
       "length": 5,
       "value": "\"iOS\""
     },

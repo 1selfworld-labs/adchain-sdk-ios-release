@@ -137,7 +137,7 @@ extension YourViewController: OfferwallCallback {
 ### 미션 시스템
 
 ```swift
-let mission = AdchainMission(unitId: "YOUR_MISSION_UNIT_ID")
+let mission = AdchainMission()
 
 // 미션 로드
 mission.load(
@@ -157,7 +157,7 @@ mission.show(from: self)
 ### 퀴즈 광고
 
 ```swift
-let quiz = AdchainQuiz(unitId: "YOUR_QUIZ_UNIT_ID")
+let quiz = AdchainQuiz()
 
 // 퀴즈 로드
 quiz.load(

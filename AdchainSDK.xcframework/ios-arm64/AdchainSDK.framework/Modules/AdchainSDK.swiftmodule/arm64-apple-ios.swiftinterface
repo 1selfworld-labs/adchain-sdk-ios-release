@@ -60,7 +60,7 @@ public enum AdchainAdError : Swift.Error {
 public class AdchainMission {
   public var missionResponse: AdchainSDK.MissionResponse?
   public var eventsListener: (any AdchainSDK.AdchainMissionEventsListener)?
-  public init(unitId: Swift.String)
+  public init()
   @objc deinit
   public func load(onSuccess: @escaping ([AdchainSDK.Mission], AdchainSDK.MissionProgress) -> Swift.Void, onFailure: @escaping (AdchainSDK.AdchainAdError) -> Swift.Void, shouldStoreCallbacks: Swift.Bool = true)
   public func setEventsListener(_ listener: any AdchainSDK.AdchainMissionEventsListener)
@@ -86,7 +86,7 @@ public protocol AdchainMissionEventsListener : AnyObject {
   func onRefreshed(unitId: Swift.String?)
 }
 public class AdchainQuiz {
-  public init(unitId: Swift.String)
+  public init()
   public func setQuizEventsListener(_ listener: any AdchainSDK.AdchainQuizEventsListener)
   public func load(onSuccess: @escaping (AdchainSDK.QuizResponse) -> Swift.Void, onFailure: @escaping (AdchainSDK.AdchainAdError) -> Swift.Void, shouldStoreCallbacks: Swift.Bool = true)
   public func clickQuiz(_ quizId: Swift.String, from viewController: UIKit.UIViewController)
@@ -104,10 +104,10 @@ public protocol AdchainQuizEventsListener : AnyObject {
   @objc final public func initialize(application: UIKit.UIApplication, sdkConfig: AdchainSDK.AdchainSdkConfig)
   @objc final public func login(adchainSdkUser: AdchainSDK.AdchainSdkUser, listener: (any AdchainSDK.AdchainSdkLoginListener)? = nil)
   @objc final public func logout()
-  final public func openOfferwall(presentingViewController: UIKit.UIViewController, callback: (any AdchainSDK.OfferwallCallback)? = nil)
-  final public func openOfferwallWithUrl(_ url: Swift.String, presentingViewController: UIKit.UIViewController, callback: (any AdchainSDK.OfferwallCallback)? = nil)
+  final public func openOfferwall(presentingViewController: UIKit.UIViewController, placementId: Swift.String, callback: (any AdchainSDK.OfferwallCallback)? = nil)
+  final public func openOfferwallWithUrl(_ url: Swift.String, placementId: Swift.String, presentingViewController: UIKit.UIViewController, callback: (any AdchainSDK.OfferwallCallback)? = nil)
   @discardableResult
-  @objc final public func openExternalBrowser(_ url: Swift.String) -> Swift.Bool
+  @objc final public func openExternalBrowser(_ url: Swift.String, placementId: Swift.String) -> Swift.Bool
   @objc final public func isInitialized() -> Swift.Bool
   @objc final public var isLoggedIn: Swift.Bool {
     @objc get
@@ -117,11 +117,12 @@ public protocol AdchainQuizEventsListener : AnyObject {
   @objc final public func getConfig() -> AdchainSDK.AdchainSdkConfig?
   @objc final public func getSDKVersion() -> Swift.String
   final public func getBannerInfo(placementId: Swift.String, completion: @escaping (Swift.Result<AdchainSDK.BannerInfoResponse, any Swift.Error>) -> Swift.Void)
-  @objc final public func objc_openOfferwall(presentingViewController: UIKit.UIViewController)
-  @objc final public func objc_openOfferwallWithUrl(_ url: Swift.String, presentingViewController: UIKit.UIViewController)
+  @objc final public func objc_openOfferwall(presentingViewController: UIKit.UIViewController, placementId: Swift.String)
+  @objc final public func objc_openOfferwallWithUrl(_ url: Swift.String, placementId: Swift.String, presentingViewController: UIKit.UIViewController)
   @objc final public func getAdvertisingId(completion: @escaping (Swift.String) -> Swift.Void)
   final public func trackEvent(eventType: AdchainSDK.EventType, category: Swift.String, payload: [Swift.String : Any]? = nil)
   @objc final public func trackCustomEvent(eventName: Swift.String, category: Swift.String = "custom", payload: [Swift.String : Any]? = nil)
+  final public func trackEventWithCustomName(eventName: Swift.String, category: Swift.String = "custom", payload: [Swift.String : Any]? = nil)
   @objc final public func flushEvents()
   @objc deinit
 }
@@ -228,6 +229,7 @@ public enum EventType : Swift.String, Swift.Codable {
 }
 public struct Event : Swift.Codable {
   public init(eventId: Swift.String = UUID().uuidString, type: AdchainSDK.EventType, timestamp: Foundation.TimeInterval = Date().timeIntervalSince1970 * 1000, category: Swift.String, payload: [Swift.String : Any]? = nil)
+  public init(eventId: Swift.String = UUID().uuidString, customEventName: Swift.String, timestamp: Foundation.TimeInterval = Date().timeIntervalSince1970 * 1000, category: Swift.String, payload: [Swift.String : Any]? = nil)
   public init(from decoder: any Swift.Decoder) throws
   public func encode(to encoder: any Swift.Encoder) throws
 }
@@ -267,7 +269,9 @@ public struct Mission : Swift.Codable, Swift.Sendable {
   public let progress: Swift.Int?
   public let total: Swift.Int?
   public let type: AdchainSDK.MissionType?
-  public init(id: Swift.String, title: Swift.String, description: Swift.String, imageUrl: Swift.String, landingUrl: Swift.String, point: Swift.String, status: Swift.String? = nil, progress: Swift.Int? = nil, total: Swift.Int? = nil, type: AdchainSDK.MissionType? = nil)
+  public let impressionOrder: Swift.Int?
+  public let placementId: Swift.String?
+  public init(id: Swift.String, title: Swift.String, description: Swift.String, imageUrl: Swift.String, landingUrl: Swift.String, point: Swift.String, status: Swift.String? = nil, progress: Swift.Int? = nil, total: Swift.Int? = nil, type: AdchainSDK.MissionType? = nil, impressionOrder: Swift.Int? = nil, placementId: Swift.String? = nil)
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -312,6 +316,8 @@ public struct QuizEvent : Swift.Codable, Swift.Sendable {
   public let point: Swift.String
   public let status: Swift.String?
   public let completed: Swift.Bool?
+  public let impressionOrder: Swift.Int?
+  public let placementId: Swift.String?
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
