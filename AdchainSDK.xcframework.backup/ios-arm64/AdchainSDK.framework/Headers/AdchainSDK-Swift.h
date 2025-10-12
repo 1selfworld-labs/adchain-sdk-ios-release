@@ -318,16 +318,6 @@ typedef SWIFT_ENUM(NSInteger, AdchainLoginError, open) {
   AdchainLoginErrorUnknown = 3,
 };
 
-SWIFT_CLASS("_TtC10AdchainSDK14AdchainMission")
-@interface AdchainMission : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-SWIFT_CLASS("_TtC10AdchainSDK11AdchainQuiz")
-@interface AdchainQuiz : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
 @class UIApplication;
 @class AdchainSdkConfig;
 @class AdchainSdkUser;

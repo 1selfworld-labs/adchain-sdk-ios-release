@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
-// swift-module-flags: -target arm64-apple-ios14.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name AdchainSDK
+// swift-module-flags: -target arm64-apple-ios14.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name AdchainSDK
 // swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
 import AdSupport
 import AppTrackingTransparency
@@ -57,10 +57,10 @@ public enum AdchainAdError : Swift.Error {
   @objc override dynamic public init()
   @objc deinit
 }
-@_inheritsConvenienceInitializers @objc public class AdchainMission : ObjectiveC.NSObject {
+public class AdchainMission {
   public var missionResponse: AdchainSDK.MissionResponse?
   public var eventsListener: (any AdchainSDK.AdchainMissionEventsListener)?
-  @objc override dynamic public init()
+  public init()
   @objc deinit
   public func load(onSuccess: @escaping ([AdchainSDK.Mission], AdchainSDK.MissionProgress) -> Swift.Void, onFailure: @escaping (AdchainSDK.AdchainAdError) -> Swift.Void, shouldStoreCallbacks: Swift.Bool = true)
   public func setEventsListener(_ listener: any AdchainSDK.AdchainMissionEventsListener)
@@ -85,8 +85,8 @@ public protocol AdchainMissionEventsListener : AnyObject {
   func onProgressed(_ mission: AdchainSDK.Mission)
   func onRefreshed(unitId: Swift.String?)
 }
-@_inheritsConvenienceInitializers @objc public class AdchainQuiz : ObjectiveC.NSObject {
-  @objc override dynamic public init()
+public class AdchainQuiz {
+  public init()
   public func setQuizEventsListener(_ listener: any AdchainSDK.AdchainQuizEventsListener)
   public func load(onSuccess: @escaping (AdchainSDK.QuizResponse) -> Swift.Void, onFailure: @escaping (AdchainSDK.AdchainAdError) -> Swift.Void, shouldStoreCallbacks: Swift.Bool = true)
   public func clickQuiz(_ quizId: Swift.String, from viewController: UIKit.UIViewController)
