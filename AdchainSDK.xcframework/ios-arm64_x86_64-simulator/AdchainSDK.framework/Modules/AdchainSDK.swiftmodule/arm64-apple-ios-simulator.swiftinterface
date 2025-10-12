@@ -60,7 +60,7 @@ public enum AdchainAdError : Swift.Error {
 public class AdchainMission {
   public var missionResponse: AdchainSDK.MissionResponse?
   public var eventsListener: (any AdchainSDK.AdchainMissionEventsListener)?
-  public init?()
+  public init()
   @objc deinit
   public func load(onSuccess: @escaping ([AdchainSDK.Mission], AdchainSDK.MissionProgress) -> Swift.Void, onFailure: @escaping (AdchainSDK.AdchainAdError) -> Swift.Void, shouldStoreCallbacks: Swift.Bool = true)
   public func setEventsListener(_ listener: any AdchainSDK.AdchainMissionEventsListener)
@@ -86,7 +86,7 @@ public protocol AdchainMissionEventsListener : AnyObject {
   func onRefreshed(unitId: Swift.String?)
 }
 public class AdchainQuiz {
-  public init?()
+  public init()
   public func setQuizEventsListener(_ listener: any AdchainSDK.AdchainQuizEventsListener)
   public func load(onSuccess: @escaping (AdchainSDK.QuizResponse) -> Swift.Void, onFailure: @escaping (AdchainSDK.AdchainAdError) -> Swift.Void, shouldStoreCallbacks: Swift.Bool = true)
   public func clickQuiz(_ quizId: Swift.String, from viewController: UIKit.UIViewController)
@@ -105,7 +105,7 @@ public protocol AdchainQuizEventsListener : AnyObject {
   @objc final public func login(adchainSdkUser: AdchainSDK.AdchainSdkUser, listener: (any AdchainSDK.AdchainSdkLoginListener)? = nil)
   @objc final public func logout()
   final public func openOfferwall(presentingViewController: UIKit.UIViewController, placementId: Swift.String, callback: (any AdchainSDK.OfferwallCallback)? = nil)
-  final public func openOfferwallWithUrl(_ url: Swift.String, placementId: Swift.String, presentingViewController: UIKit.UIViewController, callback: (any AdchainSDK.OfferwallCallback)? = nil)
+  final public func openOfferwallWithUrl(_ url: Swift.String, placementId: Swift.String, presentingViewController: UIKit.UIViewController, callback: (any AdchainSDK.OfferwallCallback)? = nil, showNavigationBar: Swift.Bool = false, useNativeNavigationBar: Swift.Bool = false)
   @discardableResult
   @objc final public func openExternalBrowser(_ url: Swift.String, placementId: Swift.String) -> Swift.Bool
   @objc final public func isInitialized() -> Swift.Bool
@@ -124,6 +124,7 @@ public protocol AdchainQuizEventsListener : AnyObject {
   @objc final public func trackCustomEvent(eventName: Swift.String, category: Swift.String = "custom", payload: [Swift.String : Any]? = nil)
   final public func trackEventWithCustomName(eventName: Swift.String, category: Swift.String = "custom", payload: [Swift.String : Any]? = nil)
   @objc final public func flushEvents()
+  final public func openAdjoeOfferwall(presentingViewController: UIKit.UIViewController, placementId: Swift.String, callback: (any AdchainSDK.OfferwallCallback)? = nil)
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc public class AdchainSdkConfig : ObjectiveC.NSObject {
@@ -141,10 +142,18 @@ public protocol AdchainQuizEventsListener : AnyObject {
   @objc final public let appSecret: Swift.String
   @objc final public let environment: AdchainSDK.AdchainSdkConfig.Environment
   @objc final public let timeout: Foundation.TimeInterval
+  @available(*, deprecated, message: "서버에서 자동으로 설정됩니다. 테스트 목적으로만 사용하세요.")
+  @objc final public let adjoeEnabled: Swift.Bool
+  @available(*, deprecated, message: "서버에서 자동으로 설정됩니다. 테스트 목적으로만 사용하세요.")
+  @objc final public let adjoeSdkHash: Swift.String?
   @objc public class Builder : ObjectiveC.NSObject {
     @objc public init(appKey: Swift.String, appSecret: Swift.String)
     @objc public func setEnvironment(_ environment: AdchainSDK.AdchainSdkConfig.Environment) -> AdchainSDK.AdchainSdkConfig.Builder
     @objc public func setTimeout(_ timeout: Foundation.TimeInterval) -> AdchainSDK.AdchainSdkConfig.Builder
+    @available(*, deprecated, message: "서버에서 자동으로 설정됩니다. 테스트 목적으로만 사용하세요.")
+    @objc public func enableAdjoe(sdkHash: Swift.String) -> AdchainSDK.AdchainSdkConfig.Builder
+    @available(*, deprecated, message: "서버에서 자동으로 설정됩니다.")
+    @objc public func disableAdjoe() -> AdchainSDK.AdchainSdkConfig.Builder
     @objc public func build() -> AdchainSDK.AdchainSdkConfig
     @objc deinit
   }
