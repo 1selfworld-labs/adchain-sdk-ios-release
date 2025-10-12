@@ -14,6 +14,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/1024jp/GzipSwift", from: "6.0.0")
+        // Note: adjoe uses PlaytimeWeb (web-based) on iOS, no SDK dependency needed
     ],
     targets: [
         .target(

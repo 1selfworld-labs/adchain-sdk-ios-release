@@ -4,13 +4,14 @@
   <img src="https://img.shields.io/badge/platform-iOS-blue.svg" alt="Platform iOS" />
   <img src="https://img.shields.io/badge/iOS-14.0%2B-blue.svg" alt="iOS 14.0+" />
   <img src="https://img.shields.io/badge/Swift-5.5%2B-orange.svg" alt="Swift 5.5+" />
-  <img src="https://img.shields.io/badge/version-1.0.14-green.svg" alt="Version 1.0.14" />
+  <img src="https://img.shields.io/badge/version-1.0.33-green.svg" alt="Version 1.0.33" />
   <img src="https://img.shields.io/badge/license-MIT-lightgrey.svg" alt="License MIT" />
 </p>
 
 AdChain SDK는 iOS 애플리케이션에 광고 및 리워드 기능을 쉽게 통합할 수 있는 종합 광고 솔루션입니다.
 
 > **🔒 보안 강화**: v1.0.13부터 소스 코드가 공개되지 않으며, XCFramework 바이너리만 제공됩니다.
+> **📝 현재 버전**: v1.0.33 (2025-09-26)
 
 ## 주요 기능
 
@@ -38,10 +39,10 @@ use_frameworks!
 
 target 'YourApp' do
   # CocoaPods Trunk에서 설치 (권장)
-  pod 'AdChainSDK', '~> 1.0.14'
+  pod 'AdChainSDK', '~> 1.0.33'
 
   # 또는 Git 저장소에서 직접 설치
-  # pod 'AdChainSDK', :git => 'https://github.com/1selfworld-labs/adchain-sdk-ios-release.git', :tag => 'v1.0.14'
+  # pod 'AdChainSDK', :git => 'https://github.com/1selfworld-labs/adchain-sdk-ios-release.git', :tag => 'v1.0.33'
 end
 ```
 
@@ -53,7 +54,7 @@ pod install
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/1selfworld-labs/adchain-sdk-ios-release.git", from: "1.0.14")
+    .package(url: "https://github.com/1selfworld-labs/adchain-sdk-ios-release.git", from: "1.0.33")
 ]
 ```
 
@@ -68,7 +69,7 @@ dependencies: [
 ### 1. SDK 초기화
 
 ```swift
-import AdChainSDK
+import AdchainSDK
 
 // AppDelegate.swift 또는 App.swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -133,6 +134,74 @@ extension YourViewController: OfferwallCallback {
 ```
 
 ## 고급 기능
+
+### Adjoe 통합 (PlaytimeWeb)
+
+AdChain SDK는 [adjoe PlaytimeWeb](https://docs.adjoe.io/)을 통합할 수 있습니다. adjoe는 사용자가 모바일 게임을 플레이하면서 리워드를 받을 수 있는 플랫폼입니다.
+
+> **✅ iOS는 Web-based PlaytimeWeb 사용**
+> - Native adjoe SDK 설치가 **필요 없습니다**
+> - AdChain SDK만 설치하면 됩니다
+> - 서버에서 PlaytimeWeb URL을 자동으로 제공합니다
+> - 기존 WebView 인프라를 재사용합니다
+
+#### 사용 방법
+
+adjoe 오퍼월은 **별도의 SDK 설치 없이** AdChain SDK만으로 사용할 수 있습니다:
+
+```swift
+import AdchainSDK
+
+// adjoe 오퍼월 표시 (추가 SDK 설치 불필요!)
+AdchainSdk.shared.openAdjoeOfferwall(
+    presentingViewController: self,
+    placementId: "adjoe_main",
+    callback: self  // OfferwallCallback 구현
+)
+```
+
+#### 콜백 처리
+
+```swift
+extension YourViewController: OfferwallCallback {
+    func onOpened() {
+        print("Adjoe offerwall opened")
+    }
+
+    func onClosed() {
+        print("Adjoe offerwall closed")
+    }
+
+    func onError(_ message: String) {
+        print("Adjoe error: \(message)")
+    }
+
+    func onRewardEarned(_ amount: Int) {
+        print("Adjoe reward earned: \(amount)")
+    }
+}
+```
+
+#### WebView에서 Adjoe 사용
+
+AdChain WebView에서 JavaScript를 통해 adjoe 오퍼월을 열 수 있습니다:
+
+```javascript
+// JavaScript에서 호출
+window.AdchainBridge.openAdjoeOfferwall('adjoe_main');
+```
+
+#### 서버 설정
+
+adjoe 기능을 활성화하려면 서버 측에서 다음 정보를 설정해야 합니다:
+
+- `adjoeEnabled`: adjoe 활성화 여부
+- `adjoeUrl`: PlaytimeWeb URL (예: `https://your-app.playtimeweb.com/play`)
+
+> **참고**:
+> - 클라이언트 코드 변경은 필요 없습니다
+> - 서버에서 adjoe 설정이 제공되면 자동으로 활성화됩니다
+> - Native SDK 의존성이 없어 앱 크기 증가가 없습니다
 
 ### 미션 시스템
 
@@ -226,6 +295,43 @@ SDK의 난독화를 원하지 않는 경우:
 -keep class com.adchain.sdk.** { *; }
 ```
 
+## 테스트
+
+> **⚠️ 현재 상태**: 단위 테스트가 아직 구현되지 않았습니다.
+> 수동 테스트 및 예제 앱을 통한 통합 테스트를 권장합니다.
+
+### 테스트 방법
+1. 예제 앱 사용: [adchain-sdk-ios-example](https://github.com/1selfworld-labs/adchain-sdk-ios-example)
+2. 수동 테스트: WebView 상호작용 및 JavaScript Bridge 기능
+3. 통합 테스트: 실제 앱에 SDK 통합 후 테스트
+
+## 보안 가이드라인
+
+### API 키/시크릿 관리
+
+1. **절대 하드코딩 금지**
+   ```swift
+   // ❌ 잘못된 예
+   let config = AdchainSdkConfig(
+       appKey: "abc123def456",  // 하드코딩된 키
+       appSecret: "secret789"
+   )
+
+   // ✅ 올바른 예
+   let config = AdchainSdkConfig(
+       appKey: ConfigManager.shared.appKey,
+       appSecret: ConfigManager.shared.appSecret
+   )
+   ```
+
+2. **환경 변수 사용**
+   - 개발/스테이징/프로덕션 환경별로 분리
+   - `.xcconfig` 파일 또는 환경 변수 사용
+
+3. **Git 저장소 보안**
+   - `.gitignore`에 민감한 설정 파일 추가
+   - 실수로 커밋된 경우 즉시 키 재발급
+
 ## 문제 해결
 
 ### 오퍼월이 표시되지 않는 경우
@@ -247,12 +353,13 @@ SDK의 난독화를 원하지 않는 경우:
 
 ## 마이그레이션 가이드
 
-### 1.0.13 → 1.0.14
+### 이전 버전 → 1.0.33
 
 주요 변경사항:
-- **🔄 모듈명 통일**: `import AdChainSDK` (capital C) 사용
-- 이전 버전의 `import AdchainSDK` 문제 해결
-- 모든 설정에서 일관된 이름 사용
+- **🔄 모듈명 통일**: `import AdchainSDK` 사용
+- 성능 최적화 및 버그 수정
+- 이벤트 트래킹 기능 강화
+- placementId 파라미터 추가
 
 업데이트 방법:
 ```bash
@@ -279,31 +386,25 @@ AdChain SDK는 MIT 라이선스를 따릅니다. 자세한 내용은 [LICENSE](L
 
 ## 변경 이력
 
-### 1.0.14 (2025-09-16)
-- **모듈명 통일**: AdChainSDK (capital C)
-- import 문 일관성 개선
-- 빌드 설정 최적화
+### 1.0.33 (2025-09-26) - 현재 버전
+- **버전 통합**: 모든 구성 요소의 버전을 1.0.33으로 통일
+- **unitId 파라미터 복원**: React Native 호환성을 위해 unitId 파라미터 재추가
+- **placementId 기능 추가**: 광고 위치 식별자 지원
+- **이벤트 트래킹 개선**: 더 상세한 사용자 행동 추적
+- **배포 검증 스크립트 추가**: 배포 프로세스 자동화
 
-### 1.0.13 (2025-09-16)
-- **보안 강화**: 소스 코드를 비공개로 전환
-- XCFramework 바이너리 전용 배포
-- CocoaPods Trunk 공식 배포
-- 구현 세부사항 보호
-
-### 1.0.12 (2025-09-16)
-- WebView Safe Area 처리 개선
-- 하단 고정 요소 렌더링 버그 수정
-- 오퍼월 UI 안정성 향상
-
-### 1.0.11 (2025-09-15)
-- 미션 및 오퍼월 기능 업데이트
+### 1.0.31 (2025-09-24)
 - 성능 최적화
+- 버그 수정
 
-### 1.0.10
-- 퀴즈 시스템 추가
-- JavaScript Bridge 기능 강화
+### 1.0.30 (2025-09-23)
+- 네트워크 모듈 개선
+- 오퍼월 UI 업데이트
 
-전체 변경 이력은 [CHANGELOG.md](CHANGELOG.md)를 참조하세요.
+### 이전 버전들
+- v1.0.0 ~ v1.0.29: 초기 개발 및 안정화
+
+상세한 변경 이력은 [CHANGELOG.md](CHANGELOG.md)를 참조하세요.
 
 ---
 

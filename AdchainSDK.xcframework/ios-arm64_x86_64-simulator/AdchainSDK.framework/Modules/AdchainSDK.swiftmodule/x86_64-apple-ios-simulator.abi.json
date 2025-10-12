@@ -1654,14 +1654,22 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "AdchainMission",
-                "printedName": "AdchainSDK.AdchainMission",
-                "usr": "s:10AdchainSDK0A7MissionC"
+                "name": "Optional",
+                "printedName": "AdchainSDK.AdchainMission?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AdchainMission",
+                    "printedName": "AdchainSDK.AdchainMission",
+                    "usr": "s:10AdchainSDK0A7MissionC"
+                  }
+                ],
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:10AdchainSDK0A7MissionCACycfc",
-            "mangledName": "$s10AdchainSDK0A7MissionCACycfc",
+            "usr": "s:10AdchainSDK0A7MissionCACSgycfc",
+            "mangledName": "$s10AdchainSDK0A7MissionCACSgycfc",
             "moduleName": "AdchainSDK",
             "declAttributes": [
               "AccessControl"
@@ -2399,14 +2407,22 @@
             "children": [
               {
                 "kind": "TypeNominal",
-                "name": "AdchainQuiz",
-                "printedName": "AdchainSDK.AdchainQuiz",
-                "usr": "s:10AdchainSDK0A4QuizC"
+                "name": "Optional",
+                "printedName": "AdchainSDK.AdchainQuiz?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AdchainQuiz",
+                    "printedName": "AdchainSDK.AdchainQuiz",
+                    "usr": "s:10AdchainSDK0A4QuizC"
+                  }
+                ],
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:10AdchainSDK0A4QuizCACycfc",
-            "mangledName": "$s10AdchainSDK0A4QuizCACycfc",
+            "usr": "s:10AdchainSDK0A4QuizCACSgycfc",
+            "mangledName": "$s10AdchainSDK0A4QuizCACSgycfc",
             "moduleName": "AdchainSDK",
             "declAttributes": [
               "AccessControl"
@@ -12158,7 +12174,7 @@
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Mission\/AdchainMission.swift",
       "kind": "BooleanLiteral",
-      "offset": 1746,
+      "offset": 1901,
       "length": 4,
       "value": "true"
     },
@@ -12207,7 +12223,7 @@
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Quiz\/AdchainQuiz.swift",
       "kind": "BooleanLiteral",
-      "offset": 944,
+      "offset": 1100,
       "length": 4,
       "value": "true"
     },
