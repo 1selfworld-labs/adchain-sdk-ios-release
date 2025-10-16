@@ -4,14 +4,14 @@
   <img src="https://img.shields.io/badge/platform-iOS-blue.svg" alt="Platform iOS" />
   <img src="https://img.shields.io/badge/iOS-14.0%2B-blue.svg" alt="iOS 14.0+" />
   <img src="https://img.shields.io/badge/Swift-5.5%2B-orange.svg" alt="Swift 5.5+" />
-  <img src="https://img.shields.io/badge/version-1.0.33-green.svg" alt="Version 1.0.33" />
+  <img src="https://img.shields.io/badge/version-1.0.38-green.svg" alt="Version 1.0.38" />
   <img src="https://img.shields.io/badge/license-MIT-lightgrey.svg" alt="License MIT" />
 </p>
 
 AdChain SDK는 iOS 애플리케이션에 광고 및 리워드 기능을 쉽게 통합할 수 있는 종합 광고 솔루션입니다.
 
 > **🔒 보안 강화**: v1.0.13부터 소스 코드가 공개되지 않으며, XCFramework 바이너리만 제공됩니다.
-> **📝 현재 버전**: v1.0.33 (2025-09-26)
+> **📝 현재 버전**: v1.0.38 (2025-10-16)
 
 ## 주요 기능
 
@@ -39,10 +39,10 @@ use_frameworks!
 
 target 'YourApp' do
   # CocoaPods Trunk에서 설치 (권장)
-  pod 'AdChainSDK', '~> 1.0.33'
+  pod 'AdChainSDK', '~> 1.0.38'
 
   # 또는 Git 저장소에서 직접 설치
-  # pod 'AdChainSDK', :git => 'https://github.com/1selfworld-labs/adchain-sdk-ios-release.git', :tag => 'v1.0.33'
+  # pod 'AdChainSDK', :git => 'https://github.com/1selfworld-labs/adchain-sdk-ios-release.git', :tag => '1.0.38'
 end
 ```
 
@@ -54,7 +54,7 @@ pod install
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/1selfworld-labs/adchain-sdk-ios-release.git", from: "1.0.33")
+    .package(url: "https://github.com/1selfworld-labs/adchain-sdk-ios-release.git", from: "1.0.38")
 ]
 ```
 
@@ -353,13 +353,14 @@ SDK의 난독화를 원하지 않는 경우:
 
 ## 마이그레이션 가이드
 
-### 이전 버전 → 1.0.33
+### 이전 버전 → 1.0.38
 
 주요 변경사항:
 - **🔄 모듈명 통일**: `import AdchainSDK` 사용
+- adjoe 통합 개선 (gender/age 파라미터 지원)
+- 앱 설치 감지 기능 추가
+- Quiz/Mission API 개선
 - 성능 최적화 및 버그 수정
-- 이벤트 트래킹 기능 강화
-- placementId 파라미터 추가
 
 업데이트 방법:
 ```bash
@@ -386,12 +387,31 @@ AdChain SDK는 MIT 라이선스를 따릅니다. 자세한 내용은 [LICENSE](L
 
 ## 변경 이력
 
-### 1.0.33 (2025-09-26) - 현재 버전
+### 1.0.38 (2025-10-16) - 현재 버전
+- **XCFramework 최신 빌드**: 소스 저장소 v1.0.38 변경사항 반영
+- **Package.swift 개선**: binaryTarget 사용으로 SPM 지원 강화
+- **배포 프로세스 안정화**: CocoaPods 및 SPM 동시 지원
+
+### 1.0.36 (2025-10-16)
+- **adjoe 통합 개선**: gender/age 파라미터 지원 추가
+- **앱 설치 감지**: URL scheme을 통한 앱 설치 여부 확인 기능
+- **딥링크 지원**: App Store 링크 및 커스텀 URL scheme 지원
+- **JavaScript Bridge 개선**: 웹-네이티브 통신 안정성 향상
+
+### 1.0.35 (2025-10-12)
+- **Quiz/Mission API 개선**: @objc 및 NSObject 상속 추가
+- **Initializer 수정**: Non-optional initializer로 변경
+- **CocoaPods 호환성**: API 가시성 문제 해결
+
+### 1.0.34 (2025-10-12)
+- XCFramework 바이너리 업데이트
+- 안정성 개선
+
+### 1.0.33 (2025-09-25)
 - **버전 통합**: 모든 구성 요소의 버전을 1.0.33으로 통일
 - **unitId 파라미터 복원**: React Native 호환성을 위해 unitId 파라미터 재추가
 - **placementId 기능 추가**: 광고 위치 식별자 지원
 - **이벤트 트래킹 개선**: 더 상세한 사용자 행동 추적
-- **배포 검증 스크립트 추가**: 배포 프로세스 자동화
 
 ### 1.0.31 (2025-09-24)
 - 성능 최적화
@@ -400,6 +420,7 @@ AdChain SDK는 MIT 라이선스를 따릅니다. 자세한 내용은 [LICENSE](L
 ### 1.0.30 (2025-09-23)
 - 네트워크 모듈 개선
 - 오퍼월 UI 업데이트
+- 디바이스 화면 해상도 정보 지원
 
 ### 이전 버전들
 - v1.0.0 ~ v1.0.29: 초기 개발 및 안정화
