@@ -13,21 +13,13 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/1024jp/GzipSwift", from: "6.0.0")
-        // Note: adjoe uses PlaytimeWeb (web-based) on iOS, no SDK dependency needed
+        // GzipSwift is already statically linked in the XCFramework
+        // No external dependencies needed
     ],
     targets: [
-        .target(
+        .binaryTarget(
             name: "AdchainSDK",
-            dependencies: [
-                .product(name: "Gzip", package: "GzipSwift")
-            ],
-            path: "AdchainSDK/Sources"
+            path: "AdchainSDK.xcframework"
         ),
-        // .testTarget(
-        //     name: "AdchainSDKTests",
-        //     dependencies: ["AdchainSDK"],
-        //     path: "Tests/AdchainSDKTests"
-        // ),
     ]
 )
