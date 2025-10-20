@@ -3362,6 +3362,38 @@
           },
           {
             "kind": "Function",
+            "name": "getOfferwallUrl",
+            "printedName": "getOfferwallUrl()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdk(im)getOfferwallUrl",
+            "mangledName": "$s10AdchainSDK0A3SdkC15getOfferwallUrlSSSgyF",
+            "moduleName": "AdchainSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
             "name": "getSDKVersion",
             "printedName": "getSDKVersion()",
             "children": [
@@ -12612,7 +12644,7 @@
       "kind": "StringLiteral",
       "offset": 145,
       "length": 8,
-      "value": "\"1.0.38\""
+      "value": "\"1.0.39\""
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
@@ -12645,21 +12677,21 @@
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "StringLiteral",
-      "offset": 20808,
+      "offset": 21022,
       "length": 8,
       "value": "\"custom\""
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "StringLiteral",
-      "offset": 23136,
+      "offset": 23350,
       "length": 8,
       "value": "\"custom\""
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "StringLiteral",
-      "offset": 29541,
+      "offset": 29755,
       "length": 20,
       "value": "\"com.adchain.atomic\""
     },

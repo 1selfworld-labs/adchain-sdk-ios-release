@@ -115,6 +115,7 @@ public protocol AdchainQuizEventsListener : AnyObject {
   @objc final public func getCurrentUser() -> AdchainSDK.AdchainSdkUser?
   @objc public static func setLogLevel(_ level: AdchainSDK.LogLevel)
   @objc final public func getConfig() -> AdchainSDK.AdchainSdkConfig?
+  @objc final public func getOfferwallUrl() -> Swift.String?
   @objc final public func getSDKVersion() -> Swift.String
   final public func getBannerInfo(placementId: Swift.String, completion: @escaping (Swift.Result<AdchainSDK.BannerInfoResponse, any Swift.Error>) -> Swift.Void)
   @objc final public func objc_openOfferwall(presentingViewController: UIKit.UIViewController, placementId: Swift.String)

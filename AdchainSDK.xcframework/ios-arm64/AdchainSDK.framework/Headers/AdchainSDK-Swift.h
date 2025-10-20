@@ -362,6 +362,11 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) AdchainSdk *
 ///
 + (void)setLogLevel:(enum LogLevel)level;
 - (AdchainSdkConfig * _Nullable)getConfig SWIFT_WARN_UNUSED_RESULT;
+/// Get the offerwall URL from validated app data
+///
+/// returns:
+/// Offerwall URL or nil if not available
+- (NSString * _Nullable)getOfferwallUrl SWIFT_WARN_UNUSED_RESULT;
 - (NSString * _Nonnull)getSDKVersion SWIFT_WARN_UNUSED_RESULT;
 - (void)objc_openOfferwallWithPresentingViewController:(UIViewController * _Nonnull)presentingViewController placementId:(NSString * _Nonnull)placementId;
 - (void)objc_openOfferwallWithUrl:(NSString * _Nonnull)url placementId:(NSString * _Nonnull)placementId presentingViewController:(UIViewController * _Nonnull)presentingViewController;
