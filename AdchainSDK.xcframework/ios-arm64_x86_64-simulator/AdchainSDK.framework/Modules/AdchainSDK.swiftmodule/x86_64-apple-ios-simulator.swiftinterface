@@ -317,6 +317,10 @@ public protocol OfferwallCallback {
   func onError(_ message: Swift.String)
   func onRewardEarned(_ amount: Swift.Int)
 }
+public protocol OfferwallEventCallback {
+  func onCustomEvent(eventType: Swift.String, payload: [Swift.String : Any])
+  func onDataRequest(requestId: Swift.String, requestType: Swift.String, params: [Swift.String : Any]) -> [Swift.String : Any]?
+}
 public struct QuizEvent : Swift.Codable, Swift.Sendable {
   public let id: Swift.String
   public let title: Swift.String
@@ -360,6 +364,7 @@ public struct TrackEventRequest : Swift.Encodable {
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
   @_Concurrency.MainActor @preconcurrency public func loadOfferwall(baseUrl: Swift.String, userId: Swift.String, appKey: Swift.String, placementId: Swift.String = "")
   @_Concurrency.MainActor @preconcurrency public func setCallback(_ callback: (any AdchainSDK.OfferwallCallback)?)
+  @_Concurrency.MainActor @preconcurrency public func setEventCallback(_ callback: (any AdchainSDK.OfferwallEventCallback)?)
   @objc deinit
 }
 extension AdchainSDK.AdchainOfferwallView : WebKit.WKScriptMessageHandler {
