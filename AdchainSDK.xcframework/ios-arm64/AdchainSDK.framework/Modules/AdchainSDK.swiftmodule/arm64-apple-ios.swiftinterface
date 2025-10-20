@@ -104,8 +104,8 @@ public protocol AdchainQuizEventsListener : AnyObject {
   @objc final public func initialize(application: UIKit.UIApplication, sdkConfig: AdchainSDK.AdchainSdkConfig)
   @objc final public func login(adchainSdkUser: AdchainSDK.AdchainSdkUser, listener: (any AdchainSDK.AdchainSdkLoginListener)? = nil)
   @objc final public func logout()
-  final public func openOfferwall(presentingViewController: UIKit.UIViewController, placementId: Swift.String, callback: (any AdchainSDK.OfferwallCallback)? = nil)
-  final public func openOfferwallWithUrl(_ url: Swift.String, placementId: Swift.String, presentingViewController: UIKit.UIViewController, callback: (any AdchainSDK.OfferwallCallback)? = nil, showNavigationBar: Swift.Bool = false, useNativeNavigationBar: Swift.Bool = false)
+  final public func openOfferwall(presentingViewController: UIKit.UIViewController, placementId: Swift.String, callback: (any AdchainSDK.OfferwallCallback)? = nil, eventCallback: (any AdchainSDK.OfferwallEventCallback)? = nil)
+  final public func openOfferwallWithUrl(_ url: Swift.String, placementId: Swift.String, presentingViewController: UIKit.UIViewController, callback: (any AdchainSDK.OfferwallCallback)? = nil, eventCallback: (any AdchainSDK.OfferwallEventCallback)? = nil, showNavigationBar: Swift.Bool = false, useNativeNavigationBar: Swift.Bool = false)
   @discardableResult
   @objc final public func openExternalBrowser(_ url: Swift.String, placementId: Swift.String) -> Swift.Bool
   @objc final public func isInitialized() -> Swift.Bool

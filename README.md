@@ -4,14 +4,14 @@
   <img src="https://img.shields.io/badge/platform-iOS-blue.svg" alt="Platform iOS" />
   <img src="https://img.shields.io/badge/iOS-14.0%2B-blue.svg" alt="iOS 14.0+" />
   <img src="https://img.shields.io/badge/Swift-5.5%2B-orange.svg" alt="Swift 5.5+" />
-  <img src="https://img.shields.io/badge/version-1.0.33-green.svg" alt="Version 1.0.33" />
+  <img src="https://img.shields.io/badge/version-1.0.41-green.svg" alt="Version 1.0.41" />
   <img src="https://img.shields.io/badge/license-MIT-lightgrey.svg" alt="License MIT" />
 </p>
 
 AdChain SDK는 iOS 애플리케이션에 광고 및 리워드 기능을 쉽게 통합할 수 있는 종합 광고 솔루션입니다.
 
 > **🔒 보안 강화**: v1.0.13부터 소스 코드가 공개되지 않으며, XCFramework 바이너리만 제공됩니다.
-> **📝 현재 버전**: v1.0.33 (2025-09-26)
+> **📝 현재 버전**: v1.0.41 (2025-10-20)
 
 ## 주요 기능
 
@@ -20,6 +20,9 @@ AdChain SDK는 iOS 애플리케이션에 광고 및 리워드 기능을 쉽게 �
 - ❓ **퀴즈(Quiz)**: 인터랙티브 퀴즈 광고
 - 🎨 **배너 광고**: 네이티브 배너 광고 지원
 - 🌉 **JavaScript Bridge**: 웹-네이티브 완벽한 통신
+- 🔄 **커스텀 이벤트 브릿지** (v1.0.41): WebView ↔ Native 양방향 통신
+- 📲 **React Native 지원**: 네이티브 View 임베딩 가능
+- 🎮 **Adjoe 통합**: PlaytimeWeb 기반 (별도 SDK 불필요)
 - 🔒 **Privacy Manifest**: Apple 개인정보 보호 정책 준수
 
 ## 요구사항
@@ -39,10 +42,10 @@ use_frameworks!
 
 target 'YourApp' do
   # CocoaPods Trunk에서 설치 (권장)
-  pod 'AdChainSDK', '~> 1.0.33'
+  pod 'AdChainSDK', '~> 1.0.41'
 
   # 또는 Git 저장소에서 직접 설치
-  # pod 'AdChainSDK', :git => 'https://github.com/1selfworld-labs/adchain-sdk-ios-release.git', :tag => 'v1.0.33'
+  # pod 'AdChainSDK', :git => 'https://github.com/1selfworld-labs/adchain-sdk-ios-release.git', :tag => 'v1.0.41'
 end
 ```
 
@@ -54,7 +57,7 @@ pod install
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/1selfworld-labs/adchain-sdk-ios-release.git", from: "1.0.33")
+    .package(url: "https://github.com/1selfworld-labs/adchain-sdk-ios-release.git", from: "1.0.41")
 ]
 ```
 
@@ -119,21 +122,151 @@ extension YourViewController: AdchainSdkLoginListener {
 ### 3. 오퍼월 표시
 
 ```swift
-let offerwallVC = AdchainOfferwallViewController()
-offerwallVC.callback = self  // OfferwallCallback 구현
-present(offerwallVC, animated: true)
+// 방법 1: 기본 오퍼월
+AdchainSdk.shared.openOfferwall(
+    presentingViewController: self,
+    placementId: "main",
+    callback: self  // OfferwallCallback 구현
+)
+
+// 방법 2: 커스텀 URL 오퍼월 (v1.0.34+)
+AdchainSdk.shared.openOfferwallWithUrl(
+    "https://your-custom-url.com",
+    placementId: "custom",
+    presentingViewController: self,
+    callback: self,
+    showNavigationBar: true,
+    useNativeNavigationBar: true  // iOS 네이티브 네비게이션 바
+)
 ```
 
 ```swift
 // OfferwallCallback 구현
 extension YourViewController: OfferwallCallback {
-    func onFinish() {
-        print("오퍼월 종료")
+    func onOpened() {
+        print("오퍼월 열림")
+    }
+
+    func onClosed() {
+        print("오퍼월 닫힘")
+    }
+
+    func onError(_ message: String) {
+        print("오류: \(message)")
+    }
+
+    func onRewardEarned(_ amount: Int) {
+        print("리워드 획득: \(amount)")
     }
 }
 ```
 
 ## 고급 기능
+
+### React Native 및 임베디드 View 통합 (v1.0.39+)
+
+AdChain SDK는 React Native 및 기타 컨테이너에서 사용 가능한 네이티브 View를 제공합니다.
+
+```swift
+import AdchainSDK
+
+// UIView로 임베딩 가능한 오퍼월 생성
+let offerwallView = AdchainOfferwallView(frame: containerView.bounds)
+
+// 콜백 설정
+offerwallView.setCallback(self)  // OfferwallCallback
+offerwallView.setEventCallback(self)  // OfferwallEventCallback (v1.0.41)
+
+// 컨테이너에 추가
+containerView.addSubview(offerwallView)
+
+// 오퍼월 로드
+offerwallView.loadOfferwall(
+    baseUrl: offerwallUrl,
+    userId: userId,
+    appKey: appKey,
+    placementId: "rn_tab"
+)
+```
+
+### 커스텀 이벤트 브릿지 (v1.0.41)
+
+WebView와 Native 간 양방향 통신을 위한 커스텀 이벤트 브릿지를 제공합니다.
+
+```swift
+// OfferwallEventCallback 구현
+extension MyViewController: OfferwallEventCallback {
+    // WebView에서 전송된 커스텀 이벤트 수신
+    func onCustomEvent(eventType: String, payload: [String: Any]) {
+        print("커스텀 이벤트 수신: \(eventType)")
+        print("페이로드: \(payload)")
+
+        // 예: {"eventType": "user_action", "payload": {"action": "click", "itemId": "123"}}
+        if eventType == "user_action" {
+            let action = payload["action"] as? String
+            let itemId = payload["itemId"] as? String
+            // 앱에서 이벤트 처리
+        }
+    }
+
+    // WebView에서 요청한 데이터 제공
+    func onDataRequest(requestId: String, requestType: String, params: [String: Any]) -> [String: Any]? {
+        if requestType == "getUserProfile" {
+            // 사용자 프로필 데이터 반환
+            return [
+                "name": "홍길동",
+                "level": 15,
+                "points": 1000
+            ]
+        } else if requestType == "getAppSettings" {
+            return [
+                "theme": "dark",
+                "language": "ko"
+            ]
+        }
+        return nil
+    }
+}
+```
+
+**JavaScript에서 사용 (WebView 내부)**:
+
+```javascript
+// Native로 커스텀 이벤트 전송
+window.webkit.messageHandlers.adchainNative.postMessage(JSON.stringify({
+    type: 'customEvent',
+    data: {
+        eventType: 'user_action',
+        payload: { action: 'click', itemId: '123' }
+    }
+}));
+
+// Native에게 데이터 요청
+window.webkit.messageHandlers.adchainNative.postMessage(JSON.stringify({
+    type: 'dataRequest',
+    data: {
+        requestId: 'req_001',
+        requestType: 'getUserProfile',
+        params: {}
+    }
+}));
+
+// 응답은 콜백으로 수신됨
+window._adchain_callback_req_001 = function(response) {
+    console.log('사용자 프로필:', response);
+    // { name: "홍길동", level: 15, points: 1000 }
+};
+```
+
+### 외부 브라우저 열기
+
+```swift
+// 시스템 브라우저에서 URL 열기
+AdchainSdk.shared.openExternalBrowser(
+    "https://example.com/promo",
+    placementId: "promo_banner"
+)
+```
 
 ### Adjoe 통합 (PlaytimeWeb)
 
@@ -353,9 +486,13 @@ SDK의 난독화를 원하지 않는 경우:
 
 ## 마이그레이션 가이드
 
-### 이전 버전 → 1.0.33
+### 이전 버전 → 1.0.41
 
 주요 변경사항:
+- **🔄 커스텀 이벤트 브릿지**: WebView ↔ Native 양방향 통신 (v1.0.41)
+- **📲 React Native 지원**: AdchainOfferwallView 추가 (v1.0.39)
+- **🎮 Adjoe 통합 강화**: 앱 설치 감지 기능 (v1.0.36~38)
+- **🧭 네이티브 네비게이션 바**: iOS 네비게이션 바 옵션 (v1.0.34)
 - **🔄 모듈명 통일**: `import AdchainSDK` 사용
 - 성능 최적화 및 버그 수정
 - 이벤트 트래킹 기능 강화
@@ -364,6 +501,37 @@ SDK의 난독화를 원하지 않는 경우:
 업데이트 방법:
 ```bash
 pod update AdChainSDK
+```
+
+### API 변경사항
+
+**v1.0.41 - 커스텀 이벤트 브릿지**
+```swift
+// 새로운 OfferwallEventCallback 프로토콜
+offerwallView.setEventCallback(self)  // NEW
+
+extension MyViewController: OfferwallEventCallback {
+    func onCustomEvent(eventType: String, payload: [String: Any]) { }
+    func onDataRequest(requestId: String, requestType: String, params: [String: Any]) -> [String: Any]? { }
+}
+```
+
+**v1.0.39 - AdchainOfferwallView**
+```swift
+// 임베딩 가능한 네이티브 View
+let offerwallView = AdchainOfferwallView(frame: bounds)  // NEW
+```
+
+**v1.0.34 - 네이티브 네비게이션 바**
+```swift
+// useNativeNavigationBar 파라미터 추가
+AdchainSdk.shared.openOfferwallWithUrl(
+    url,
+    placementId: "custom",
+    presentingViewController: self,
+    callback: callback,
+    useNativeNavigationBar: true  // NEW
+)
 ```
 
 ## 샘플 앱
@@ -386,7 +554,36 @@ AdChain SDK는 MIT 라이선스를 따릅니다. 자세한 내용은 [LICENSE](L
 
 ## 변경 이력
 
-### 1.0.33 (2025-09-26) - 현재 버전
+### 1.0.41 (2025-10-20) - 현재 버전
+- **✨ 커스텀 이벤트 브릿지**: WebView ↔ Native 양방향 통신 기능 추가
+  - `OfferwallEventCallback` 프로토콜 신규 추가
+  - `customEvent`: WebView에서 Native로 이벤트 전송
+  - `dataRequest`: WebView에서 Native에 데이터 요청 및 응답
+- **📝 문서 업데이트**: CLAUDE.md, README.md 최신화
+
+### 1.0.40 (2025-10-18)
+- 커스텀 이벤트 브릿지 개발 (내부 버전)
+
+### 1.0.39 (2025-10-15)
+- **📲 AdchainOfferwallView**: React Native 및 임베딩을 위한 네이티브 View 추가
+- Xcode 프로젝트 구조 개선
+
+### 1.0.38 (2025-10-12)
+- Adjoe 통합 안정화
+
+### 1.0.37 (2025-10-10)
+- 앱 설치 감지 기능 추가
+
+### 1.0.36 (2025-10-08)
+- **🎮 Adjoe 통합 강화**: PlaytimeWeb 안정성 개선
+- **📱 앱 설치 감지**: URL 스킴 기반 앱 설치 확인 기능
+- 이벤트 트래킹 개선
+
+### 1.0.34 (2025-10-05)
+- **🧭 네이티브 네비게이션 바 지원**: `useNativeNavigationBar` 파라미터 추가
+- 오퍼월 UX 개선
+
+### 1.0.33 (2025-09-26)
 - **버전 통합**: 모든 구성 요소의 버전을 1.0.33으로 통일
 - **unitId 파라미터 복원**: React Native 호환성을 위해 unitId 파라미터 재추가
 - **placementId 기능 추가**: 광고 위치 식별자 지원

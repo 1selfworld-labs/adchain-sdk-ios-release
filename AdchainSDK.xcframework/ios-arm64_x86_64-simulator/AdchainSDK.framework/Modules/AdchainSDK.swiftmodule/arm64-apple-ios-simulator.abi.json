@@ -3046,7 +3046,7 @@
           {
             "kind": "Function",
             "name": "openOfferwall",
-            "printedName": "openOfferwall(presentingViewController:placementId:callback:)",
+            "printedName": "openOfferwall(presentingViewController:placementId:callback:eventCallback:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -3079,11 +3079,26 @@
                 ],
                 "hasDefaultArg": true,
                 "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any AdchainSDK.OfferwallEventCallback)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OfferwallEventCallback",
+                    "printedName": "any AdchainSDK.OfferwallEventCallback",
+                    "usr": "s:10AdchainSDK22OfferwallEventCallbackP"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
               }
             ],
             "declKind": "Func",
-            "usr": "s:10AdchainSDK0A3SdkC13openOfferwall24presentingViewController11placementId8callbackySo06UIViewH0C_SSAA0E8Callback_pSgtF",
-            "mangledName": "$s10AdchainSDK0A3SdkC13openOfferwall24presentingViewController11placementId8callbackySo06UIViewH0C_SSAA0E8Callback_pSgtF",
+            "usr": "s:10AdchainSDK0A3SdkC13openOfferwall24presentingViewController11placementId8callback13eventCallbackySo06UIViewH0C_SSAA0eM0_pSgAA0e5EventM0_pSgtF",
+            "mangledName": "$s10AdchainSDK0A3SdkC13openOfferwall24presentingViewController11placementId8callback13eventCallbackySo06UIViewH0C_SSAA0eM0_pSgAA0e5EventM0_pSgtF",
             "moduleName": "AdchainSDK",
             "declAttributes": [
               "Final",
@@ -3095,7 +3110,7 @@
           {
             "kind": "Function",
             "name": "openOfferwallWithUrl",
-            "printedName": "openOfferwallWithUrl(_:placementId:presentingViewController:callback:showNavigationBar:useNativeNavigationBar:)",
+            "printedName": "openOfferwallWithUrl(_:placementId:presentingViewController:callback:eventCallback:showNavigationBar:useNativeNavigationBar:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -3137,6 +3152,21 @@
               },
               {
                 "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any AdchainSDK.OfferwallEventCallback)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "OfferwallEventCallback",
+                    "printedName": "any AdchainSDK.OfferwallEventCallback",
+                    "usr": "s:10AdchainSDK22OfferwallEventCallbackP"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
                 "name": "Bool",
                 "printedName": "Swift.Bool",
                 "hasDefaultArg": true,
@@ -3151,8 +3181,8 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:10AdchainSDK0A3SdkC20openOfferwallWithUrl_11placementId24presentingViewController8callback17showNavigationBar09useNativeoP0ySS_SSSo06UIViewL0CAA0E8Callback_pSgS2btF",
-            "mangledName": "$s10AdchainSDK0A3SdkC20openOfferwallWithUrl_11placementId24presentingViewController8callback17showNavigationBar09useNativeoP0ySS_SSSo06UIViewL0CAA0E8Callback_pSgS2btF",
+            "usr": "s:10AdchainSDK0A3SdkC20openOfferwallWithUrl_11placementId24presentingViewController8callback13eventCallback17showNavigationBar09useNativeqR0ySS_SSSo06UIViewL0CAA0eO0_pSgAA0e5EventO0_pSgS2btF",
+            "mangledName": "$s10AdchainSDK0A3SdkC20openOfferwallWithUrl_11placementId24presentingViewController8callback13eventCallback17showNavigationBar09useNativeqR0ySS_SSSo06UIViewL0CAA0eO0_pSgAA0e5EventO0_pSgS2btF",
             "moduleName": "AdchainSDK",
             "declAttributes": [
               "Final",
@@ -13389,7 +13419,7 @@
       "kind": "StringLiteral",
       "offset": 145,
       "length": 8,
-      "value": "\"1.0.41\""
+      "value": "\"1.0.42\""
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
@@ -13408,35 +13438,35 @@
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "BooleanLiteral",
-      "offset": 10526,
+      "offset": 10781,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "BooleanLiteral",
-      "offset": 10572,
+      "offset": 10827,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "StringLiteral",
-      "offset": 21022,
+      "offset": 21348,
       "length": 8,
       "value": "\"custom\""
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "StringLiteral",
-      "offset": 23350,
+      "offset": 23676,
       "length": 8,
       "value": "\"custom\""
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "StringLiteral",
-      "offset": 29755,
+      "offset": 30081,
       "length": 20,
       "value": "\"com.adchain.atomic\""
     },
