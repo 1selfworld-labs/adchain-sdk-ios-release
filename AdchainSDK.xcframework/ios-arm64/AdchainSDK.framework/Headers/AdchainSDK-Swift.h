@@ -281,8 +281,11 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import CoreFoundation;
 @import Foundation;
 @import ObjectiveC;
+@import UIKit;
+@import WebKit;
 #endif
 
 #endif
@@ -323,6 +326,37 @@ SWIFT_CLASS("_TtC10AdchainSDK14AdchainMission")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class NSCoder;
+/// Native View for displaying offerwall in a container (e.g., React Native tab)
+/// This view can be embedded in any UIView
+SWIFT_CLASS("_TtC10AdchainSDK20AdchainOfferwallView")
+@interface AdchainOfferwallView : UIView
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
+@end
+
+@class WKUserContentController;
+@class WKScriptMessage;
+@interface AdchainOfferwallView (SWIFT_EXTENSION(AdchainSDK)) <WKScriptMessageHandler>
+- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
+@end
+
+@class WKWebView;
+@class NSString;
+@class WKFrameInfo;
+@interface AdchainOfferwallView (SWIFT_EXTENSION(AdchainSDK)) <WKUIDelegate>
+- (void)webView:(WKWebView * _Nonnull)webView runJavaScriptAlertPanelWithMessage:(NSString * _Nonnull)message initiatedByFrame:(WKFrameInfo * _Nonnull)frame completionHandler:(void (^ _Nonnull)(void))completionHandler;
+@end
+
+@class WKNavigation;
+@class WKNavigationAction;
+@interface AdchainOfferwallView (SWIFT_EXTENSION(AdchainSDK)) <WKNavigationDelegate>
+- (void)webView:(WKWebView * _Nonnull)webView didFinishNavigation:(WKNavigation * _Null_unspecified)navigation;
+- (void)webView:(WKWebView * _Nonnull)webView decidePolicyForNavigationAction:(WKNavigationAction * _Nonnull)navigationAction decisionHandler:(void (^ _Nonnull)(WKNavigationActionPolicy))decisionHandler;
+- (void)webView:(WKWebView * _Nonnull)webView didFailNavigation:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)error;
+- (void)webView:(WKWebView * _Nonnull)webView didFailProvisionalNavigation:(WKNavigation * _Null_unspecified)navigation withError:(NSError * _Nonnull)error;
+@end
+
 SWIFT_CLASS("_TtC10AdchainSDK11AdchainQuiz")
 @interface AdchainQuiz : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
@@ -332,7 +366,6 @@ SWIFT_CLASS("_TtC10AdchainSDK11AdchainQuiz")
 @class AdchainSdkConfig;
 @class AdchainSdkUser;
 @protocol AdchainSdkLoginListener;
-@class NSString;
 enum LogLevel : NSInteger;
 @class UIViewController;
 SWIFT_CLASS("_TtC10AdchainSDK10AdchainSdk")
