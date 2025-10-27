@@ -335,17 +335,17 @@ SWIFT_CLASS("_TtC10AdchainSDK20AdchainOfferwallView")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 @end
 
-@class WKUserContentController;
-@class WKScriptMessage;
-@interface AdchainOfferwallView (SWIFT_EXTENSION(AdchainSDK)) <WKScriptMessageHandler>
-- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
-@end
-
 @class WKWebView;
 @class NSString;
 @class WKFrameInfo;
 @interface AdchainOfferwallView (SWIFT_EXTENSION(AdchainSDK)) <WKUIDelegate>
 - (void)webView:(WKWebView * _Nonnull)webView runJavaScriptAlertPanelWithMessage:(NSString * _Nonnull)message initiatedByFrame:(WKFrameInfo * _Nonnull)frame completionHandler:(void (^ _Nonnull)(void))completionHandler;
+@end
+
+@class WKUserContentController;
+@class WKScriptMessage;
+@interface AdchainOfferwallView (SWIFT_EXTENSION(AdchainSDK)) <WKScriptMessageHandler>
+- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
 @end
 
 @class WKNavigation;
@@ -830,17 +830,17 @@ SWIFT_CLASS("_TtC10AdchainSDK20AdchainOfferwallView")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 @end
 
-@class WKUserContentController;
-@class WKScriptMessage;
-@interface AdchainOfferwallView (SWIFT_EXTENSION(AdchainSDK)) <WKScriptMessageHandler>
-- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
-@end
-
 @class WKWebView;
 @class NSString;
 @class WKFrameInfo;
 @interface AdchainOfferwallView (SWIFT_EXTENSION(AdchainSDK)) <WKUIDelegate>
 - (void)webView:(WKWebView * _Nonnull)webView runJavaScriptAlertPanelWithMessage:(NSString * _Nonnull)message initiatedByFrame:(WKFrameInfo * _Nonnull)frame completionHandler:(void (^ _Nonnull)(void))completionHandler;
+@end
+
+@class WKUserContentController;
+@class WKScriptMessage;
+@interface AdchainOfferwallView (SWIFT_EXTENSION(AdchainSDK)) <WKScriptMessageHandler>
+- (void)userContentController:(WKUserContentController * _Nonnull)userContentController didReceiveScriptMessage:(WKScriptMessage * _Nonnull)message;
 @end
 
 @class WKNavigation;

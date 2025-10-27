@@ -85,6 +85,25 @@ public protocol AdchainMissionEventsListener : AnyObject {
   func onProgressed(_ mission: AdchainSDK.Mission)
   func onRefreshed(unitId: Swift.String?)
 }
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class AdchainOfferwallView : UIKit.UIView {
+  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor @preconcurrency public func loadOfferwall(baseUrl: Swift.String, userId: Swift.String, appKey: Swift.String, placementId: Swift.String = "")
+  @_Concurrency.MainActor @preconcurrency public func setCallback(_ callback: (any AdchainSDK.OfferwallCallback)?)
+  @_Concurrency.MainActor @preconcurrency public func setEventCallback(_ callback: (any AdchainSDK.OfferwallEventCallback)?)
+  @objc deinit
+}
+extension AdchainSDK.AdchainOfferwallView : WebKit.WKScriptMessageHandler {
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
+}
+extension AdchainSDK.AdchainOfferwallView : WebKit.WKNavigationDelegate {
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFail navigation: WebKit.WKNavigation!, withError error: any Swift.Error)
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFailProvisionalNavigation navigation: WebKit.WKNavigation!, withError error: any Swift.Error)
+}
+extension AdchainSDK.AdchainOfferwallView : WebKit.WKUIDelegate {
+  @_Concurrency.MainActor @preconcurrency @objc dynamic public func webView(_ webView: WebKit.WKWebView, runJavaScriptAlertPanelWithMessage message: Swift.String, initiatedByFrame frame: WebKit.WKFrameInfo, completionHandler: @escaping () -> Swift.Void)
+}
 @_inheritsConvenienceInitializers @objc public class AdchainQuiz : ObjectiveC.NSObject {
   @objc override dynamic public init()
   public func setQuizEventsListener(_ listener: any AdchainSDK.AdchainQuizEventsListener)
@@ -106,6 +125,7 @@ public protocol AdchainQuizEventsListener : AnyObject {
   @objc final public func logout()
   final public func openOfferwall(presentingViewController: UIKit.UIViewController, placementId: Swift.String, callback: (any AdchainSDK.OfferwallCallback)? = nil, eventCallback: (any AdchainSDK.OfferwallEventCallback)? = nil)
   final public func openOfferwallWithUrl(_ url: Swift.String, placementId: Swift.String, presentingViewController: UIKit.UIViewController, callback: (any AdchainSDK.OfferwallCallback)? = nil, eventCallback: (any AdchainSDK.OfferwallEventCallback)? = nil, showNavigationBar: Swift.Bool = false, useNativeNavigationBar: Swift.Bool = false)
+  final public func openOfferwallNestAds(presentingViewController: UIKit.UIViewController, placementId: Swift.String, callback: (any AdchainSDK.OfferwallCallback)? = nil, eventCallback: (any AdchainSDK.OfferwallEventCallback)? = nil, showNavigationBar: Swift.Bool = false, useNativeNavigationBar: Swift.Bool = false)
   @discardableResult
   @objc final public func openExternalBrowser(_ url: Swift.String, placementId: Swift.String) -> Swift.Bool
   @objc final public func isInitialized() -> Swift.Bool
@@ -321,6 +341,13 @@ public protocol OfferwallEventCallback {
   func onCustomEvent(eventType: Swift.String, payload: [Swift.String : Any])
   func onDataRequest(requestId: Swift.String, requestType: Swift.String, params: [Swift.String : Any]) -> [Swift.String : Any]?
 }
+public struct PlacementUrlResponse : Swift.Codable {
+  public let success: Swift.Bool
+  public let url: Swift.String?
+  public let message: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
 public struct QuizEvent : Swift.Codable, Swift.Sendable {
   public let id: Swift.String
   public let title: Swift.String
@@ -359,25 +386,6 @@ public struct TrackEventRequest : Swift.Encodable {
   public let parameters: [Swift.String : Swift.String]
   public init(name: Swift.String, sdkVersion: Swift.String, timestamp: Swift.String, sessionId: Swift.String, userId: Swift.String?, deviceId: Swift.String, ifa: Swift.String, platform: Swift.String, osVersion: Swift.String, parameters: [Swift.String : Swift.String])
   public func encode(to encoder: any Swift.Encoder) throws
-}
-@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class AdchainOfferwallView : UIKit.UIView {
-  @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
-  @_Concurrency.MainActor @preconcurrency public func loadOfferwall(baseUrl: Swift.String, userId: Swift.String, appKey: Swift.String, placementId: Swift.String = "")
-  @_Concurrency.MainActor @preconcurrency public func setCallback(_ callback: (any AdchainSDK.OfferwallCallback)?)
-  @_Concurrency.MainActor @preconcurrency public func setEventCallback(_ callback: (any AdchainSDK.OfferwallEventCallback)?)
-  @objc deinit
-}
-extension AdchainSDK.AdchainOfferwallView : WebKit.WKScriptMessageHandler {
-  @_Concurrency.MainActor @preconcurrency @objc dynamic public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
-}
-extension AdchainSDK.AdchainOfferwallView : WebKit.WKNavigationDelegate {
-  @_Concurrency.MainActor @preconcurrency @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
-  @_Concurrency.MainActor @preconcurrency @objc dynamic public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
-  @_Concurrency.MainActor @preconcurrency @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFail navigation: WebKit.WKNavigation!, withError error: any Swift.Error)
-  @_Concurrency.MainActor @preconcurrency @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFailProvisionalNavigation navigation: WebKit.WKNavigation!, withError error: any Swift.Error)
-}
-extension AdchainSDK.AdchainOfferwallView : WebKit.WKUIDelegate {
-  @_Concurrency.MainActor @preconcurrency @objc dynamic public func webView(_ webView: WebKit.WKWebView, runJavaScriptAlertPanelWithMessage message: Swift.String, initiatedByFrame frame: WebKit.WKFrameInfo, completionHandler: @escaping () -> Swift.Void)
 }
 extension AdchainSDK.AdchainAdError : Swift.Equatable {}
 extension AdchainSDK.AdchainAdError : Swift.Hashable {}
