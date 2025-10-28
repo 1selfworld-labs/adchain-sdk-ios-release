@@ -162,7 +162,7 @@ public protocol AdchainQuizEventsListener : AnyObject {
   @objc final public let appKey: Swift.String
   @objc final public let appSecret: Swift.String
   @objc final public let environment: AdchainSDK.AdchainSdkConfig.Environment
-  @objc final public let timeout: Foundation.TimeInterval
+  @objc final public let timeoutMillis: Swift.Int64
   @available(*, deprecated, message: "서버에서 자동으로 설정됩니다. 테스트 목적으로만 사용하세요.")
   @objc final public let adjoeEnabled: Swift.Bool
   @available(*, deprecated, message: "서버에서 자동으로 설정됩니다. 테스트 목적으로만 사용하세요.")
@@ -170,7 +170,7 @@ public protocol AdchainQuizEventsListener : AnyObject {
   @objc public class Builder : ObjectiveC.NSObject {
     @objc public init(appKey: Swift.String, appSecret: Swift.String)
     @objc public func setEnvironment(_ environment: AdchainSDK.AdchainSdkConfig.Environment) -> AdchainSDK.AdchainSdkConfig.Builder
-    @objc public func setTimeout(_ timeout: Foundation.TimeInterval) -> AdchainSDK.AdchainSdkConfig.Builder
+    @objc public func setTimeoutMillis(_ timeoutMillis: Swift.Int64) -> AdchainSDK.AdchainSdkConfig.Builder
     @available(*, deprecated, message: "서버에서 자동으로 설정됩니다. 테스트 목적으로만 사용하세요.")
     @objc public func enableAdjoe(sdkHash: Swift.String) -> AdchainSDK.AdchainSdkConfig.Builder
     @available(*, deprecated, message: "서버에서 자동으로 설정됩니다.")

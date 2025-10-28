@@ -4,15 +4,14 @@
   <img src="https://img.shields.io/badge/platform-iOS-blue.svg" alt="Platform iOS" />
   <img src="https://img.shields.io/badge/iOS-14.0%2B-blue.svg" alt="iOS 14.0+" />
   <img src="https://img.shields.io/badge/Swift-5.5%2B-orange.svg" alt="Swift 5.5+" />
-  <img src="https://img.shields.io/badge/version-1.0.43-green.svg" alt="Version 1.0.43" />
+  <img src="https://img.shields.io/badge/version-1.0.41-green.svg" alt="Version 1.0.41" />
   <img src="https://img.shields.io/badge/license-MIT-lightgrey.svg" alt="License MIT" />
 </p>
 
 AdChain SDK는 iOS 애플리케이션에 광고 및 리워드 기능을 쉽게 통합할 수 있는 종합 광고 솔루션입니다.
 
 > **🔒 보안 강화**: v1.0.13부터 소스 코드가 공개되지 않으며, XCFramework 바이너리만 제공됩니다.
-> **📝 현재 버전**: v1.0.43 (2025-10-27)
-> **✨ NEW**: v1.0.43부터 Swift Package Manager 완전 지원! (binaryTarget 방식)
+> **📝 현재 버전**: v1.0.41 (2025-10-20)
 
 ## 주요 기능
 
@@ -34,36 +33,6 @@ AdChain SDK는 iOS 애플리케이션에 광고 및 리워드 기능을 쉽게 �
 
 ## 설치
 
-### Swift Package Manager (권장) ✨
-
-**v1.0.43부터 SPM 완전 지원!** (binaryTarget 방식)
-
-#### Package.swift에서 사용
-
-```swift
-// Package.swift
-dependencies: [
-    .package(
-        url: "https://github.com/1selfworld-labs/adchain-sdk-ios-release.git",
-        from: "1.0.43"
-    )
-]
-```
-
-#### Xcode에서 사용
-
-1. Xcode에서 **File > Add Package Dependencies...** 선택
-2. URL 입력: `https://github.com/1selfworld-labs/adchain-sdk-ios-release.git`
-3. **Dependency Rule**: "Up to Next Major Version" 선택
-4. **Version**: `1.0.43` 이상 선택
-5. **Add Package** 클릭
-
-> **✅ SPM 장점**:
-> - 의존성 자동 관리
-> - XCFramework 바이너리 사용 (빠른 빌드)
-> - CocoaPods 없이 사용 가능
-> - Xcode 네이티브 지원
-
 ### CocoaPods
 
 ```ruby
@@ -72,11 +41,11 @@ platform :ios, '14.0'
 use_frameworks!
 
 target 'YourApp' do
-  # Git 저장소에서 직접 설치 (v1.0.43부터 SPM 권장)
-  pod 'AdChainSDK', :git => 'https://github.com/1selfworld-labs/adchain-sdk-ios-release.git', :tag => 'v1.0.43'
+  # CocoaPods Trunk에서 설치 (권장)
+  pod 'AdChainSDK', '~> 1.0.41'
 
-  # 또는 CocoaPods Trunk에서 설치 (최신 버전이 아닐 수 있음)
-  # pod 'AdChainSDK', '~> 1.0.12'
+  # 또는 Git 저장소에서 직접 설치
+  # pod 'AdChainSDK', :git => 'https://github.com/1selfworld-labs/adchain-sdk-ios-release.git', :tag => 'v1.0.41'
 end
 ```
 
@@ -84,7 +53,13 @@ end
 pod install
 ```
 
-> **참고**: v1.0.43은 아직 CocoaPods Trunk에 등록되지 않았습니다. Git 태그 방식을 사용하세요.
+### Swift Package Manager
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/1selfworld-labs/adchain-sdk-ios-release.git", from: "1.0.41")
+]
+```
 
 ### 수동 설치
 
@@ -511,10 +486,9 @@ SDK의 난독화를 원하지 않는 경우:
 
 ## 마이그레이션 가이드
 
-### 이전 버전 → 1.0.43
+### 이전 버전 → 1.0.41
 
 주요 변경사항:
-- **🎉 Swift Package Manager 지원**: binaryTarget 방식으로 SPM 완전 지원 (v1.0.43)
 - **🔄 커스텀 이벤트 브릿지**: WebView ↔ Native 양방향 통신 (v1.0.41)
 - **📲 React Native 지원**: AdchainOfferwallView 추가 (v1.0.39)
 - **🎮 Adjoe 통합 강화**: 앱 설치 감지 기능 (v1.0.36~38)
@@ -526,12 +500,6 @@ SDK의 난독화를 원하지 않는 경우:
 
 업데이트 방법:
 ```bash
-# SPM (권장)
-Xcode > File > Add Package Dependencies...
-URL: https://github.com/1selfworld-labs/adchain-sdk-ios-release.git
-Version: 1.0.43
-
-# CocoaPods
 pod update AdChainSDK
 ```
 
@@ -586,19 +554,7 @@ AdChain SDK는 MIT 라이선스를 따릅니다. 자세한 내용은 [LICENSE](L
 
 ## 변경 이력
 
-### 1.0.43 (2025-10-27) - 현재 버전 ✨
-- **🎉 Swift Package Manager 완전 지원**: binaryTarget 방식으로 SPM 설치 가능
-  - `deploy.sh`가 자동으로 binaryTarget용 Package.swift 생성
-  - `invalid custom path 'AdchainSDK/Sources'` 오류 해결
-  - XCFramework에 GzipSwift 정적 링크 (외부 의존성 없음)
-- **📝 배포 프로세스 개선**: SPM 자동화 및 문서 업데이트
-  - DEPLOYMENT_GUIDE.md에 SPM 배포 가이드 추가
-  - README.md SPM 설치 방법 강화
-
-### 1.0.42 (2025-10-20)
-- 커스텀 이벤트 브릿지 안정화
-
-### 1.0.41 (2025-10-20)
+### 1.0.41 (2025-10-20) - 현재 버전
 - **✨ 커스텀 이벤트 브릿지**: WebView ↔ Native 양방향 통신 기능 추가
   - `OfferwallEventCallback` 프로토콜 신규 추가
   - `customEvent`: WebView에서 Native로 이벤트 전송

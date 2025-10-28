@@ -425,7 +425,7 @@ SWIFT_CLASS("_TtC10AdchainSDK16AdchainSdkConfig")
 @property (nonatomic, readonly, copy) NSString * _Nonnull appKey;
 @property (nonatomic, readonly, copy) NSString * _Nonnull appSecret;
 @property (nonatomic, readonly) enum Environment environment;
-@property (nonatomic, readonly) NSTimeInterval timeout;
+@property (nonatomic, readonly) int64_t timeoutMillis;
 @property (nonatomic, readonly) BOOL adjoeEnabled SWIFT_DEPRECATED_MSG("서버에서 자동으로 설정됩니다. 테스트 목적으로만 사용하세요.");
 @property (nonatomic, readonly, copy) NSString * _Nullable adjoeSdkHash SWIFT_DEPRECATED_MSG("서버에서 자동으로 설정됩니다. 테스트 목적으로만 사용하세요.");
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -442,7 +442,7 @@ SWIFT_CLASS("_TtCC10AdchainSDK16AdchainSdkConfig7Builder")
 @interface Builder : NSObject
 - (nonnull instancetype)initWithAppKey:(NSString * _Nonnull)appKey appSecret:(NSString * _Nonnull)appSecret OBJC_DESIGNATED_INITIALIZER;
 - (Builder * _Nonnull)setEnvironment:(enum Environment)environment SWIFT_WARN_UNUSED_RESULT;
-- (Builder * _Nonnull)setTimeout:(NSTimeInterval)timeout SWIFT_WARN_UNUSED_RESULT;
+- (Builder * _Nonnull)setTimeoutMillis:(int64_t)timeoutMillis SWIFT_WARN_UNUSED_RESULT;
 /// Enable adjoe SDK integration
 /// \param sdkHash The adjoe SDK hash obtained from adjoe dashboard
 ///
@@ -920,7 +920,7 @@ SWIFT_CLASS("_TtC10AdchainSDK16AdchainSdkConfig")
 @property (nonatomic, readonly, copy) NSString * _Nonnull appKey;
 @property (nonatomic, readonly, copy) NSString * _Nonnull appSecret;
 @property (nonatomic, readonly) enum Environment environment;
-@property (nonatomic, readonly) NSTimeInterval timeout;
+@property (nonatomic, readonly) int64_t timeoutMillis;
 @property (nonatomic, readonly) BOOL adjoeEnabled SWIFT_DEPRECATED_MSG("서버에서 자동으로 설정됩니다. 테스트 목적으로만 사용하세요.");
 @property (nonatomic, readonly, copy) NSString * _Nullable adjoeSdkHash SWIFT_DEPRECATED_MSG("서버에서 자동으로 설정됩니다. 테스트 목적으로만 사용하세요.");
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
@@ -937,7 +937,7 @@ SWIFT_CLASS("_TtCC10AdchainSDK16AdchainSdkConfig7Builder")
 @interface Builder : NSObject
 - (nonnull instancetype)initWithAppKey:(NSString * _Nonnull)appKey appSecret:(NSString * _Nonnull)appSecret OBJC_DESIGNATED_INITIALIZER;
 - (Builder * _Nonnull)setEnvironment:(enum Environment)environment SWIFT_WARN_UNUSED_RESULT;
-- (Builder * _Nonnull)setTimeout:(NSTimeInterval)timeout SWIFT_WARN_UNUSED_RESULT;
+- (Builder * _Nonnull)setTimeoutMillis:(int64_t)timeoutMillis SWIFT_WARN_UNUSED_RESULT;
 /// Enable adjoe SDK integration
 /// \param sdkHash The adjoe SDK hash obtained from adjoe dashboard
 ///
