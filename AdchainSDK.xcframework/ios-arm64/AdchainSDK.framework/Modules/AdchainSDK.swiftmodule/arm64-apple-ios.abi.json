@@ -2476,6 +2476,35 @@
           {
             "kind": "Function",
             "name": "loadOfferwall",
+            "printedName": "loadOfferwall(placementId:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:10AdchainSDK0A13OfferwallViewC04loadC011placementIdySS_tF",
+            "mangledName": "$s10AdchainSDK0A13OfferwallViewC04loadC011placementIdySS_tF",
+            "moduleName": "AdchainSDK",
+            "declAttributes": [
+              "Preconcurrency",
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "loadOfferwall",
             "printedName": "loadOfferwall(baseUrl:userId:appKey:placementId:)",
             "children": [
               {
@@ -13712,7 +13741,7 @@
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallView.swift",
       "kind": "StringLiteral",
-      "offset": 3998,
+      "offset": 5328,
       "length": 2,
       "value": "\"\""
     },
@@ -13784,7 +13813,7 @@
       "kind": "StringLiteral",
       "offset": 145,
       "length": 8,
-      "value": "\"1.0.46\""
+      "value": "\"1.0.47\""
     },
     {
       "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",

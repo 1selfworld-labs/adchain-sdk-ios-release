@@ -87,6 +87,7 @@ public protocol AdchainMissionEventsListener : AnyObject {
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class AdchainOfferwallView : UIKit.UIView {
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor @preconcurrency public func loadOfferwall(placementId: Swift.String)
   @_Concurrency.MainActor @preconcurrency public func loadOfferwall(baseUrl: Swift.String, userId: Swift.String, appKey: Swift.String, placementId: Swift.String = "")
   @_Concurrency.MainActor @preconcurrency public func setCallback(_ callback: (any AdchainSDK.OfferwallCallback)?)
   @_Concurrency.MainActor @preconcurrency public func setEventCallback(_ callback: (any AdchainSDK.OfferwallEventCallback)?)
