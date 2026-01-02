@@ -13641,770 +13641,770 @@
   },
   "ConstValues": [
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Adjoe\/AdchainAdjoeManager.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Adjoe\/AdchainAdjoeManager.swift",
       "kind": "StringLiteral",
       "offset": 232,
       "length": 21,
       "value": "\"AdchainAdjoeManager\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/AdchainLogger.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/AdchainLogger.swift",
       "kind": "IntegerLiteral",
       "offset": 221,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/AdchainLogger.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/AdchainLogger.swift",
       "kind": "IntegerLiteral",
       "offset": 240,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/AdchainLogger.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/AdchainLogger.swift",
       "kind": "IntegerLiteral",
       "offset": 261,
       "length": 1,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/AdchainLogger.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/AdchainLogger.swift",
       "kind": "IntegerLiteral",
       "offset": 279,
       "length": 1,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/AdchainLogger.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/AdchainLogger.swift",
       "kind": "IntegerLiteral",
       "offset": 298,
       "length": 1,
       "value": "4"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/AdchainLogger.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/AdchainLogger.swift",
       "kind": "IntegerLiteral",
       "offset": 319,
       "length": 1,
       "value": "5"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/AdchainLogger.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/AdchainLogger.swift",
       "kind": "StringLiteral",
       "offset": 767,
       "length": 14,
       "value": "\"HH:mm:ss.SSS\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Mission\/AdchainMission.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Mission\/AdchainMission.swift",
       "kind": "Array",
       "offset": 428,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Mission\/AdchainMission.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Mission\/AdchainMission.swift",
       "kind": "Array",
       "offset": 496,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Mission\/AdchainMission.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Mission\/AdchainMission.swift",
       "kind": "BooleanLiteral",
       "offset": 2375,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallView.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallView.swift",
       "kind": "Array",
       "offset": 313,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallView.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallView.swift",
       "kind": "Dictionary",
       "offset": 379,
       "length": 3,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallView.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallView.swift",
       "kind": "StringLiteral",
       "offset": 628,
       "length": 38,
       "value": "\"00000000-0000-0000-0000-000000000000\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallView.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallView.swift",
       "kind": "StringLiteral",
       "offset": 5328,
       "length": 2,
       "value": "\"\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallViewController.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 584,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallViewController.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallViewController.swift",
       "kind": "StringLiteral",
       "offset": 621,
       "length": 11,
       "value": "\"offerwall\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallViewController.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallViewController.swift",
       "kind": "StringLiteral",
       "offset": 742,
       "length": 38,
       "value": "\"00000000-0000-0000-0000-000000000000\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallViewController.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 815,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallViewController.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 860,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallViewController.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 2282,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallViewController.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallViewController.swift",
       "kind": "BooleanLiteral",
       "offset": 16973,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Quiz\/AdchainQuiz.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Quiz\/AdchainQuiz.swift",
       "kind": "Array",
       "offset": 296,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Quiz\/AdchainQuiz.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Quiz\/AdchainQuiz.swift",
       "kind": "BooleanLiteral",
       "offset": 1574,
       "length": 4,
       "value": "true"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "StringLiteral",
       "offset": 145,
       "length": 8,
-      "value": "\"1.0.47\""
+      "value": "\"1.0.48\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "BooleanLiteral",
       "offset": 342,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "StringLiteral",
       "offset": 627,
       "length": 22,
       "value": "\"com.adchain.sdk.main\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "BooleanLiteral",
       "offset": 10781,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "BooleanLiteral",
       "offset": 10827,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "BooleanLiteral",
       "offset": 13811,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "BooleanLiteral",
       "offset": 13857,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "StringLiteral",
       "offset": 23857,
       "length": 8,
       "value": "\"custom\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "StringLiteral",
       "offset": 26185,
       "length": 8,
       "value": "\"custom\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "StringLiteral",
       "offset": 32590,
       "length": 20,
       "value": "\"com.adchain.atomic\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdkConfig.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdkConfig.swift",
       "kind": "IntegerLiteral",
       "offset": 134,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdkConfig.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdkConfig.swift",
       "kind": "IntegerLiteral",
       "offset": 159,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdkConfig.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdkConfig.swift",
       "kind": "IntegerLiteral",
       "offset": 188,
       "length": 1,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdkConfig.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdkConfig.swift",
       "kind": "IntegerLiteral",
       "offset": 1531,
       "length": 5,
       "value": "30000"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdkConfig.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdkConfig.swift",
       "kind": "BooleanLiteral",
       "offset": 1578,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdkLoginListener.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdkLoginListener.swift",
       "kind": "IntegerLiteral",
       "offset": 207,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdkLoginListener.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdkLoginListener.swift",
       "kind": "IntegerLiteral",
       "offset": 234,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdkLoginListener.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdkLoginListener.swift",
       "kind": "IntegerLiteral",
       "offset": 260,
       "length": 1,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdkLoginListener.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdkLoginListener.swift",
       "kind": "IntegerLiteral",
       "offset": 281,
       "length": 1,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdkUser.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdkUser.swift",
       "kind": "IntegerLiteral",
       "offset": 121,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdkUser.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdkUser.swift",
       "kind": "IntegerLiteral",
       "offset": 145,
       "length": 1,
       "value": "1"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdkUser.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdkUser.swift",
       "kind": "IntegerLiteral",
       "offset": 168,
       "length": 1,
       "value": "2"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
       "kind": "StringLiteral",
       "offset": 73,
       "length": 33,
       "value": "\"https:\/\/adchain-api.1self.world\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
       "kind": "StringLiteral",
       "offset": 139,
       "length": 39,
       "value": "\"https:\/\/adchain-stage-api.1self.world\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
       "kind": "StringLiteral",
       "offset": 215,
       "length": 23,
       "value": "\"http:\/\/localhost:3000\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
       "kind": "IntegerLiteral",
       "offset": 320,
       "length": 5,
       "value": "30000"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
       "kind": "IntegerLiteral",
       "offset": 357,
       "length": 1,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
       "kind": "FloatLiteral",
       "offset": 401,
       "length": 3,
       "value": "1.0"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
       "kind": "StringLiteral",
       "offset": 487,
       "length": 22,
       "value": "\"\/v1\/api\/sdk\/validate\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
       "kind": "StringLiteral",
       "offset": 537,
       "length": 19,
       "value": "\"\/v1\/api\/sdk\/login\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
       "kind": "StringLiteral",
       "offset": 589,
       "length": 19,
       "value": "\"\/v1\/api\/sdk\/event\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
       "kind": "StringLiteral",
       "offset": 678,
       "length": 25,
       "value": "\"\/v1\/api\/sdk\/event\/batch\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
       "kind": "StringLiteral",
       "offset": 784,
       "length": 18,
       "value": "\"\/v1\/api\/sdk\/quiz\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
       "kind": "StringLiteral",
       "offset": 862,
       "length": 21,
       "value": "\"\/v1\/api\/sdk\/mission\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
       "kind": "StringLiteral",
       "offset": 941,
       "length": 20,
       "value": "\"\/v1\/api\/sdk\/banner\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
       "kind": "StringLiteral",
       "offset": 1067,
       "length": 19,
       "value": "\"x-adchain-app-key\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
       "kind": "StringLiteral",
       "offset": 1118,
       "length": 22,
       "value": "\"x-adchain-app-secret\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
       "kind": "StringLiteral",
       "offset": 1173,
       "length": 23,
       "value": "\"x-adchain-sdk-version\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
       "kind": "StringLiteral",
       "offset": 1227,
       "length": 20,
       "value": "\"x-adchain-platform\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
       "kind": "StringLiteral",
       "offset": 1281,
       "length": 14,
       "value": "\"Content-Type\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
       "kind": "StringLiteral",
       "offset": 1331,
       "length": 15,
       "value": "\"Authorization\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiConfig.swift",
       "kind": "StringLiteral",
       "offset": 1378,
       "length": 12,
       "value": "\"User-Agent\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiService.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/ApiService.swift",
       "kind": "StringLiteral",
       "offset": 1432,
       "length": 5,
       "value": "\"GET\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/DeviceUtils.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/DeviceUtils.swift",
       "kind": "StringLiteral",
       "offset": 168,
       "length": 19,
       "value": "\"adchain_sdk_prefs\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/DeviceUtils.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/DeviceUtils.swift",
       "kind": "StringLiteral",
       "offset": 225,
       "length": 11,
       "value": "\"device_id\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/DeviceUtils.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/DeviceUtils.swift",
       "kind": "BooleanLiteral",
       "offset": 526,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
       "kind": "StringLiteral",
       "offset": 107,
       "length": 14,
       "value": "\"quiz_clicked\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
       "kind": "StringLiteral",
       "offset": 147,
       "length": 16,
       "value": "\"quiz_impressed\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
       "kind": "StringLiteral",
       "offset": 187,
       "length": 14,
       "value": "\"quiz_started\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
       "kind": "StringLiteral",
       "offset": 227,
       "length": 16,
       "value": "\"quiz_completed\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
       "kind": "StringLiteral",
       "offset": 270,
       "length": 17,
       "value": "\"mission_clicked\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
       "kind": "StringLiteral",
       "offset": 316,
       "length": 19,
       "value": "\"mission_impressed\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
       "kind": "StringLiteral",
       "offset": 364,
       "length": 19,
       "value": "\"mission_completed\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
       "kind": "StringLiteral",
       "offset": 413,
       "length": 20,
       "value": "\"mission_progressed\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
       "kind": "StringLiteral",
       "offset": 461,
       "length": 18,
       "value": "\"offerwall_opened\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
       "kind": "StringLiteral",
       "offset": 507,
       "length": 18,
       "value": "\"offerwall_closed\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
       "kind": "StringLiteral",
       "offset": 551,
       "length": 16,
       "value": "\"banner_clicked\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
       "kind": "StringLiteral",
       "offset": 595,
       "length": 18,
       "value": "\"banner_impressed\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
       "kind": "StringLiteral",
       "offset": 638,
       "length": 15,
       "value": "\"login_success\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
       "kind": "StringLiteral",
       "offset": 677,
       "length": 14,
       "value": "\"login_failed\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
       "kind": "StringLiteral",
       "offset": 710,
       "length": 8,
       "value": "\"custom\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
       "kind": "IntegerLiteral",
       "offset": 1559,
       "length": 4,
       "value": "1000"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
       "kind": "IntegerLiteral",
       "offset": 2114,
       "length": 4,
       "value": "1000"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
       "kind": "StringLiteral",
       "offset": 4332,
       "length": 5,
       "value": "\"iOS\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventBatchService.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventBatchService.swift",
       "kind": "BooleanLiteral",
       "offset": 422,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventBatchService.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventBatchService.swift",
       "kind": "IntegerLiteral",
       "offset": 500,
       "length": 1,
       "value": "0"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventBatchService.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventBatchService.swift",
       "kind": "IntegerLiteral",
       "offset": 534,
       "length": 1,
       "value": "3"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventBatchService.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventBatchService.swift",
       "kind": "FloatLiteral",
       "offset": 579,
       "length": 3,
       "value": "2.0"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventBatchService.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventBatchService.swift",
       "kind": "IntegerLiteral",
       "offset": 819,
       "length": 2,
       "value": "20"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventBatchService.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventBatchService.swift",
       "kind": "IntegerLiteral",
       "offset": 862,
       "length": 2,
       "value": "30"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventPersistenceManager.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventPersistenceManager.swift",
       "kind": "StringLiteral",
       "offset": 110,
       "length": 21,
       "value": "\"adchain_events.json\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventPersistenceManager.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventPersistenceManager.swift",
       "kind": "IntegerLiteral",
       "offset": 167,
       "length": 2,
       "value": "10"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventPersistenceManager.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventPersistenceManager.swift",
       "kind": "IntegerLiteral",
       "offset": 172,
       "length": 4,
       "value": "1024"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventPersistenceManager.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventPersistenceManager.swift",
       "kind": "IntegerLiteral",
       "offset": 179,
       "length": 4,
       "value": "1024"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventPersistenceManager.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventPersistenceManager.swift",
       "kind": "IntegerLiteral",
       "offset": 236,
       "length": 1,
       "value": "7"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventPersistenceManager.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventPersistenceManager.swift",
       "kind": "IntegerLiteral",
       "offset": 240,
       "length": 2,
       "value": "24"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventPersistenceManager.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventPersistenceManager.swift",
       "kind": "IntegerLiteral",
       "offset": 245,
       "length": 2,
       "value": "60"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventPersistenceManager.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventPersistenceManager.swift",
       "kind": "IntegerLiteral",
       "offset": 250,
       "length": 2,
       "value": "60"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventQueueManager.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventQueueManager.swift",
       "kind": "Array",
       "offset": 104,
       "length": 2,
       "value": "[]"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventQueueManager.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventQueueManager.swift",
       "kind": "IntegerLiteral",
       "offset": 208,
       "length": 3,
       "value": "500"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventQueueManager.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventQueueManager.swift",
       "kind": "IntegerLiteral",
       "offset": 1268,
       "length": 2,
       "value": "20"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/LoginResponse.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/LoginResponse.swift",
       "kind": "StringLiteral",
       "offset": 372,
       "length": 9,
       "value": "\"user_id\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Mission\/Models\/Mission.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Mission\/Models\/Mission.swift",
       "kind": "StringLiteral",
       "offset": 90,
       "length": 8,
       "value": "\"normal\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Mission\/Models\/Mission.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Mission\/Models\/Mission.swift",
       "kind": "StringLiteral",
       "offset": 129,
       "length": 21,
       "value": "\"offerwall_promotion\""
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/NetworkManager.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/NetworkManager.swift",
       "kind": "BooleanLiteral",
       "offset": 259,
       "length": 5,
       "value": "false"
     },
     {
-      "filePath": "\/Users\/donghoon\/Desktop\/GIT\/fly33499\/ad-chain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/WebViewStackManager.swift",
+      "filePath": "\/Users\/jhheo\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/WebViewStackManager.swift",
       "kind": "Array",
       "offset": 220,
       "length": 2,

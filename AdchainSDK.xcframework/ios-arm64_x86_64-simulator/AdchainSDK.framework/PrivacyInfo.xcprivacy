@@ -7,13 +7,13 @@
 	
 	<key>NSPrivacyTrackingDomains</key>
 	<array>
-		<string>adchain-api.1self.world</string>
+		<string>adchain-cert.1self.world</string>
 		<string>adchain-offerwall.1self.world</string>
 		<string>adchain-offerwall-event.1self.world</string>
-		<string>adchain-stage-api.1self.world</string>
+		<string>adchain-stage-cert.1self.world</string>
 		<string>adchain-stage-offerwall.1self.world</string>
 		<string>adchain-stage-offerwall-event.1self.world</string>
-		<string>adchain-dev-api.1self.world</string>
+		<string>adchain-dev-cert.1self.world</string>
 		<string>adchain-dev-offerwall.1self.world</string>
 		<string>adchain-dev-offerwall-event.1self.world</string>
 	</array>
