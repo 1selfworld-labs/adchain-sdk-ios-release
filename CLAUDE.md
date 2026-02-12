@@ -183,5 +183,5 @@ pod trunk register fly33499@gmail.com 'AdChain SDK' --description='AdChain iOS S
 - Pod 소유자: fly33499@gmail.com
 
 ---
-최종 업데이트: 2025-09-08
-현재 버전: 1.0.1
+최종 업데이트: 2026-02-12
+현재 버전: 1.0.49

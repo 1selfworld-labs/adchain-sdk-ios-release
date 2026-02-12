@@ -4,14 +4,14 @@
   <img src="https://img.shields.io/badge/platform-iOS-blue.svg" alt="Platform iOS" />
   <img src="https://img.shields.io/badge/iOS-14.0%2B-blue.svg" alt="iOS 14.0+" />
   <img src="https://img.shields.io/badge/Swift-5.5%2B-orange.svg" alt="Swift 5.5+" />
-  <img src="https://img.shields.io/badge/version-1.0.41-green.svg" alt="Version 1.0.41" />
+  <img src="https://img.shields.io/badge/version-1.0.49-green.svg" alt="Version 1.0.49" />
   <img src="https://img.shields.io/badge/license-MIT-lightgrey.svg" alt="License MIT" />
 </p>
 
 AdChain SDK는 iOS 애플리케이션에 광고 및 리워드 기능을 쉽게 통합할 수 있는 종합 광고 솔루션입니다.
 
 > **🔒 보안 강화**: v1.0.13부터 소스 코드가 공개되지 않으며, XCFramework 바이너리만 제공됩니다.
-> **📝 현재 버전**: v1.0.41 (2025-10-20)
+> **📝 현재 버전**: v1.0.49 (2026-02-12)
 
 ## 주요 기능
 
@@ -42,10 +42,10 @@ use_frameworks!
 
 target 'YourApp' do
   # CocoaPods Trunk에서 설치 (권장)
-  pod 'AdChainSDK', '~> 1.0.41'
+  pod 'AdChainSDK', '~> 1.0.49'
 
   # 또는 Git 저장소에서 직접 설치
-  # pod 'AdChainSDK', :git => 'https://github.com/1selfworld-labs/adchain-sdk-ios-release.git', :tag => 'v1.0.41'
+  # pod 'AdChainSDK', :git => 'https://github.com/1selfworld-labs/adchain-sdk-ios-release.git', :tag => 'v1.0.49'
 end
 ```
 
@@ -57,7 +57,7 @@ pod install
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/1selfworld-labs/adchain-sdk-ios-release.git", from: "1.0.41")
+    .package(url: "https://github.com/1selfworld-labs/adchain-sdk-ios-release.git", from: "1.0.49")
 ]
 ```
 
@@ -420,14 +420,6 @@ extension YourViewController: AdchainMissionEventsListener {
 </dict>
 ```
 
-## 프로 가드 설정 (선택사항)
-
-SDK의 난독화를 원하지 않는 경우:
-
-```
--keep class com.adchain.sdk.** { *; }
-```
-
 ## 테스트
 
 > **⚠️ 현재 상태**: 단위 테스트가 아직 구현되지 않았습니다.
@@ -486,9 +478,14 @@ SDK의 난독화를 원하지 않는 경우:
 
 ## 마이그레이션 가이드
 
-### 이전 버전 → 1.0.41
+### 이전 버전 → 1.0.49
 
 주요 변경사항:
+- **🎬 미디어 자동재생**: 오퍼월 WebView 인라인 미디어 자동재생 지원 (v1.0.49)
+- **🔒 Privacy Manifest 개선**: NSPrivacyTrackingDomains cert 도메인 교체, iOS 17+ 호환 (v1.0.48)
+- **📲 편의 메서드**: `loadOfferwall(placementId:)` 간편 로드 메서드 추가 (v1.0.47)
+- **🔧 배포 검증 강화**: 심볼 누락 방지를 위한 배포 검증 시스템 개선 (v1.0.45)
+- **📦 SPM binaryTarget**: deploy.sh에서 SPM용 binaryTarget Package.swift 자동 생성 (v1.0.42~43)
 - **🔄 커스텀 이벤트 브릿지**: WebView ↔ Native 양방향 통신 (v1.0.41)
 - **📲 React Native 지원**: AdchainOfferwallView 추가 (v1.0.39)
 - **🎮 Adjoe 통합 강화**: 앱 설치 감지 기능 (v1.0.36~38)
@@ -504,6 +501,12 @@ pod update AdChainSDK
 ```
 
 ### API 변경사항
+
+**v1.0.47 - loadOfferwall 편의 메서드**
+```swift
+// placementId만으로 간편하게 오퍼월 로드
+offerwallView.loadOfferwall(placementId: "main")  // NEW
+```
 
 **v1.0.41 - 커스텀 이벤트 브릿지**
 ```swift
@@ -554,7 +557,32 @@ AdChain SDK는 MIT 라이선스를 따릅니다. 자세한 내용은 [LICENSE](L
 
 ## 변경 이력
 
-### 1.0.41 (2025-10-20) - 현재 버전
+### 1.0.49 (2026-02-12) - 현재 버전
+- **🎬 인라인 미디어 자동재생**: 오퍼월 WebView에서 인라인 미디어 자동재생 지원
+
+### 1.0.48 (2026-01-02)
+- **🔒 Privacy Manifest 개선**: NSPrivacyTrackingDomains에서 API 도메인을 cert 도메인으로 교체 (iOS 17+ 호환)
+
+### 1.0.47 (2025-10-30)
+- **📲 편의 메서드 추가**: AdchainOfferwallView에 `loadOfferwall(placementId:)` 메서드 추가
+
+### 1.0.46 (2025-10-29)
+- 내부 안정화 버전
+
+### 1.0.45 (2025-10-28)
+- **🔧 배포 검증 강화**: 심볼 누락 방지를 위한 배포 검증 시스템 개선
+- podspec 버전 동기화
+
+### 1.0.44 (2025-10-27)
+- 내부 안정화 버전
+
+### 1.0.43 (2025-10-27)
+- **📦 SPM binaryTarget 지원**: deploy.sh에서 SPM용 binaryTarget Package.swift 자동 생성
+
+### 1.0.42 (2025-10-20)
+- **✨ 커스텀 이벤트 로깅 강화**: 상세 로깅 및 크로스 플랫폼 호환성 개선
+
+### 1.0.41 (2025-10-20)
 - **✨ 커스텀 이벤트 브릿지**: WebView ↔ Native 양방향 통신 기능 추가
   - `OfferwallEventCallback` 프로토콜 신규 추가
   - `customEvent`: WebView에서 Native로 이벤트 전송
