@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
 // swift-module-flags: -target arm64-apple-ios14.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name AdchainSDK
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -interface-compiler-version 6.1.2
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
 import AdSupport
 import AppTrackingTransparency
 import Foundation
@@ -41,7 +41,9 @@ public enum AdchainAdError : Swift.Error {
   case debug = 4
   case verbose = 5
   public static func < (lhs: AdchainSDK.LogLevel, rhs: AdchainSDK.LogLevel) -> Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -49,8 +51,12 @@ public enum AdchainAdError : Swift.Error {
 }
 @objc @_inheritsConvenienceInitializers public class AdchainLogger : ObjectiveC.NSObject {
   public static var logLevel: AdchainSDK.LogLevel
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func e(_ tag: Swift.String, _ message: Swift.String, _ error: (any Swift.Error)? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func w(_ tag: Swift.String, _ message: Swift.String, _ error: (any Swift.Error)? = nil)
+  #endif
   public static func i(_ tag: Swift.String, _ message: Swift.String)
   public static func d(_ tag: Swift.String, _ message: Swift.String)
   public static func v(_ tag: Swift.String, _ message: Swift.String)
@@ -65,7 +71,9 @@ public enum AdchainAdError : Swift.Error {
   public func load(onSuccess: @escaping ([AdchainSDK.Mission], AdchainSDK.MissionProgress) -> Swift.Void, onFailure: @escaping (AdchainSDK.AdchainAdError) -> Swift.Void, shouldStoreCallbacks: Swift.Bool = true)
   public func setEventsListener(_ listener: any AdchainSDK.AdchainMissionEventsListener)
   public func getMissions() -> [AdchainSDK.Mission]
+  #if compiler(>=5.3) && $NonescapableTypes
   public func getMission(missionId: Swift.String) -> AdchainSDK.Mission?
+  #endif
   public func markAsParticipating(_ missionId: Swift.String)
   public func isParticipating(_ missionId: Swift.String) -> Swift.Bool
   public func clickMission(_ missionId: Swift.String, from viewController: UIKit.UIViewController)
@@ -75,7 +83,9 @@ public enum AdchainAdError : Swift.Error {
   public func onMissionCompleted(_ mission: AdchainSDK.Mission)
   public func onMissionProgressed(_ mission: AdchainSDK.Mission)
   public func onRewardButtonClicked(from viewController: UIKit.UIViewController)
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func refreshMissionList(unitId: Swift.String?)
+  #endif
   public func destroy()
 }
 public protocol AdchainMissionEventsListener : AnyObject {
@@ -83,24 +93,36 @@ public protocol AdchainMissionEventsListener : AnyObject {
   func onClicked(_ mission: AdchainSDK.Mission)
   func onCompleted(_ mission: AdchainSDK.Mission)
   func onProgressed(_ mission: AdchainSDK.Mission)
+  #if compiler(>=5.3) && $NonescapableTypes
   func onRefreshed(unitId: Swift.String?)
+  #endif
 }
 @objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor @preconcurrency public class AdchainOfferwallView : UIKit.UIView {
   @_Concurrency.MainActor @preconcurrency @objc override dynamic public init(frame: CoreFoundation.CGRect)
   @_Concurrency.MainActor @preconcurrency public func loadOfferwall(placementId: Swift.String)
   @_Concurrency.MainActor @preconcurrency public func loadOfferwall(baseUrl: Swift.String, userId: Swift.String, appKey: Swift.String, placementId: Swift.String = "")
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public func setCallback(_ callback: (any AdchainSDK.OfferwallCallback)?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public func setEventCallback(_ callback: (any AdchainSDK.OfferwallEventCallback)?)
+  #endif
   @objc deinit
 }
 extension AdchainSDK.AdchainOfferwallView : WebKit.WKScriptMessageHandler {
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func userContentController(_ userContentController: WebKit.WKUserContentController, didReceive message: WebKit.WKScriptMessage)
 }
 extension AdchainSDK.AdchainOfferwallView : WebKit.WKNavigationDelegate {
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+  #endif
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFail navigation: WebKit.WKNavigation!, withError error: any Swift.Error)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFailProvisionalNavigation navigation: WebKit.WKNavigation!, withError error: any Swift.Error)
+  #endif
 }
 extension AdchainSDK.AdchainOfferwallView : WebKit.WKUIDelegate {
   @_Concurrency.MainActor @preconcurrency @objc dynamic public func webView(_ webView: WebKit.WKWebView, runJavaScriptAlertPanelWithMessage message: Swift.String, initiatedByFrame frame: WebKit.WKFrameInfo, completionHandler: @escaping () -> Swift.Void)
@@ -122,31 +144,55 @@ public protocol AdchainQuizEventsListener : AnyObject {
 @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objc final public class AdchainSdk : ObjectiveC.NSObject {
   @objc public static let shared: AdchainSDK.AdchainSdk
   @objc final public func initialize(application: UIKit.UIApplication, sdkConfig: AdchainSDK.AdchainSdkConfig)
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public func login(adchainSdkUser: AdchainSDK.AdchainSdkUser, listener: (any AdchainSDK.AdchainSdkLoginListener)? = nil)
+  #endif
   @objc final public func logout()
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func openOfferwall(presentingViewController: UIKit.UIViewController, placementId: Swift.String, callback: (any AdchainSDK.OfferwallCallback)? = nil, eventCallback: (any AdchainSDK.OfferwallEventCallback)? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func openOfferwallWithUrl(_ url: Swift.String, placementId: Swift.String, presentingViewController: UIKit.UIViewController, callback: (any AdchainSDK.OfferwallCallback)? = nil, eventCallback: (any AdchainSDK.OfferwallEventCallback)? = nil, showNavigationBar: Swift.Bool = false, useNativeNavigationBar: Swift.Bool = false)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func openOfferwallNestAds(presentingViewController: UIKit.UIViewController, placementId: Swift.String, callback: (any AdchainSDK.OfferwallCallback)? = nil, eventCallback: (any AdchainSDK.OfferwallEventCallback)? = nil, showNavigationBar: Swift.Bool = false, useNativeNavigationBar: Swift.Bool = false)
+  #endif
   @discardableResult
   @objc final public func openExternalBrowser(_ url: Swift.String, placementId: Swift.String) -> Swift.Bool
   @objc final public func isInitialized() -> Swift.Bool
   @objc final public var isLoggedIn: Swift.Bool {
     @objc get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public func getCurrentUser() -> AdchainSDK.AdchainSdkUser?
+  #endif
   @objc public static func setLogLevel(_ level: AdchainSDK.LogLevel)
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public func getConfig() -> AdchainSDK.AdchainSdkConfig?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public func getOfferwallUrl() -> Swift.String?
+  #endif
   @objc final public func getSDKVersion() -> Swift.String
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func getBannerInfo(placementId: Swift.String, completion: @escaping (Swift.Result<AdchainSDK.BannerInfoResponse, any Swift.Error>) -> Swift.Void)
+  #endif
   @objc final public func objc_openOfferwall(presentingViewController: UIKit.UIViewController, placementId: Swift.String)
   @objc final public func objc_openOfferwallWithUrl(_ url: Swift.String, placementId: Swift.String, presentingViewController: UIKit.UIViewController)
   @objc final public func getAdvertisingId(completion: @escaping (Swift.String) -> Swift.Void)
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func trackEvent(eventType: AdchainSDK.EventType, category: Swift.String, payload: [Swift.String : Any]? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   @objc final public func trackCustomEvent(eventName: Swift.String, category: Swift.String = "custom", payload: [Swift.String : Any]? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func trackEventWithCustomName(eventName: Swift.String, category: Swift.String = "custom", payload: [Swift.String : Any]? = nil)
+  #endif
   @objc final public func flushEvents()
+  #if compiler(>=5.3) && $NonescapableTypes
   final public func openAdjoeOfferwall(presentingViewController: UIKit.UIViewController, placementId: Swift.String, callback: (any AdchainSDK.OfferwallCallback)? = nil)
+  #endif
   @objc deinit
 }
 @_hasMissingDesignatedInitializers @objc public class AdchainSdkConfig : ObjectiveC.NSObject {
@@ -154,7 +200,9 @@ public protocol AdchainQuizEventsListener : AnyObject {
     case production = 0
     case staging = 1
     case development = 2
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
+    #endif
     public typealias RawValue = Swift.Int
     public var rawValue: Swift.Int {
       get
@@ -193,7 +241,9 @@ public protocol AdchainQuizEventsListener : AnyObject {
   public var description: Swift.String {
     get
   }
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.Int)
+  #endif
   public typealias RawValue = Swift.Int
   public var rawValue: Swift.Int {
     get
@@ -207,7 +257,9 @@ public protocol AdchainQuizEventsListener : AnyObject {
     public var stringValue: Swift.String {
       get
     }
+    #if compiler(>=5.3) && $NonescapableTypes
     public init?(rawValue: Swift.Int)
+    #endif
     public typealias RawValue = Swift.Int
     public var rawValue: Swift.Int {
       get
@@ -216,7 +268,9 @@ public protocol AdchainQuizEventsListener : AnyObject {
   @objc final public let userId: Swift.String
   final public let gender: AdchainSDK.AdchainSdkUser.Gender?
   final public let birthYear: Swift.Int?
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(userId: Swift.String, gender: AdchainSDK.AdchainSdkUser.Gender? = nil, birthYear: Swift.Int? = nil)
+  #endif
   @objc convenience public init(userId: Swift.String)
   @objc convenience public init(userId: Swift.String, genderValue: Swift.Int, birthYear: Swift.Int)
   @objc deinit
@@ -252,15 +306,21 @@ public enum EventType : Swift.String, Swift.Codable {
   case loginSuccess
   case loginFailed
   case custom
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
 }
 public struct Event : Swift.Codable {
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(eventId: Swift.String = UUID().uuidString, type: AdchainSDK.EventType, timestamp: Foundation.TimeInterval = Date().timeIntervalSince1970 * 1000, category: Swift.String, payload: [Swift.String : Any]? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(eventId: Swift.String = UUID().uuidString, customEventName: Swift.String, timestamp: Foundation.TimeInterval = Date().timeIntervalSince1970 * 1000, category: Swift.String, payload: [Swift.String : Any]? = nil)
+  #endif
   public init(from decoder: any Swift.Decoder) throws
   public func encode(to encoder: any Swift.Encoder) throws
 }
@@ -283,7 +343,9 @@ public struct EventBatchResponse : Swift.Codable {
 public enum MissionType : Swift.String, Swift.Codable, Swift.Sendable {
   case normal
   case offerwallPromotion
+  #if compiler(>=5.3) && $NonescapableTypes
   public init?(rawValue: Swift.String)
+  #endif
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
@@ -302,7 +364,9 @@ public struct Mission : Swift.Codable, Swift.Sendable {
   public let type: AdchainSDK.MissionType?
   public let impressionOrder: Swift.Int?
   public let placementId: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(id: Swift.String, title: Swift.String, description: Swift.String, imageUrl: Swift.String, landingUrl: Swift.String, point: Swift.String, status: Swift.String? = nil, progress: Swift.Int? = nil, total: Swift.Int? = nil, type: AdchainSDK.MissionType? = nil, impressionOrder: Swift.Int? = nil, placementId: Swift.String? = nil)
+  #endif
   public func encode(to encoder: any Swift.Encoder) throws
   public init(from decoder: any Swift.Decoder) throws
 }
@@ -340,7 +404,9 @@ public protocol OfferwallCallback {
 }
 public protocol OfferwallEventCallback {
   func onCustomEvent(eventType: Swift.String, payload: [Swift.String : Any])
+  #if compiler(>=5.3) && $NonescapableTypes
   func onDataRequest(requestId: Swift.String, requestType: Swift.String, params: [Swift.String : Any]) -> [Swift.String : Any]?
+  #endif
 }
 public struct PlacementUrlResponse : Swift.Codable {
   public let success: Swift.Bool
@@ -385,7 +451,9 @@ public struct TrackEventRequest : Swift.Encodable {
   public let platform: Swift.String
   public let osVersion: Swift.String
   public let parameters: [Swift.String : Swift.String]
+  #if compiler(>=5.3) && $NonescapableTypes
   public init(name: Swift.String, sdkVersion: Swift.String, timestamp: Swift.String, sessionId: Swift.String, userId: Swift.String?, deviceId: Swift.String, ifa: Swift.String, platform: Swift.String, osVersion: Swift.String, parameters: [Swift.String : Swift.String])
+  #endif
   public func encode(to encoder: any Swift.Encoder) throws
 }
 extension AdchainSDK.AdchainAdError : Swift.Equatable {}
