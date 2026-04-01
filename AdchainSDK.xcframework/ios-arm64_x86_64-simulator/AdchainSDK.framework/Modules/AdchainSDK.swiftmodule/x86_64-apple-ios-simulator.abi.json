@@ -13783,49 +13783,49 @@
     {
       "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 584,
+      "offset": 613,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallViewController.swift",
       "kind": "StringLiteral",
-      "offset": 621,
+      "offset": 650,
       "length": 11,
       "value": "\"offerwall\""
     },
     {
       "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallViewController.swift",
       "kind": "StringLiteral",
-      "offset": 742,
+      "offset": 771,
       "length": 38,
       "value": "\"00000000-0000-0000-0000-000000000000\""
     },
     {
       "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 815,
+      "offset": 844,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 860,
+      "offset": 889,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 2282,
+      "offset": 2311,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/AdchainOfferwallViewController.swift",
       "kind": "BooleanLiteral",
-      "offset": 17110,
+      "offset": 17314,
       "length": 5,
       "value": "false"
     },
@@ -13848,7 +13848,7 @@
       "kind": "StringLiteral",
       "offset": 145,
       "length": 8,
-      "value": "\"1.0.49\""
+      "value": "\"1.0.50\""
     },
     {
       "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
@@ -13867,13 +13867,6 @@
     {
       "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "BooleanLiteral",
-      "offset": 10781,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
-      "kind": "BooleanLiteral",
       "offset": 10827,
       "length": 5,
       "value": "false"
@@ -13881,35 +13874,42 @@
     {
       "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "BooleanLiteral",
-      "offset": 13811,
+      "offset": 10873,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "BooleanLiteral",
-      "offset": 13857,
+      "offset": 13903,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
+      "kind": "BooleanLiteral",
+      "offset": 13949,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "StringLiteral",
-      "offset": 23857,
+      "offset": 23949,
       "length": 8,
       "value": "\"custom\""
     },
     {
       "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "StringLiteral",
-      "offset": 26185,
+      "offset": 26277,
       "length": 8,
       "value": "\"custom\""
     },
     {
       "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "StringLiteral",
-      "offset": 32590,
+      "offset": 32682,
       "length": 20,
       "value": "\"com.adchain.atomic\""
     },
