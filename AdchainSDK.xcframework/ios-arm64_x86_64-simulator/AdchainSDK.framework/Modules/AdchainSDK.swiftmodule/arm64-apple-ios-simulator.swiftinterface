@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.3.1 effective-5.10 (swiftlang-6.3.1.1.2 clang-2100.0.123.102)
+// swift-compiler-version: Apple Swift version 6.3.2 effective-5.10 (swiftlang-6.3.2.1.108 clang-2100.1.1.101)
 // swift-module-flags: -target arm64-apple-ios14.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name AdchainSDK
-// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.1
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.2
 import AdSupport
 import AppTrackingTransparency
 import Foundation
@@ -49,6 +49,7 @@ public enum AdchainAdError : Swift.Error {
 }
 @objc @_inheritsConvenienceInitializers public class AdchainLogger : ObjectiveC.NSObject {
   public static var logLevel: AdchainSDK.LogLevel
+  public static var telemetrySink: ((AdchainSDK.LogLevel, Swift.String, Swift.String, (any Swift.Error)?) -> Swift.Void)?
   public static func e(_ tag: Swift.String, _ message: Swift.String, _ error: (any Swift.Error)? = nil)
   public static func w(_ tag: Swift.String, _ message: Swift.String, _ error: (any Swift.Error)? = nil)
   public static func i(_ tag: Swift.String, _ message: Swift.String)
@@ -147,6 +148,11 @@ public protocol AdchainQuizEventsListener : AnyObject {
   @objc final public func trackCustomEvent(eventName: Swift.String, category: Swift.String = "custom", payload: [Swift.String : Any]? = nil)
   final public func trackEventWithCustomName(eventName: Swift.String, category: Swift.String = "custom", payload: [Swift.String : Any]? = nil)
   @objc final public func flushEvents()
+  @objc public static var telemetryEnabled: Swift.Bool {
+    @objc get
+    @objc set
+  }
+  @objc final public func reportSdkError(_ message: Swift.String, error: (any Swift.Error)? = nil, layer: Swift.String = "core")
   final public func openAdjoeOfferwall(presentingViewController: UIKit.UIViewController, placementId: Swift.String, callback: (any AdchainSDK.OfferwallCallback)? = nil)
   @objc deinit
 }
@@ -253,6 +259,8 @@ public enum EventType : Swift.String, Swift.Codable {
   case loginSuccess
   case loginFailed
   case custom
+  case sdkError
+  case sdkCrash
   public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {

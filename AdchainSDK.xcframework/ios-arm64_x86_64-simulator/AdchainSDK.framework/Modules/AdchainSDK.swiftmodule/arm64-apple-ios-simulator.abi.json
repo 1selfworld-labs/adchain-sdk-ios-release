@@ -1111,6 +1111,266 @@
             ]
           },
           {
+            "kind": "Var",
+            "name": "telemetrySink",
+            "printedName": "telemetrySink",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((AdchainSDK.LogLevel, Swift.String, Swift.String, (any Swift.Error)?) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(AdchainSDK.LogLevel, Swift.String, Swift.String, (any Swift.Error)?) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(AdchainSDK.LogLevel, Swift.String, Swift.String, (any Swift.Error)?)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "LogLevel",
+                            "printedName": "AdchainSDK.LogLevel",
+                            "usr": "c:@M@AdchainSDK@E@LogLevel"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Optional",
+                            "printedName": "(any Swift.Error)?",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "Error",
+                                "printedName": "any Swift.Error",
+                                "usr": "s:s5ErrorP"
+                              }
+                            ],
+                            "usr": "s:Sq"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:10AdchainSDK0A6LoggerC13telemetrySinkyAA8LogLevelO_S2Ss5Error_pSgtcSgvpZ",
+            "mangledName": "$s10AdchainSDK0A6LoggerC13telemetrySinkyAA8LogLevelO_S2Ss5Error_pSgtcSgvpZ",
+            "moduleName": "AdchainSDK",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "Final",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "((AdchainSDK.LogLevel, Swift.String, Swift.String, (any Swift.Error)?) -> ())?",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(AdchainSDK.LogLevel, Swift.String, Swift.String, (any Swift.Error)?) -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Tuple",
+                            "printedName": "(AdchainSDK.LogLevel, Swift.String, Swift.String, (any Swift.Error)?)",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "LogLevel",
+                                "printedName": "AdchainSDK.LogLevel",
+                                "usr": "c:@M@AdchainSDK@E@LogLevel"
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "String",
+                                "printedName": "Swift.String",
+                                "usr": "s:SS"
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "String",
+                                "printedName": "Swift.String",
+                                "usr": "s:SS"
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "Optional",
+                                "printedName": "(any Swift.Error)?",
+                                "children": [
+                                  {
+                                    "kind": "TypeNominal",
+                                    "name": "Error",
+                                    "printedName": "any Swift.Error",
+                                    "usr": "s:s5ErrorP"
+                                  }
+                                ],
+                                "usr": "s:Sq"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10AdchainSDK0A6LoggerC13telemetrySinkyAA8LogLevelO_S2Ss5Error_pSgtcSgvgZ",
+                "mangledName": "$s10AdchainSDK0A6LoggerC13telemetrySinkyAA8LogLevelO_S2Ss5Error_pSgtcSgvgZ",
+                "moduleName": "AdchainSDK",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "((AdchainSDK.LogLevel, Swift.String, Swift.String, (any Swift.Error)?) -> ())?",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(AdchainSDK.LogLevel, Swift.String, Swift.String, (any Swift.Error)?) -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Tuple",
+                            "printedName": "(AdchainSDK.LogLevel, Swift.String, Swift.String, (any Swift.Error)?)",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "LogLevel",
+                                "printedName": "AdchainSDK.LogLevel",
+                                "usr": "c:@M@AdchainSDK@E@LogLevel"
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "String",
+                                "printedName": "Swift.String",
+                                "usr": "s:SS"
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "String",
+                                "printedName": "Swift.String",
+                                "usr": "s:SS"
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "Optional",
+                                "printedName": "(any Swift.Error)?",
+                                "children": [
+                                  {
+                                    "kind": "TypeNominal",
+                                    "name": "Error",
+                                    "printedName": "any Swift.Error",
+                                    "usr": "s:s5ErrorP"
+                                  }
+                                ],
+                                "usr": "s:Sq"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10AdchainSDK0A6LoggerC13telemetrySinkyAA8LogLevelO_S2Ss5Error_pSgtcSgvsZ",
+                "mangledName": "$s10AdchainSDK0A6LoggerC13telemetrySinkyAA8LogLevelO_S2Ss5Error_pSgtcSgvsZ",
+                "moduleName": "AdchainSDK",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10AdchainSDK0A6LoggerC13telemetrySinkyAA8LogLevelO_S2Ss5Error_pSgtcSgvMZ",
+                "mangledName": "$s10AdchainSDK0A6LoggerC13telemetrySinkyAA8LogLevelO_S2Ss5Error_pSgtcSgvMZ",
+                "moduleName": "AdchainSDK",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
             "kind": "Function",
             "name": "e",
             "printedName": "e(_:_:_:)",
@@ -4554,6 +4814,156 @@
             "declKind": "Func",
             "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdk(im)flushEvents",
             "mangledName": "$s10AdchainSDK0A3SdkC11flushEventsyyF",
+            "moduleName": "AdchainSDK",
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "telemetryEnabled",
+            "printedName": "telemetryEnabled",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdk(cpy)telemetryEnabled",
+            "mangledName": "$s10AdchainSDK0A3SdkC16telemetryEnabledSbvpZ",
+            "moduleName": "AdchainSDK",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdk(cm)telemetryEnabled",
+                "mangledName": "$s10AdchainSDK0A3SdkC16telemetryEnabledSbvgZ",
+                "moduleName": "AdchainSDK",
+                "static": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdk(cm)setTelemetryEnabled:",
+                "mangledName": "$s10AdchainSDK0A3SdkC16telemetryEnabledSbvsZ",
+                "moduleName": "AdchainSDK",
+                "static": true,
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:10AdchainSDK0A3SdkC16telemetryEnabledSbvMZ",
+                "mangledName": "$s10AdchainSDK0A3SdkC16telemetryEnabledSbvMZ",
+                "moduleName": "AdchainSDK",
+                "static": true,
+                "implicit": true,
+                "declAttributes": [
+                  "Final"
+                ],
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "reportSdkError",
+            "printedName": "reportSdkError(_:error:layer:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any Swift.Error)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Error",
+                    "printedName": "any Swift.Error",
+                    "usr": "s:s5ErrorP"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "hasDefaultArg": true,
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@AdchainSDK@objc(cs)AdchainSdk(im)reportSdkError:error:layer:",
+            "mangledName": "$s10AdchainSDK0A3SdkC06reportC5Error_5error5layerySS_s0E0_pSgSStF",
             "moduleName": "AdchainSDK",
             "declAttributes": [
               "Final",
@@ -8112,6 +8522,83 @@
             "declKind": "EnumElement",
             "usr": "s:10AdchainSDK9EventTypeO6customyA2CmF",
             "mangledName": "$s10AdchainSDK9EventTypeO6customyA2CmF",
+            "moduleName": "AdchainSDK"
+          },
+          {
+            "kind": "Var",
+            "name": "sdkError",
+            "printedName": "sdkError",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AdchainSDK.EventType.Type) -> AdchainSDK.EventType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "EventType",
+                    "printedName": "AdchainSDK.EventType",
+                    "usr": "s:10AdchainSDK9EventTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AdchainSDK.EventType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "EventType",
+                        "printedName": "AdchainSDK.EventType",
+                        "usr": "s:10AdchainSDK9EventTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:10AdchainSDK9EventTypeO8sdkErroryA2CmF",
+            "mangledName": "$s10AdchainSDK9EventTypeO8sdkErroryA2CmF",
+            "moduleName": "AdchainSDK",
+            "declAttributes": [
+              "RawDocComment"
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "sdkCrash",
+            "printedName": "sdkCrash",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(AdchainSDK.EventType.Type) -> AdchainSDK.EventType",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "EventType",
+                    "printedName": "AdchainSDK.EventType",
+                    "usr": "s:10AdchainSDK9EventTypeO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "AdchainSDK.EventType.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "EventType",
+                        "printedName": "AdchainSDK.EventType",
+                        "usr": "s:10AdchainSDK9EventTypeO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:10AdchainSDK9EventTypeO8sdkCrashyA2CmF",
+            "mangledName": "$s10AdchainSDK9EventTypeO8sdkCrashyA2CmF",
             "moduleName": "AdchainSDK"
           },
           {
@@ -13022,6 +13509,16 @@
         "name": "Foundation",
         "printedName": "Foundation",
         "declKind": "Import",
+        "moduleName": "AdchainSDK",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
         "moduleName": "AdchainSDK"
       },
       {
@@ -13773,9 +14270,65 @@
     {
       "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/AdchainLogger.swift",
       "kind": "StringLiteral",
-      "offset": 767,
+      "offset": 2223,
       "length": 14,
       "value": "\"HH:mm:ss.SSS\""
+    },
+    {
+      "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/AdchainLogger.swift",
+      "kind": "Array",
+      "offset": 6465,
+      "length": 345,
+      "value": "[\"appKey\", \"app_key\", \"appSecret\", \"app_secret\", \"userId\", \"user_id\", \"advertisingId\", \"advertising_id\", \"idfa\", \"authorization\", \"bearer\", \"token\", \"accessToken\", \"access_token\", \"refreshToken\", \"refresh_token\", \"secret\", \"password\", \"passwd\", \"pwd\"]"
+    },
+    {
+      "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/AdchainLogger.swift",
+      "kind": "StringLiteral",
+      "offset": 6950,
+      "length": 3,
+      "value": "\"|\""
+    },
+    {
+      "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/AdchainLogger.swift",
+      "kind": "StringLiteral",
+      "offset": 7155,
+      "length": 87,
+      "value": "\"(?i)([\"']?(?:\""
+    },
+    {
+      "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/AdchainLogger.swift",
+      "kind": "StringLiteral",
+      "offset": 7187,
+      "length": 1,
+      "value": "\")[\"']?\\s*[:=]\\s*)([\"']?)([^\"'\\s,}\\]&]+)([\"']?)\""
+    },
+    {
+      "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/AdchainLogger.swift",
+      "kind": "StringLiteral",
+      "offset": 7268,
+      "length": 11,
+      "value": "\"$1$2***$4\""
+    },
+    {
+      "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/AdchainLogger.swift",
+      "kind": "StringLiteral",
+      "offset": 7341,
+      "length": 53,
+      "value": "\"[A-Za-z0-9._%+\\-]+@[A-Za-z0-9.\\-]+\\.[A-Za-z]{2,}\""
+    },
+    {
+      "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/AdchainLogger.swift",
+      "kind": "StringLiteral",
+      "offset": 7423,
+      "length": 5,
+      "value": "\"***\""
+    },
+    {
+      "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Utils\/AdchainLogger.swift",
+      "kind": "Array",
+      "offset": 7463,
+      "length": 2,
+      "value": "[]"
     },
     {
       "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Mission\/AdchainMission.swift",
@@ -13908,7 +14461,7 @@
       "kind": "StringLiteral",
       "offset": 145,
       "length": 13,
-      "value": "\"1.0.52-rc.1\""
+      "value": "\"1.0.52-rc.2\""
     },
     {
       "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
@@ -13927,49 +14480,56 @@
     {
       "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "BooleanLiteral",
-      "offset": 11826,
+      "offset": 12335,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "BooleanLiteral",
-      "offset": 11872,
+      "offset": 12381,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "BooleanLiteral",
-      "offset": 14902,
+      "offset": 15411,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "BooleanLiteral",
-      "offset": 14948,
+      "offset": 15457,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "StringLiteral",
-      "offset": 24776,
+      "offset": 24828,
       "length": 8,
       "value": "\"custom\""
     },
     {
       "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "StringLiteral",
-      "offset": 27104,
+      "offset": 27156,
       "length": 8,
       "value": "\"custom\""
     },
     {
       "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
       "kind": "StringLiteral",
-      "offset": 33509,
+      "offset": 31101,
+      "length": 6,
+      "value": "\"core\""
+    },
+    {
+      "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Core\/AdchainSdk.swift",
+      "kind": "StringLiteral",
+      "offset": 34939,
       "length": 20,
       "value": "\"com.adchain.atomic\""
     },
@@ -14325,22 +14885,36 @@
     },
     {
       "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
+      "kind": "StringLiteral",
+      "offset": 902,
+      "length": 11,
+      "value": "\"sdk_error\""
+    },
+    {
+      "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
+      "kind": "StringLiteral",
+      "offset": 934,
+      "length": 11,
+      "value": "\"sdk_crash\""
+    },
+    {
+      "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
       "kind": "IntegerLiteral",
-      "offset": 1559,
+      "offset": 1786,
       "length": 4,
       "value": "1000"
     },
     {
       "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
       "kind": "IntegerLiteral",
-      "offset": 2114,
+      "offset": 2341,
       "length": 4,
       "value": "1000"
     },
     {
       "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Network\/Models\/Response\/Event.swift",
       "kind": "StringLiteral",
-      "offset": 4332,
+      "offset": 4559,
       "length": 5,
       "value": "\"iOS\""
     },
@@ -14368,21 +14942,35 @@
     {
       "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventBatchService.swift",
       "kind": "FloatLiteral",
-      "offset": 579,
+      "offset": 666,
       "length": 3,
-      "value": "2.0"
+      "value": "5.0"
+    },
+    {
+      "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventBatchService.swift",
+      "kind": "FloatLiteral",
+      "offset": 726,
+      "length": 4,
+      "value": "60.0"
+    },
+    {
+      "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventBatchService.swift",
+      "kind": "FloatLiteral",
+      "offset": 863,
+      "length": 3,
+      "value": "0.2"
     },
     {
       "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventBatchService.swift",
       "kind": "IntegerLiteral",
-      "offset": 819,
+      "offset": 1103,
       "length": 2,
       "value": "20"
     },
     {
       "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Event\/EventBatchService.swift",
       "kind": "IntegerLiteral",
-      "offset": 862,
+      "offset": 1146,
       "length": 2,
       "value": "30"
     },
@@ -14490,6 +15078,62 @@
       "offset": 259,
       "length": 5,
       "value": "false"
+    },
+    {
+      "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Telemetry\/SdkTelemetry.swift",
+      "kind": "StringLiteral",
+      "offset": 1637,
+      "length": 16,
+      "value": "\"sdk_diagnostic\""
+    },
+    {
+      "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Telemetry\/SdkTelemetry.swift",
+      "kind": "StringLiteral",
+      "offset": 1825,
+      "length": 6,
+      "value": "\"core\""
+    },
+    {
+      "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Telemetry\/SdkTelemetry.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1993,
+      "length": 4,
+      "value": "4000"
+    },
+    {
+      "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Telemetry\/SdkTelemetry.swift",
+      "kind": "Array",
+      "offset": 2113,
+      "length": 38,
+      "value": "[\"AdchainSDK\", \"AdchainRN\", \"Adchain\"]"
+    },
+    {
+      "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Telemetry\/SdkTelemetry.swift",
+      "kind": "StringLiteral",
+      "offset": 2568,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Telemetry\/SdkTelemetry.swift",
+      "kind": "BooleanLiteral",
+      "offset": 2906,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Telemetry\/SdkTelemetry.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3434,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Telemetry\/SdkTelemetry.swift",
+      "kind": "StringLiteral",
+      "offset": 10291,
+      "length": 37,
+      "value": "\"com.adchain.sdk.telemetry.reentrant\""
     },
     {
       "filePath": "\/Users\/jason\/Documents\/Projects\/1SELFWORLD\/adchain\/adchain-sdk\/adchain-sdk-ios\/AdchainSDK\/Sources\/Offerwall\/WebViewStackManager.swift",
